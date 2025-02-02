@@ -14,5 +14,6 @@ namespace loghid.Data
         // Elimina el método OnConfiguring si ya existe
         public DbSet<IdealParameter> IdealParameters { get; set; }
         public DbSet<ContaminantParameter> ContaminantParameters { get; set; }
+        
     }
 }

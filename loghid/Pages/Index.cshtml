@@ -47,4 +47,48 @@
             }
         </tbody>
     </table>
+
+    <h2>Agregar Parámetro ideal</h2>
+    <form method="post">
+        <div class="form-group">
+            <label asp-for="NewIdealParameter.Name">Parámetro</label>
+            <input asp-for="NewIdealParameter" class="form-control" />
+            <span asp-validation-for="NewIdealParameter.Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="NewIdealParameter.MaxLimit">Valor ideal</label>
+            <input asp-for="NewIdealParameter.MaxLimit" class="form-control" />
+            <span asp-validation-for="NewIdealParameter.MaxLimit" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="NewIdealParameter.Origin">Origen</label>
+            <input asp-for="NewIdealParameter.Origin" class="form-control" />
+            <span asp-validation-for="NewIdealParameter.Origin" class="text-danger"></span>
+        </div>
+        &nbsp;
+        <button type="submit" class="btn btn-primary">Añadir</button>
+    </form>
+
+    <h2>Agregar Contaminante</h2>
+    <form method="post">
+        <div class="form-group">
+            <label asp-for="NewContaminant.Name">Contaminante</label>
+            <input asp-for="NewContaminant.Name" class="form-control" />
+            <span asp-validation-for="NewContaminant.Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="NewContaminant.MaxLimit">Límite Máximo</label>
+            <input asp-for="NewContaminant.MaxLimit" class="form-control" />
+            <span asp-validation-for="NewContaminant.MaxLimit" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="NewContaminant.Origin">Origen</label>
+            <input asp-for="NewContaminant.Origin" class="form-control" />
+            <span asp-validation-for="NewContaminant.Origin" class="text-danger"></span>
+        </div>
+        &nbsp;
+        <button type="submit" class="btn btn-primary">Añadir</button>
+    </form>
+
+    
 </div>

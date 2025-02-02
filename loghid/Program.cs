@@ -2,6 +2,7 @@ using loghid.Data;
 using loghid.Services;
 using Microsoft.EntityFrameworkCore;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<ApplicationDbContext>(options => 
@@ -9,6 +10,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.AddScoped<ParametersService>();
 builder.Services.AddRazorPages();
+
 
 var app = builder.Build();
 
