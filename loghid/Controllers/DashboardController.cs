@@ -1,7 +1,7 @@
-// Controllers/DashboardController.cs
 using loghid.Services;
 using loghid.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace loghid.Controllers
@@ -10,43 +10,49 @@ namespace loghid.Controllers
     {
         private readonly ParametersService _parametersService;
 
+        // Constructor para inyectar el servicio de parámetros
         public DashboardController(ParametersService parametersService)
         {
             _parametersService = parametersService;
         }
 
+        // Método asincrónico para cargar los parámetros
         public async Task<IActionResult> Index()
-        {
-            var idealParams = _parametersService.GetIdealParameters();
-            var contaminantParams = await _parametersService.GetContaminantParametersAsync();
-            
-            ViewBag.IdealParameters = idealParams;
-            ViewBag.ContaminantParameters = contaminantParams;
-            
-            return View();
-        }
+{
+    var idealParams = await _parametersService.GetIdealParametersAsync() ?? new List<IdealParameter>();
+    var contaminantParams = await _parametersService.GetContaminantParametersAsync() ?? new List<ContaminantParameter>();
 
-        // Acción para mostrar el formulario de creación
+    // Verificar que los datos están llegando correctamente
+    Console.WriteLine($"Ideal Parameters Count: {idealParams.Count}");
+    Console.WriteLine($"Contaminant Parameters Count: {contaminantParams.Count}");
+
+    ViewBag.IdealParameters = idealParams;
+    ViewBag.ContaminantParameters = contaminantParams;
+    
+    return View();
+}
+
+        // Acción para mostrar el formulario de creación del parámetro contaminante
         [HttpGet]
         public IActionResult CreateContaminantParameter()
         {
             return View();
         }
 
-        // Acción para procesar la creación de un nuevo ContaminantParameter
+        // Acción para procesar el formulario de creación de un nuevo ContaminantParameter
         [HttpPost]
         public async Task<IActionResult> CreateContaminantParameter(ContaminantParameter parameter)
         {
+            // Comprobar si el modelo es válido antes de realizar la operación
             if (!ModelState.IsValid)
             {
-                // Retorna la vista con errores de validación si los datos no son correctos
-                return View(parameter);
+                return View(parameter); // Si no es válido, vuelve a la vista con los errores
             }
 
-            // Se añade el registro a la base de datos mediante la capa de servicios
+            // Añadir el parámetro contaminante a la base de datos mediante el servicio
             await _parametersService.AddContaminantParameterAsync(parameter);
 
-            // Tras la inserción exitosa, se redirige a la vista principal
+            // Tras la inserción exitosa, redirigir a la vista principal
             return RedirectToAction("Index");
         }
     }

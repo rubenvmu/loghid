@@ -10,7 +10,7 @@ using loghid.Data;
 namespace loghid.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250202001236_InitialCreate")]
+    [Migration("20250202030147_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -25,22 +25,24 @@ namespace loghid.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<int?>("ContaminantParameterId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("MaxLimit")
                         .IsRequired()
-                        .HasMaxLength(50)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(150)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Origin")
                         .IsRequired()
-                        .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ContaminantParameterId");
 
                     b.ToTable("ContaminantParameters");
                 });
@@ -51,24 +53,49 @@ namespace loghid.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<int?>("IdealParameterId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(150)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Origin")
                         .IsRequired()
-                        .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Value")
-                        .IsRequired()
-                        .HasMaxLength(50)
+                    b.Property<decimal>("Value")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("IdealParameterId");
+
                     b.ToTable("IdealParameters");
+                });
+
+            modelBuilder.Entity("loghid.Models.ContaminantParameter", b =>
+                {
+                    b.HasOne("loghid.Models.ContaminantParameter", null)
+                        .WithMany("Contaminants")
+                        .HasForeignKey("ContaminantParameterId");
+                });
+
+            modelBuilder.Entity("loghid.Models.IdealParameter", b =>
+                {
+                    b.HasOne("loghid.Models.IdealParameter", null)
+                        .WithMany("IdealParameters")
+                        .HasForeignKey("IdealParameterId");
+                });
+
+            modelBuilder.Entity("loghid.Models.ContaminantParameter", b =>
+                {
+                    b.Navigation("Contaminants");
+                });
+
+            modelBuilder.Entity("loghid.Models.IdealParameter", b =>
+                {
+                    b.Navigation("IdealParameters");
                 });
 #pragma warning restore 612, 618
         }

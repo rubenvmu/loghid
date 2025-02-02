@@ -1,4 +1,3 @@
-// Services/ParametersService.cs
 using loghid.Data;
 using loghid.Models;
 using Microsoft.EntityFrameworkCore;
@@ -11,32 +10,36 @@ namespace loghid.Services
     {
         private readonly ApplicationDbContext _context;
 
+        // Constructor para inyectar el contexto de base de datos
         public ParametersService(ApplicationDbContext context)
         {
             _context = context;
         }
 
+        // Obtener los parámetros ideales de forma asincrónica
         public async Task<List<IdealParameter>> GetIdealParametersAsync()
-{
-    return await _context.IdealParameters.ToListAsync();
-}
+        {
+            return await _context.IdealParameters.ToListAsync();
+        }
 
-
+        // Obtener los parámetros contaminantes de forma asincrónica
         public async Task<List<ContaminantParameter>> GetContaminantParametersAsync()
         {
             return await _context.ContaminantParameters.ToListAsync();
         }
 
-        // Método para insertar un nuevo registro de ContaminantParameter
-        public async Task AddContaminantParameterAsync(ContaminantParameter parameter)
+        // Agregar un nuevo parámetro ideal a la base de datos de forma asincrónica
+        public async Task AddIdealParameterAsync(IdealParameter parameter)
         {
-            _context.ContaminantParameters.Add(parameter);
-            await _context.SaveChangesAsync();
+            _context.IdealParameters.Add(parameter);  // Añadir el nuevo parámetro
+            await _context.SaveChangesAsync();  // Guardar cambios en la base de datos
         }
 
-        internal dynamic GetIdealParameters()
+        // Agregar un nuevo parámetro contaminante a la base de datos de forma asincrónica
+        public async Task AddContaminantParameterAsync(ContaminantParameter parameter)
         {
-            throw new NotImplementedException();
+            _context.ContaminantParameters.Add(parameter);  // Añadir el nuevo parámetro
+            await _context.SaveChangesAsync();  // Guardar cambios en la base de datos
         }
     }
 }

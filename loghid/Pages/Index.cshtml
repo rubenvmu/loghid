@@ -5,60 +5,79 @@
     ViewData["Title"] = "Dashboard";
 }
 
-<div class="container">
-    <h2>Parámetros Ideales</h2>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Parámetro</th>
-                <th>Valor Ideal</th>
-                <th>Origen</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var param in Model.IdealParameters)
-            {
-                <tr>
-                    <td>@param.Name</td>
-                    <td>@param.Value</td>
-                    <td>@param.Origin</td>
-                </tr>
-            }
-        </tbody>
-    </table>
+<h1>Dashboard</h1>
 
-    <h2>Contaminantes</h2>
+<h2>Ideal Parameters</h2>
+@if (ViewBag.IdealParameters != null && ViewBag.IdealParameters.Count > 0)
+{
     <table class="table">
         <thead>
             <tr>
-                <th>Contaminante</th>
-                <th>Límite Máximo</th>
-                <th>Origen</th>
+                <th>Name</th>
+                <th>Origin</th>
+                <th>Value</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var param in Model.ContaminantParameters)
+            @foreach (var param in ViewBag.IdealParameters)
             {
                 <tr>
                     <td>@param.Name</td>
-                    <td>@param.MaxLimit</td>
                     <td>@param.Origin</td>
+                    <td>@param.Value</td>
                 </tr>
             }
         </tbody>
     </table>
+}
+else
+{
+    <p>No ideal parameters found.</p>
+}
+
+<h2>Contaminant Parameters</h2>
+@if (ViewBag.ContaminantParameters != null && ViewBag.ContaminantParameters.Count > 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Origin</th>
+                <th>Max Limit</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var param in ViewBag.ContaminantParameters)
+            {
+                <tr>
+                    <td>@param.Name</td>
+                    <td>@param.Origin</td>
+                    <td>@param.MaxLimit</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No contaminant parameters found.</p>
+}
+
+    <div class="container">
+    
 
     <h2>Agregar Parámetro ideal</h2>
-    <form method="post">
+    <form method="post" asp-page-handler="AddIdealParameter">
         <div class="form-group">
             <label asp-for="NewIdealParameter.Name">Parámetro</label>
-            <input asp-for="NewIdealParameter" class="form-control" />
+            <!-- Input corregido: -->
+            <input asp-for="NewIdealParameter.Name" class="form-control" />
             <span asp-validation-for="NewIdealParameter.Name" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label asp-for="NewIdealParameter.MaxLimit">Valor ideal</label>
-            <input asp-for="NewIdealParameter.MaxLimit" class="form-control" />
-            <span asp-validation-for="NewIdealParameter.MaxLimit" class="text-danger"></span>
+            <label asp-for="NewIdealParameter.Value">Valor ideal</label>  <!-- Cambiado de MaxLimit a Value -->
+            <input asp-for="NewIdealParameter.Value" class="form-control" />
+            <span asp-validation-for="NewIdealParameter.Value" class="text-danger"></span>
         </div>
         <div class="form-group">
             <label asp-for="NewIdealParameter.Origin">Origen</label>
@@ -70,7 +89,7 @@
     </form>
 
     <h2>Agregar Contaminante</h2>
-    <form method="post">
+    <form method="post" asp-page-handler="AddContaminantParameter">
         <div class="form-group">
             <label asp-for="NewContaminant.Name">Contaminante</label>
             <input asp-for="NewContaminant.Name" class="form-control" />
@@ -89,6 +108,4 @@
         &nbsp;
         <button type="submit" class="btn btn-primary">Añadir</button>
     </form>
-
-    
 </div>

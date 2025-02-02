@@ -7,44 +7,44 @@ using System.Threading.Tasks;
 
 namespace loghid.Pages
 {
-    public class IndexModel(ParametersService parametersService) : PageModel
+    public class IndexModel : PageModel
     {
-        private readonly ParametersService _parametersService = parametersService;
-
-        // Propiedades para mostrar los datos existentes
-        public required List<IdealParameter> IdealParameters { get; set; }
-        public required List<ContaminantParameter> ContaminantParameters { get; set; }
-
-        // Propiedad para la inserción manual de un nuevo contaminante
-        [BindProperty]
-        public required ContaminantParameter NewContaminant { get; set; }
+        private readonly ParametersService _parametersService;
 
         [BindProperty]
-        public required ContaminantParameter NewIdealParameter { get; set; }
+        public IdealParameter NewIdealParameter { get; set; } = new IdealParameter(); // Inicializado para evitar null
 
-        // Método GET para cargar los parámetros
-        public async Task OnGetAsync()
+        [BindProperty]
+        public ContaminantParameter NewContaminant { get; set; } = new ContaminantParameter(); // Inicializado para evitar null
+
+        // Propiedades para las listas
+        public List<IdealParameter> IdealParameters { get; set; } = new(); // Inicializado como lista vacía
+        public List<ContaminantParameter> ContaminantParameters { get; set; } = new(); // Inicializado como lista vacía
+
+        public IndexModel(ParametersService parametersService)
         {
-            IdealParameters = await _parametersService.GetIdealParametersAsync();
-            ContaminantParameters = await _parametersService.GetContaminantParametersAsync();
+            _parametersService = parametersService;
         }
 
-        // Método POST para procesar la inserción del nuevo contaminante
-        public async Task<IActionResult> OnPostAsync()
+        public async Task OnGetAsync() // Cargar datos al inicializar
         {
-            if (!ModelState.IsValid)
-            {
-                // En caso de error de validación, se recargan los parámetros para mostrarlos nuevamente
-                IdealParameters = await _parametersService.GetIdealParametersAsync();
-                ContaminantParameters = await _parametersService.GetContaminantParametersAsync();
-                return Page();
-            }
+            // Asegurarse de que las listas no sean null
+            IdealParameters = await _parametersService.GetIdealParametersAsync() ?? new List<IdealParameter>();
+            ContaminantParameters = await _parametersService.GetContaminantParametersAsync() ?? new List<ContaminantParameter>();
+        }
 
-            // Inserta el nuevo contaminante en la base de datos a través del servicio
+        public async Task<IActionResult> OnPostAddIdealParameterAsync()
+        {
+            if (!ModelState.IsValid) return Page();
+            await _parametersService.AddIdealParameterAsync(NewIdealParameter);
+            return RedirectToPage();
+        }
+
+        public async Task<IActionResult> OnPostAddContaminantParameterAsync()
+        {
+            if (!ModelState.IsValid) return Page();
             await _parametersService.AddContaminantParameterAsync(NewContaminant);
-            // Redirige a la misma página para mostrar los datos actualizados
             return RedirectToPage();
         }
     }
 }
-
