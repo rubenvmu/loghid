@@ -1,10 +1,50 @@
 ﻿@page
-@model IndexModel
+@model loghid.Pages.IndexModel
+
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Dashboard";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container">
+    <h2>Parámetros Ideales</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Parámetro</th>
+                <th>Valor Ideal</th>
+                <th>Origen</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var param in Model.IdealParameters)
+            {
+                <tr>
+                    <td>@param.Name</td>
+                    <td>@param.Value</td>
+                    <td>@param.Origin</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h2>Contaminantes</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Contaminante</th>
+                <th>Límite Máximo</th>
+                <th>Origen</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var param in Model.ContaminantParameters)
+            {
+                <tr>
+                    <td>@param.Name</td>
+                    <td>@param.MaxLimit</td>
+                    <td>@param.Origin</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>

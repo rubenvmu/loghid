@@ -20,3 +20,20 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.table {
+  width: 100%;
+  margin-bottom: 1rem;
+  background-color: #f8f9fa;
+}
+
+.table th {
+  background-color: #2c3e50;
+  color: white;
+}
+
+.container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}

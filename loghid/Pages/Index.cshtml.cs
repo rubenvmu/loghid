@@ -1,20 +1,20 @@
-using Microsoft.AspNetCore.Mvc;
+using loghid.Models;
+using loghid.Services;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace loghid.Pages
 {
-    public class IndexModel : PageModel
+    public class IndexModel(ParametersService parametersService) : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
+        private readonly ParametersService _parametersService = parametersService;
 
-        public IndexModel(ILogger<IndexModel> logger)
+        public required List<IdealParameter> IdealParameters { get; set; }
+        public required List<ContaminantParameter> ContaminantParameters { get; set; }
+
+        public async Task OnGetAsync()
         {
-            _logger = logger;
-        }
-
-        public void OnGet()
-        {
-
+            IdealParameters = await _parametersService.GetIdealParametersAsync();
+            ContaminantParameters = await _parametersService.GetContaminantParametersAsync();
         }
     }
 }
