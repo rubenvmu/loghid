@@ -26,42 +26,92 @@
 
 @if (Model?.CombinedSubstances == null || !Model.CombinedSubstances.Any())
 {
-    <p>No hay sustancias disponibles.</p>
+    <div class="alert alert-info d-flex align-items-center" role="alert">
+        <i class="fas fa-info-circle me-2"></i>
+        No sustances availables.
+    </div>
 }
 else
 {
-    <table class="table">
-        <thead>
-            <tr>
-                <th>@Html.DisplayNameFor(model => model.CombinedSubstances[0].SubstanceName)</th>
-                <th>@Html.DisplayNameFor(model => model.CombinedSubstances[0].IsoThreshold)</th>
-                <th>@Html.DisplayNameFor(model => model.CombinedSubstances[0].MeasurementMethod)</th>
-                <th>@Html.DisplayNameFor(model => model.CombinedSubstances[0].MeasuredRange)</th>
-                <th>@Html.DisplayNameFor(model => model.CombinedSubstances[0].Probability)</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.CombinedSubstances)
-            {
-                <tr>
-                    <td>@Html.DisplayFor(modelItem => item.SubstanceName)</td>
-                    <td>@Html.DisplayFor(modelItem => item.IsoThreshold)</td>
-                    <td>@Html.DisplayFor(modelItem => item.MeasurementMethod)</td>
-                    <td>@Html.DisplayFor(modelItem => item.MeasuredRange)</td>
-                    <td>@Html.DisplayFor(modelItem => item.Probability)</td>
-                    <td>
-                        @{
-                            var entityType = item.GetType().Name;
-                        }
-                        <a asp-page="/@entityType/Edit" asp-route-id="@item.Id">Edit</a> |
-                        <a asp-page="/@entityType/Details" asp-route-id="@item.Id">Details</a> |
-                        <a asp-page="/@entityType/Delete" asp-route-id="@item.Id">Delete</a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        @foreach (var item in Model.CombinedSubstances)
+        {
+            var entityType = item.GetType().Name;
+            
+            <div class="col">
+                <div class="card h-100 border-2 border-success shadow-sm">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="card-title mb-0">
+                            <i class="fas fa-flask me-2"></i>
+                            @Html.DisplayFor(modelItem => item.SubstanceName)
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row mb-2">
+                            <div class="col-12 d-flex align-items-center">
+                                <i class="fas fa-ruler-combined text-success me-2"></i>
+                                <span class="fw-bold">ISO Threshold:</span>
+                                <span class="ms-2">@Html.DisplayFor(modelItem => item.IsoThreshold)</span>
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-2">
+                            <div class="col-12 d-flex align-items-center">
+                                <i class="fas fa-vial text-success me-2"></i>
+                                <span class="fw-bold">Method:</span>
+                                <span class="ms-2">@Html.DisplayFor(modelItem => item.MeasurementMethod)</span>
+                            </div>
+                        </div>
+
+                        <div class="row mb-2">
+                            <div class="col-12 d-flex align-items-center">
+                                <i class="fas fa-chart-area text-success me-2"></i>
+                                <span class="fw-bold">Range:</span>
+                                <span class="ms-2">@Html.DisplayFor(modelItem => item.MeasuredRange)</span>
+                            </div>
+                        </div>
+
+                        <div class="row mb-2">
+                            <div class="col-12 d-flex align-items-center">
+                                <i class="fas fa-percent text-success me-2"></i>
+                                <span class="fw-bold">Probability:</span>
+                                <span class="ms-2">@Html.DisplayFor(modelItem => item.Probability)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-transparent border-top-0">
+                        <div class="d-flex justify-content-between">
+                            <a class="btn btn-sm btn-outline-success" asp-page="/@entityType/Edit" asp-route-id="@item.Id">
+                                <i class="fas fa-edit me-1"></i>Edit
+                            </a>
+                            <a class="btn btn-sm btn-outline-success" asp-page="/@entityType/Details" asp-route-id="@item.Id">
+                                <i class="fas fa-eye me-1"></i>Details
+                            </a>
+                            <a class="btn btn-sm btn-outline-danger" asp-page="/@entityType/Delete" asp-route-id="@item.Id">
+                                <i class="fas fa-trash me-1"></i>Remove
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
 }
+
+<style>
+    .card {
+        border-radius: 15px;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(40, 167, 69, 0.15);
+    }
+    
+    .card-header {
+        border-radius: 13px 13px 0 0 !important;
+    }
+</style>
     
 </div>
