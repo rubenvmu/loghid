@@ -10,6 +10,8 @@ namespace Loghid.Data
         {
         }
 
+        public DbSet<Substance> Substances { get; set; } = default!;
+
         public DbSet<Water> Water { get; set; }
         public DbSet<Methane> Methane { get; set; }
         public DbSet<NonCH4Hydrocarbons> NonCH4Hydrocarbons { get; set; }

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace loghid.Migrations
 {
     [DbContext(typeof(LoghidDbContext))]
-    [Migration("20250203120735_InitialCreate45")]
-    partial class InitialCreate45
+    [Migration("20250203131844_AddSubstancesTable")]
+    partial class AddSubstancesTable
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -251,6 +251,24 @@ namespace loghid.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Oxygen", (string)null);
+                });
+
+            modelBuilder.Entity("Loghid.Models.Substance", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<double>("IsoThreshold")
+                        .HasColumnType("REAL");
+
+                    b.Property<string>("Probability")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Substances");
                 });
 
             modelBuilder.Entity("Loghid.Models.SulphurCompounds", b =>

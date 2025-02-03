@@ -5,7 +5,7 @@
 namespace loghid.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate45 : Migration
+    public partial class AddSubstancesTable : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -193,6 +193,20 @@ namespace loghid.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Substances",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    IsoThreshold = table.Column<double>(type: "REAL", nullable: false),
+                    Probability = table.Column<string>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Substances", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "SulphurCompounds",
                 columns: table => new
                 {
@@ -262,6 +276,9 @@ namespace loghid.Migrations
 
             migrationBuilder.DropTable(
                 name: "Oxygen");
+
+            migrationBuilder.DropTable(
+                name: "Substances");
 
             migrationBuilder.DropTable(
                 name: "SulphurCompounds");

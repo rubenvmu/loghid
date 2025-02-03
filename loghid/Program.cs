@@ -4,16 +4,15 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-var builder = WebApplication.CreateBuilder(args);
 
-// Agregar Razor Pages
-builder.Services.AddRazorPages();
 
 // Configurar DbContext con SQLite
+var builder = WebApplication.CreateBuilder(args);
+
 builder.Services.AddDbContext<LoghidDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-
+builder.Services.AddRazorPages();
 var app = builder.Build();
 
 // Obtener el ciclo de vida de la aplicación para registrar eventos al detenerse

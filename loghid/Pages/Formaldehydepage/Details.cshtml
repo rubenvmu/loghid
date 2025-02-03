@@ -1,0 +1,40 @@
+@page
+@model loghid.Pages.Formaldehydepage.DetailsModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+
+<div>
+    <h4>Formaldehyde</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Formaldehyde.IsoThreshold)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Formaldehyde.IsoThreshold)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Formaldehyde.Probability)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Formaldehyde.Probability)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Formaldehyde.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
+</body>
+</html>

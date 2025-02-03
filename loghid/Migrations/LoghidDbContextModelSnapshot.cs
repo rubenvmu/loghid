@@ -250,6 +250,24 @@ namespace loghid.Migrations
                     b.ToTable("Oxygen", (string)null);
                 });
 
+            modelBuilder.Entity("Loghid.Models.Substance", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<double>("IsoThreshold")
+                        .HasColumnType("REAL");
+
+                    b.Property<string>("Probability")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Substances");
+                });
+
             modelBuilder.Entity("Loghid.Models.SulphurCompounds", b =>
                 {
                     b.Property<int>("Id")
