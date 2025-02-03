@@ -3,8 +3,26 @@
 @using System.Linq
 @model Loghid.Pages.IndexModel
 
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-10">
+            <!-- Contenedor del Mapa con estilo moderno -->
+            <div class="map-container rounded-4 shadow-lg overflow-hidden border">
+                <!-- Iframe del Mapa de Google -->
+                <iframe src="https://www.google.com/maps/d/embed?mid=1CnMeU0ROazRUwOW5pbHMxkciSknnnq0&ehbc=21325a" 
+                        class="w-100" 
+                        style="height: 600px; border: 0;"
+                        allowfullscreen 
+                        loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
 @{
-    ViewData["Title"] = "Dashboard";
+    ViewData["Title"] = "Lastest stats";
 }
 
 <div class="container">

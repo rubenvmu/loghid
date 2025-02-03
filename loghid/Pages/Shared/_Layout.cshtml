@@ -1,6 +1,4 @@
-﻿using _Layout.cshtml.css;
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="utf-8" />
@@ -12,85 +10,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     
-    <style>
-        :root {
-            --primary-green: white;
-            --accent-green: #c8e6c9;
-            --dark-green: #81c784;
-        }
-        .navbar-vertical {
-          width: 80px;
-          height: 100vh;
-          position: fixed;
-          left: 0;  /* Cambiado a left: 0 para pegarlo a la izquierda */
-          top: 0;
-          background: linear-gradient(180deg, #ffffff 0%, var(--primary-green) 100%);
-          box-shadow: 2px 0 8px rgba(0,0,0,0.05);
-          transition: width 0.3s ease;
-          z-index: 1030;
-      }
-      
-      /* Expansión del Navbar al pasar el mouse */
-      .navbar-vertical:hover {
-          width: 200px;
-      }
-      
-      /* Estilo de los Enlaces del Navbar */
-      .nav-link {
-          white-space: nowrap;
-          overflow: hidden;
-          color: #6c757d !important;
-          padding: 0.75rem 1.5rem;
-          border-radius: 8px;
-          margin: 0.5rem;
-          transition: all 0.2s ease;
-      }
-      
-      /* Efecto Hover en los Enlaces */
-      .nav-link:hover {
-          background: var(--accent-green);
-          transform: translateX(5px);
-      }
-      
-      .nav-link i {
-          margin-right: 1rem;
-          min-width: 25px;
-      }
-      
-      .main-content {
-          margin-left: 100px; /* Ajustado el margen para que no se superponga al navbar */
-          transition: margin 0.3s ease;
-      }
-      
-      /* Estilo del Pie de Página */
-      .footer-custom {
-          background: linear-gradient(90deg, var(--primary-green) 0%, #ffffff 100%);
-          color: #6c757d;
-          border-top: 1px solid #dee2e6;
-      }
-      
-      /* Icono de la Marca */
-      .brand-icon {
-          background: var(--dark-green);
-          width: 50px;
-          height: 50px;
-          border-radius: 12px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin: 1rem auto;
-      }
-      
-      /* Estilo de Botones */
-      .btn-green {
-          background: linear-gradient(135deg, var(--dark-green) 0%, #4caf50 100%);
-          color: white !important;
-          border: none;
-          padding: 8px 20px;
-          border-radius: 25px;
-      }
-    </style>
 </head>
+
+@{
+    ViewData["Title"] = "Loghid H2 Measurement & e-Traceability";
+}
+
 <body>
     <!-- Navbar Vertical Izquierda -->
     <nav class="navbar-vertical d-flex flex-column position-fixed top-0 left-0 h-100">
