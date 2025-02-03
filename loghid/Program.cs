@@ -6,6 +6,7 @@ using Microsoft.Extensions.Hosting;
 using Loghid.Services;
 using System;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<ParametersService>();

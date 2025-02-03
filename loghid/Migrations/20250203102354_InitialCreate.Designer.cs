@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace loghid.Migrations
 {
     [DbContext(typeof(LoghidDbContext))]
-    [Migration("20250203094922_LoghidDbContext3")]
-    partial class LoghidDbContext3
+    [Migration("20250203102354_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
