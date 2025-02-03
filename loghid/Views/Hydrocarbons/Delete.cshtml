@@ -1,0 +1,63 @@
+@model Loghid.Models.Hydrocarbons
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Hydrocarbons</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IsoThreshold)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IsoThreshold)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PemResultC2)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PemResultC2)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PemResultC3)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PemResultC3)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PemResultC4)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PemResultC4)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PemResultC5)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PemResultC5)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PemResultC6C18)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PemResultC6C18)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Probability)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Probability)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
