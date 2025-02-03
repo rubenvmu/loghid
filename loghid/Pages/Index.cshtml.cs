@@ -1,5 +1,5 @@
-using Loghid.Services;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using Loghid.Models;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,61 +7,79 @@ using System.Threading.Tasks;
 
 namespace Loghid.Pages
 {
-    public class IndexModel : PageModel
+    public class IndexModel(LoghidDbContext context) : PageModel
     {
-        private readonly ParametersService _parametersService;
+        private readonly LoghidDbContext _context = context;
 
-        public IEnumerable<SubstanceDisplayModel> Substances { get; set; } = new List<SubstanceDisplayModel>();
+        // Propiedad que contiene las sustancias cargadas desde la base de datos
+        public required IEnumerable<SubstanceDisplayModel> Substances { get; set; }
 
-        public IndexModel(ParametersService parametersService)
-        {
-            _parametersService = parametersService;
-        }
-
+        // Método OnGet para cargar datos de la base de datos
         public async Task OnGetAsync()
         {
-            await LoadAllDataAsync();
-        }
-
-        private async Task LoadAllDataAsync()
-        {
-            Substances = new List<SubstanceDisplayModel>
-            {
-                new SubstanceDisplayModel("Water", (await _parametersService.GetWaterDataAsync()).Cast<ISubstanceData>()),
-                new SubstanceDisplayModel("Methane", (await _parametersService.GetMethaneDataAsync()).Cast<ISubstanceData>()),
-                new SubstanceDisplayModel("Non-CH4 Hydrocarbons", (await _parametersService.GetNonCH4HydrocarbonsDataAsync()).Cast<ISubstanceData>()),
-                new SubstanceDisplayModel("Oxygen", (await _parametersService.GetOxygenDataAsync()).Cast<ISubstanceData>()),
-                new SubstanceDisplayModel("Helium", (await _parametersService.GetHeliumDataAsync()).Cast<ISubstanceData>()),
-                new SubstanceDisplayModel("Nitrogen", (await _parametersService.GetNitrogenDataAsync()).Cast<ISubstanceData>()),
-                new SubstanceDisplayModel("Argon", (await _parametersService.GetArgonDataAsync()).Cast<ISubstanceData>()),
-                new SubstanceDisplayModel("Carbon Dioxide", (await _parametersService.GetCarbonDioxideDataAsync()).Cast<ISubstanceData>()),
-                new SubstanceDisplayModel("Carbon Monoxide", (await _parametersService.GetCarbonMonoxideDataAsync()).Cast<ISubstanceData>()),
-                new SubstanceDisplayModel("Sulphur Compounds", (await _parametersService.GetSulphurCompoundsDataAsync()).Cast<ISubstanceData>()),
-                new SubstanceDisplayModel("Formaldehyde", (await _parametersService.GetFormaldehydeDataAsync()).Cast<ISubstanceData>()),
-                new SubstanceDisplayModel("Formic Acid", (await _parametersService.GetFormicAcidDataAsync()).Cast<ISubstanceData>()),
-                new SubstanceDisplayModel("Ammonia", (await _parametersService.GetAmmoniaDataAsync()).Cast<ISubstanceData>()),
-                new SubstanceDisplayModel("Halogenated Compounds", (await _parametersService.GetHalogenatedCompoundsDataAsync()).Cast<ISubstanceData>()),
-                new SubstanceDisplayModel("Hydrocarbons", (await _parametersService.GetHydrocarbonsDataAsync()).Cast<ISubstanceData>())
-            };
+            // Obtener las sustancias con sus datos asociados desde la base de datos
+            Substances = await _context.Substances
+                .Include(s => s.Data) // Asegúrate de incluir los datos relacionados
+                .Select(s => new SubstanceDisplayModel(
+                    s.Name, 
+                    s.Data.Select(d => new SubstanceDataModel 
+                    { 
+                        Id = d.Id, 
+                        IsoThreshold = d.IsoThreshold, 
+                        Probability = d.Probability 
+                    })
+                ))
+                .ToListAsync();
         }
     }
 
-    public class SubstanceDisplayModel
+    // Modelo para representar las sustancias con sus datos
+    public class SubstanceDisplayModel(string name, IEnumerable<ISubstanceData> data)
     {
-        public string Name { get; set; }
-        public IEnumerable<ISubstanceData> Data { get; set; }
-
-        public SubstanceDisplayModel(string name, IEnumerable<ISubstanceData> data)
-        {
-            Name = name;
-            Data = data ?? Enumerable.Empty<ISubstanceData>();
-        }
+        public string Name { get; set; } = name;
+        public IEnumerable<ISubstanceData> Data { get; set; } = data;
     }
 
+    // Modelo para los datos de las sustancias
+    public class SubstanceDataModel : ISubstanceData
+    {
+        public int Id { get; set; }
+        public double IsoThreshold { get; set; }
+        public required string Probability { get; set; }
+    }
+
+    // Interfaz que define las propiedades comunes para los datos de sustancias
     public interface ISubstanceData
     {
         int Id { get; set; }
         double IsoThreshold { get; set; }
         string Probability { get; set; }
+    }
+
+    // DbContext para la base de datos
+    public class LoghidDbContext : DbContext
+    {
+        public LoghidDbContext(DbContextOptions<LoghidDbContext> options) : base(options)
+        { }
+
+        public DbSet<Substance> Substances { get; set; }
+    }
+
+    // Clase que representa una sustancia en la base de datos
+    public class Substance
+    {
+        public int Id { get; set; }
+        public required string Name { get; set; }
+        public required ICollection<SubstanceData> Data { get; set; }
+    }
+
+    // Clase que representa los datos de una sustancia específica en la base de datos
+    public class SubstanceData : ISubstanceData
+    {
+        public int Id { get; set; }
+        public double IsoThreshold { get; set; }
+        public required string Probability { get; set; }
+        public int SubstanceId { get; set; }
+        public required Substance Substance { get; set; }
     }
 }
