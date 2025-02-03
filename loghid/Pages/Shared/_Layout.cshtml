@@ -13,20 +13,13 @@
 </head>
 
 @{
-    ViewData["Title"] = "ISO 19880-8:2024 Loghid H2 Measurement & e-Traceability";
+    ViewData["Title"] = "ISO ISO 14687-2 Loghid H2 Measurement & e-Traceability";
     
 }
 
 <body>
     <!-- Navbar Vertical Izquierda -->
    <nav class="navbar-vertical d-flex flex-column position-fixed top-0 left-0 h-100">
-    <a>
-    <div class="navbar-vertical">
-        <div class="flex-grow-1 d-flex flex-column pt-3">
-            <div class="brand-icon">
-                <i class="fas fa-leaf fa-2x text-white"></i>
-            </div>
-</a>
             <a class="nav-link" asp-page="/Index">
                 <i class="fas fa-home fa-lg text-success"></i>
                 <span class="d-none d-lg-inline">Index</span>
@@ -63,13 +56,16 @@
                 <span class="d-none d-lg-inline">Privacy</span>
             </a>
 
-            <a class="nav-link" asp-page="/Identify">
-                <i class="fas fa-id-badge fa-lg text-success"></i>
-                <span class="d-none d-lg-inline">Identify</span>
-            </a>
         </div>
     </div>
 </nav>
+
+<div id="h2IdentityBadge">
+    <a id="h2AuthLink" asp-page="/Identify">
+        <i id="h2AuthIcon" class="fas fa-fingerprint"></i>
+        <span class="d-none d-lg-inline">Verify Identify</span>
+    </a>
+</div>
 
     <!-- Contenido Principal -->
     <main class="main-content">

@@ -1,7 +1,154 @@
 ﻿@page
-@model DashboardModel
+@model Loghid.Pages.DashboardModel
 
 @{
-    ViewData["Title"] = "Dashboard";
+    ViewData["Title"] = "ISO 14687-2 Measurement Dashboard";
 }
 
+<style>
+    .dashboard-card {
+        border: 1px solid #e0e0e0;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+        margin-bottom: 1.5rem;
+        background: #ffffff;
+        max-width: 100%;
+        min-height: 320px;
+    }
+
+    .card-header {
+        background: #2c3e50;
+        border-bottom: 2px solid #1a252f;
+        padding: 0.8rem 1rem;
+    }
+
+    .card-title {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #ffffff;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+    }
+
+    .data-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.6rem;
+        border: 1px solid #e0e0e0;
+        margin: 0.3rem 0;
+        background: #f8f9fa;
+        min-height: 60px;
+    }
+
+    .data-content {
+        flex: 1;
+        padding-right: 0.5rem;
+    }
+
+    .spec-label {
+        font-size: 0.78rem;
+        color: #6c757d;
+        font-weight: 500;
+        line-height: 1.2;
+    }
+
+    .spec-value {
+        font-size: 0.95rem;
+        color: #2c3e50;
+        font-weight: 700;
+        margin-top: 0.15rem;
+    }
+
+    .data-icon {
+        color: #3498db;
+        font-size: 1.2rem;
+        min-width: 30px;
+        text-align: center;
+    }
+
+    .atom-icon {
+        font-size: 1.2rem;
+        color: #ecf0f1;
+    }
+
+    .container-dashboard {
+        max-width: 1400px;
+        padding: 1.5rem 1rem;
+    }
+
+    .card-body {
+        padding: 0.8rem !important;
+    }
+</style>
+
+<div class="container-dashboard">
+    @if (Model?.CombinedSubstances == null || !Model.CombinedSubstances.Any())
+    {
+        <div class="alert alert-info d-flex align-items-center mb-4" role="alert">
+            <i class="fas fa-info-circle me-2"></i>
+            No substances available
+        </div>
+    }
+    else
+    {
+        <div class="row g-3">
+            @foreach (var item in Model.CombinedSubstances)
+            {
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h5 class="card-title">
+                                <i class="fas fa-atom atom-icon"></i>
+                                @Html.DisplayFor(modelItem => item.SubstanceName)
+                            </h5>
+                        </div>
+                        
+                        <div class="card-body">
+                            <div class="data-row">
+                                <div class="data-content">
+                                    <div class="spec-label">ISO Threshold</div>
+                                    <div class="spec-value">@Html.DisplayFor(modelItem => item.IsoThreshold)</div>
+                                </div>
+                                <div class="data-icon">
+                                    <i class="fas fa-balance-scale-right"></i>
+                                </div>
+                            </div>
+
+                            <div class="data-row">
+                                <div class="data-content">
+                                    <div class="spec-label">Measured Range</div>
+                                    <div class="spec-value">@Html.DisplayFor(modelItem => item.MeasuredRange)</div>
+                                </div>
+                                <div class="data-icon">
+                                    <i class="fas fa-wave-square"></i>
+                                </div>
+                            </div>
+
+                            <div class="data-row">
+                                <div class="data-content">
+                                    <div class="spec-label">Probability</div>
+                                    <div class="spec-value">@Html.DisplayFor(modelItem => item.Probability)%</div>
+                                </div>
+                                <div class="data-icon">
+                                    <i class="fas fa-percentage"></i>
+                                </div>
+                            </div>
+
+                            <div class="data-row">
+                                <div class="data-content">
+                                    <div class="spec-label">Measurement Method</div>
+                                    <div class="spec-value">@Html.DisplayFor(modelItem => item.MeasurementMethod)</div>
+                                </div>
+                                <div class="data-icon">
+                                    <i class="fas fa-microscope"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
