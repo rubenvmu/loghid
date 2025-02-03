@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Loghid.Data;
@@ -19,11 +14,14 @@ namespace Loghid.Pages
             _context = context;
         }
 
-        public IList<Substance> Substances { get; set; } = new List<Substance>();
+        public IList<Substance> CombinedSubstances { get; set; } = new List<Substance>();
 
         public async Task OnGetAsync()
         {
-            Substances = await _context.Substances.ToListAsync();
+            // Obtener todas las sustancias SIN el Include inválido
+            CombinedSubstances = await _context.Substances
+                .AsNoTracking() // Opcional para solo lectura
+                .ToListAsync();
         }
     }
 }

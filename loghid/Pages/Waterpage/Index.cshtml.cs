@@ -19,11 +19,12 @@ namespace loghid.Pages.Waterpage
             _context = context;
         }
 
-        public IList<Water> Water { get;set; } = default!;
+        public IList<Substance> CombinedSubstances { get; set; } = new List<Substance>();
 
         public async Task OnGetAsync()
         {
-            Water = await _context.Water.ToListAsync();
+            // Recuperar todas las sustancias de la base de datos
+            CombinedSubstances = await _context.Substances.ToListAsync();
         }
     }
 }
