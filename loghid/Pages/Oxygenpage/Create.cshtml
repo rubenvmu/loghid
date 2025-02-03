@@ -21,9 +21,24 @@
     <form method="post">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
+                <label asp-for="Oxygen.SubstanceName" class="control-label"></label>
+                <input asp-for="Oxygen.SubstanceName" class="form-control" />
+                <span asp-validation-for="Oxygen.SubstanceName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Oxygen.IsoThreshold" class="control-label"></label>
                 <input asp-for="Oxygen.IsoThreshold" class="form-control" />
                 <span asp-validation-for="Oxygen.IsoThreshold" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Oxygen.MeasurementMethod" class="control-label"></label>
+                <input asp-for="Oxygen.MeasurementMethod" class="form-control" />
+                <span asp-validation-for="Oxygen.MeasurementMethod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Oxygen.MeasuredRange" class="control-label"></label>
+                <input asp-for="Oxygen.MeasuredRange" class="form-control" />
+                <span asp-validation-for="Oxygen.MeasuredRange" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Oxygen.Probability" class="control-label"></label>

@@ -19,7 +19,7 @@ namespace loghid.Pages.Hydrocarbonspage
             _context = context;
         }
 
-        public Hydrocarbons Hydrocarbons { get; set; } = default!;
+        public Water Water { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -28,11 +28,11 @@ namespace loghid.Pages.Hydrocarbonspage
                 return NotFound();
             }
 
-            var hydrocarbons = await _context.Hydrocarbons.FirstOrDefaultAsync(m => m.Id == id);
+            var water = await _context.Water.FirstOrDefaultAsync(m => m.Id == id);
 
-            if (hydrocarbons is not null)
+            if (water is not null)
             {
-                Hydrocarbons = hydrocarbons;
+                Water = water;
 
                 return Page();
             }

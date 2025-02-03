@@ -25,7 +25,7 @@ namespace loghid.Pages.Hydrocarbonspage
         }
 
         [BindProperty]
-        public Hydrocarbons Hydrocarbons { get; set; } = default!;
+        public Water Water { get; set; } = default!;
 
         // For more information, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
@@ -35,7 +35,7 @@ namespace loghid.Pages.Hydrocarbonspage
                 return Page();
             }
 
-            _context.Hydrocarbons.Add(Hydrocarbons);
+            _context.Water.Add(Water);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

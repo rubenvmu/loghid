@@ -21,9 +21,24 @@
     <form method="post">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
+                <label asp-for="NonCH4Hydrocarbons.SubstanceName" class="control-label"></label>
+                <input asp-for="NonCH4Hydrocarbons.SubstanceName" class="form-control" />
+                <span asp-validation-for="NonCH4Hydrocarbons.SubstanceName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="NonCH4Hydrocarbons.IsoThreshold" class="control-label"></label>
                 <input asp-for="NonCH4Hydrocarbons.IsoThreshold" class="form-control" />
                 <span asp-validation-for="NonCH4Hydrocarbons.IsoThreshold" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NonCH4Hydrocarbons.MeasurementMethod" class="control-label"></label>
+                <input asp-for="NonCH4Hydrocarbons.MeasurementMethod" class="form-control" />
+                <span asp-validation-for="NonCH4Hydrocarbons.MeasurementMethod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NonCH4Hydrocarbons.MeasuredRange" class="control-label"></label>
+                <input asp-for="NonCH4Hydrocarbons.MeasuredRange" class="form-control" />
+                <span asp-validation-for="NonCH4Hydrocarbons.MeasuredRange" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="NonCH4Hydrocarbons.Probability" class="control-label"></label>

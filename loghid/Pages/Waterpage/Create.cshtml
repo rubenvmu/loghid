@@ -21,9 +21,24 @@
     <form method="post">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
+                <label asp-for="Water.SubstanceName" class="control-label"></label>
+                <input asp-for="Water.SubstanceName" class="form-control" />
+                <span asp-validation-for="Water.SubstanceName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Water.IsoThreshold" class="control-label"></label>
                 <input asp-for="Water.IsoThreshold" class="form-control" />
                 <span asp-validation-for="Water.IsoThreshold" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Water.MeasurementMethod" class="control-label"></label>
+                <input asp-for="Water.MeasurementMethod" class="form-control" />
+                <span asp-validation-for="Water.MeasurementMethod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Water.MeasuredRange" class="control-label"></label>
+                <input asp-for="Water.MeasuredRange" class="form-control" />
+                <span asp-validation-for="Water.MeasuredRange" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Water.Probability" class="control-label"></label>

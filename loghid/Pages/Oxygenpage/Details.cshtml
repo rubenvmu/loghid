@@ -19,10 +19,28 @@
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Oxygen.SubstanceName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Oxygen.SubstanceName)
+        </dd>
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Oxygen.IsoThreshold)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Oxygen.IsoThreshold)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Oxygen.MeasurementMethod)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Oxygen.MeasurementMethod)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Oxygen.MeasuredRange)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Oxygen.MeasuredRange)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Oxygen.Probability)

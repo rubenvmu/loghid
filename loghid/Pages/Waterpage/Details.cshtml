@@ -19,10 +19,28 @@
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Water.SubstanceName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Water.SubstanceName)
+        </dd>
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Water.IsoThreshold)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Water.IsoThreshold)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Water.MeasurementMethod)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Water.MeasurementMethod)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Water.MeasuredRange)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Water.MeasuredRange)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Water.Probability)

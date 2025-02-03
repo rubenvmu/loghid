@@ -21,9 +21,24 @@
     <form method="post">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
+                <label asp-for="Formaldehyde.SubstanceName" class="control-label"></label>
+                <input asp-for="Formaldehyde.SubstanceName" class="form-control" />
+                <span asp-validation-for="Formaldehyde.SubstanceName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Formaldehyde.IsoThreshold" class="control-label"></label>
                 <input asp-for="Formaldehyde.IsoThreshold" class="form-control" />
                 <span asp-validation-for="Formaldehyde.IsoThreshold" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Formaldehyde.MeasurementMethod" class="control-label"></label>
+                <input asp-for="Formaldehyde.MeasurementMethod" class="form-control" />
+                <span asp-validation-for="Formaldehyde.MeasurementMethod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Formaldehyde.MeasuredRange" class="control-label"></label>
+                <input asp-for="Formaldehyde.MeasuredRange" class="form-control" />
+                <span asp-validation-for="Formaldehyde.MeasuredRange" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Formaldehyde.Probability" class="control-label"></label>

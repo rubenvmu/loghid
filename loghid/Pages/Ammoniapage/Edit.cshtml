@@ -23,9 +23,27 @@
             <input type="hidden" asp-for="Ammonia.Id" />
             <div class="form-group">
                 
+                <label asp-for="Ammonia.SubstanceName" class="control-label"></label>
+                <input asp-for="Ammonia.SubstanceName" class="form-control" />
+                <span asp-validation-for="Ammonia.SubstanceName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
                 <label asp-for="Ammonia.IsoThreshold" class="control-label"></label>
                 <input asp-for="Ammonia.IsoThreshold" class="form-control" />
                 <span asp-validation-for="Ammonia.IsoThreshold" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="Ammonia.MeasurementMethod" class="control-label"></label>
+                <input asp-for="Ammonia.MeasurementMethod" class="form-control" />
+                <span asp-validation-for="Ammonia.MeasurementMethod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="Ammonia.MeasuredRange" class="control-label"></label>
+                <input asp-for="Ammonia.MeasuredRange" class="form-control" />
+                <span asp-validation-for="Ammonia.MeasuredRange" class="text-danger"></span>
             </div>
             <div class="form-group">
                 

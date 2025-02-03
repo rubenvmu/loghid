@@ -6,15 +6,14 @@ namespace Loghid.Models
     public class Substance : ISubstanceData
 {
 
-
-
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int Id { get; set; }
-
-    public virtual double IsoThreshold { get; set; }
-
-    public string Probability { get; set; } = "";
+        public required int Id { get; set; } 
+        public required string SubstanceName { get; set; }
+        public required double IsoThreshold { get; set; }
+        public required string MeasurementMethod { get; set; }
+        public required string MeasuredRange { get; set; }
+        public required string Probability { get; set; }
 }
 
     // También puedes tener una enumeración para los tipos de sustancia

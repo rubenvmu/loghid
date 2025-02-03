@@ -20,10 +20,28 @@
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SulphurCompounds.SubstanceName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SulphurCompounds.SubstanceName)
+        </dd>
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.SulphurCompounds.IsoThreshold)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.SulphurCompounds.IsoThreshold)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SulphurCompounds.MeasurementMethod)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SulphurCompounds.MeasurementMethod)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SulphurCompounds.MeasuredRange)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SulphurCompounds.MeasuredRange)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.SulphurCompounds.Probability)

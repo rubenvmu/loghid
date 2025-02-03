@@ -20,10 +20,28 @@
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Ammonia.SubstanceName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Ammonia.SubstanceName)
+        </dd>
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Ammonia.IsoThreshold)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Ammonia.IsoThreshold)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Ammonia.MeasurementMethod)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Ammonia.MeasurementMethod)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Ammonia.MeasuredRange)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Ammonia.MeasuredRange)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Ammonia.Probability)

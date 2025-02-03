@@ -23,9 +23,27 @@
             <input type="hidden" asp-for="CarbonMonoxide.Id" />
             <div class="form-group">
                 
+                <label asp-for="CarbonMonoxide.SubstanceName" class="control-label"></label>
+                <input asp-for="CarbonMonoxide.SubstanceName" class="form-control" />
+                <span asp-validation-for="CarbonMonoxide.SubstanceName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
                 <label asp-for="CarbonMonoxide.IsoThreshold" class="control-label"></label>
                 <input asp-for="CarbonMonoxide.IsoThreshold" class="form-control" />
                 <span asp-validation-for="CarbonMonoxide.IsoThreshold" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="CarbonMonoxide.MeasurementMethod" class="control-label"></label>
+                <input asp-for="CarbonMonoxide.MeasurementMethod" class="form-control" />
+                <span asp-validation-for="CarbonMonoxide.MeasurementMethod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="CarbonMonoxide.MeasuredRange" class="control-label"></label>
+                <input asp-for="CarbonMonoxide.MeasuredRange" class="form-control" />
+                <span asp-validation-for="CarbonMonoxide.MeasuredRange" class="text-danger"></span>
             </div>
             <div class="form-group">
                 

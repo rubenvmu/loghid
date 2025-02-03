@@ -15,25 +15,43 @@
 <body>
 
 <div>
-    <h4>Hydrocarbons</h4>
+    <h4>Water</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Hydrocarbons.IsoThreshold)
+            @Html.DisplayNameFor(model => model.Water.SubstanceName)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Hydrocarbons.IsoThreshold)
+            @Html.DisplayFor(model => model.Water.SubstanceName)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Hydrocarbons.Probability)
+            @Html.DisplayNameFor(model => model.Water.IsoThreshold)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Hydrocarbons.Probability)
+            @Html.DisplayFor(model => model.Water.IsoThreshold)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Water.MeasurementMethod)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Water.MeasurementMethod)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Water.MeasuredRange)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Water.MeasuredRange)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Water.Probability)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Water.Probability)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Hydrocarbons.Id">Edit</a> |
+    <a asp-page="./Edit" asp-route-id="@Model.Water.Id">Edit</a> |
     <a asp-page="./Index">Back to List</a>
 </div>
 </body>

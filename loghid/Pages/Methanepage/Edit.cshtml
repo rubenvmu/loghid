@@ -23,9 +23,27 @@
             <input type="hidden" asp-for="Methane.Id" />
             <div class="form-group">
                 
+                <label asp-for="Methane.SubstanceName" class="control-label"></label>
+                <input asp-for="Methane.SubstanceName" class="form-control" />
+                <span asp-validation-for="Methane.SubstanceName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
                 <label asp-for="Methane.IsoThreshold" class="control-label"></label>
                 <input asp-for="Methane.IsoThreshold" class="form-control" />
                 <span asp-validation-for="Methane.IsoThreshold" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="Methane.MeasurementMethod" class="control-label"></label>
+                <input asp-for="Methane.MeasurementMethod" class="form-control" />
+                <span asp-validation-for="Methane.MeasurementMethod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="Methane.MeasuredRange" class="control-label"></label>
+                <input asp-for="Methane.MeasuredRange" class="form-control" />
+                <span asp-validation-for="Methane.MeasuredRange" class="text-danger"></span>
             </div>
             <div class="form-group">
                 

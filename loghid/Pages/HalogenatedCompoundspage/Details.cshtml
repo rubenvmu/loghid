@@ -19,10 +19,28 @@
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.HalogenatedCompounds.SubstanceName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.HalogenatedCompounds.SubstanceName)
+        </dd>
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.HalogenatedCompounds.IsoThreshold)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.HalogenatedCompounds.IsoThreshold)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.HalogenatedCompounds.MeasurementMethod)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.HalogenatedCompounds.MeasurementMethod)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.HalogenatedCompounds.MeasuredRange)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.HalogenatedCompounds.MeasuredRange)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.HalogenatedCompounds.Probability)

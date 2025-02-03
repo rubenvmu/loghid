@@ -21,9 +21,24 @@
     <form method="post">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
+                <label asp-for="SulphurCompounds.SubstanceName" class="control-label"></label>
+                <input asp-for="SulphurCompounds.SubstanceName" class="form-control" />
+                <span asp-validation-for="SulphurCompounds.SubstanceName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="SulphurCompounds.IsoThreshold" class="control-label"></label>
                 <input asp-for="SulphurCompounds.IsoThreshold" class="form-control" />
                 <span asp-validation-for="SulphurCompounds.IsoThreshold" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SulphurCompounds.MeasurementMethod" class="control-label"></label>
+                <input asp-for="SulphurCompounds.MeasurementMethod" class="form-control" />
+                <span asp-validation-for="SulphurCompounds.MeasurementMethod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SulphurCompounds.MeasuredRange" class="control-label"></label>
+                <input asp-for="SulphurCompounds.MeasuredRange" class="form-control" />
+                <span asp-validation-for="SulphurCompounds.MeasuredRange" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="SulphurCompounds.Probability" class="control-label"></label>

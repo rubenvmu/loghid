@@ -23,9 +23,27 @@
             <input type="hidden" asp-for="HalogenatedCompounds.Id" />
             <div class="form-group">
                 
+                <label asp-for="HalogenatedCompounds.SubstanceName" class="control-label"></label>
+                <input asp-for="HalogenatedCompounds.SubstanceName" class="form-control" />
+                <span asp-validation-for="HalogenatedCompounds.SubstanceName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
                 <label asp-for="HalogenatedCompounds.IsoThreshold" class="control-label"></label>
                 <input asp-for="HalogenatedCompounds.IsoThreshold" class="form-control" />
                 <span asp-validation-for="HalogenatedCompounds.IsoThreshold" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="HalogenatedCompounds.MeasurementMethod" class="control-label"></label>
+                <input asp-for="HalogenatedCompounds.MeasurementMethod" class="form-control" />
+                <span asp-validation-for="HalogenatedCompounds.MeasurementMethod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="HalogenatedCompounds.MeasuredRange" class="control-label"></label>
+                <input asp-for="HalogenatedCompounds.MeasuredRange" class="form-control" />
+                <span asp-validation-for="HalogenatedCompounds.MeasuredRange" class="text-danger"></span>
             </div>
             <div class="form-group">
                 

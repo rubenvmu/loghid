@@ -21,9 +21,24 @@
     <form method="post">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
+                <label asp-for="Argon.SubstanceName" class="control-label"></label>
+                <input asp-for="Argon.SubstanceName" class="form-control" />
+                <span asp-validation-for="Argon.SubstanceName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Argon.IsoThreshold" class="control-label"></label>
                 <input asp-for="Argon.IsoThreshold" class="form-control" />
                 <span asp-validation-for="Argon.IsoThreshold" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Argon.MeasurementMethod" class="control-label"></label>
+                <input asp-for="Argon.MeasurementMethod" class="form-control" />
+                <span asp-validation-for="Argon.MeasurementMethod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Argon.MeasuredRange" class="control-label"></label>
+                <input asp-for="Argon.MeasuredRange" class="form-control" />
+                <span asp-validation-for="Argon.MeasuredRange" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Argon.Probability" class="control-label"></label>

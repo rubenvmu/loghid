@@ -23,9 +23,27 @@
             <input type="hidden" asp-for="Nitrogen.Id" />
             <div class="form-group">
                 
+                <label asp-for="Nitrogen.SubstanceName" class="control-label"></label>
+                <input asp-for="Nitrogen.SubstanceName" class="form-control" />
+                <span asp-validation-for="Nitrogen.SubstanceName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
                 <label asp-for="Nitrogen.IsoThreshold" class="control-label"></label>
                 <input asp-for="Nitrogen.IsoThreshold" class="form-control" />
                 <span asp-validation-for="Nitrogen.IsoThreshold" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="Nitrogen.MeasurementMethod" class="control-label"></label>
+                <input asp-for="Nitrogen.MeasurementMethod" class="form-control" />
+                <span asp-validation-for="Nitrogen.MeasurementMethod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="Nitrogen.MeasuredRange" class="control-label"></label>
+                <input asp-for="Nitrogen.MeasuredRange" class="form-control" />
+                <span asp-validation-for="Nitrogen.MeasuredRange" class="text-danger"></span>
             </div>
             <div class="form-group">
                 

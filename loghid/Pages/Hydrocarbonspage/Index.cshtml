@@ -20,19 +20,37 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Hydrocarbons[0].IsoThreshold)
+                @Html.DisplayNameFor(model => model.Water[0].SubstanceName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Hydrocarbons[0].Probability)
+                @Html.DisplayNameFor(model => model.Water[0].IsoThreshold)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Water[0].MeasurementMethod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Water[0].MeasuredRange)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Water[0].Probability)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Hydrocarbons) {
+@foreach (var item in Model.Water) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.SubstanceName)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.IsoThreshold)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MeasurementMethod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MeasuredRange)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Probability)

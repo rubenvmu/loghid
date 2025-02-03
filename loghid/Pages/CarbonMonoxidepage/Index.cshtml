@@ -20,7 +20,16 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.CarbonMonoxide[0].SubstanceName)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.CarbonMonoxide[0].IsoThreshold)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CarbonMonoxide[0].MeasurementMethod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CarbonMonoxide[0].MeasuredRange)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.CarbonMonoxide[0].Probability)
@@ -32,7 +41,16 @@
 @foreach (var item in Model.CarbonMonoxide) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.SubstanceName)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.IsoThreshold)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MeasurementMethod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MeasuredRange)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Probability)

@@ -19,11 +19,11 @@ namespace loghid.Pages.Hydrocarbonspage
             _context = context;
         }
 
-        public IList<Hydrocarbons> Hydrocarbons { get;set; } = default!;
+        public IList<Water> Water { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            Hydrocarbons = await _context.Hydrocarbons.ToListAsync();
+            Water = await _context.Water.ToListAsync();
         }
     }
 }

@@ -21,9 +21,24 @@
     <form method="post">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
+                <label asp-for="Helium.SubstanceName" class="control-label"></label>
+                <input asp-for="Helium.SubstanceName" class="form-control" />
+                <span asp-validation-for="Helium.SubstanceName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Helium.IsoThreshold" class="control-label"></label>
                 <input asp-for="Helium.IsoThreshold" class="form-control" />
                 <span asp-validation-for="Helium.IsoThreshold" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Helium.MeasurementMethod" class="control-label"></label>
+                <input asp-for="Helium.MeasurementMethod" class="form-control" />
+                <span asp-validation-for="Helium.MeasurementMethod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Helium.MeasuredRange" class="control-label"></label>
+                <input asp-for="Helium.MeasuredRange" class="form-control" />
+                <span asp-validation-for="Helium.MeasuredRange" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Helium.Probability" class="control-label"></label>

@@ -21,7 +21,7 @@ namespace loghid.Pages.Hydrocarbonspage
         }
 
         [BindProperty]
-        public Hydrocarbons Hydrocarbons { get; set; } = default!;
+        public Water Water { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -30,12 +30,12 @@ namespace loghid.Pages.Hydrocarbonspage
                 return NotFound();
             }
 
-            var hydrocarbons =  await _context.Hydrocarbons.FirstOrDefaultAsync(m => m.Id == id);
-            if (hydrocarbons == null)
+            var water =  await _context.Water.FirstOrDefaultAsync(m => m.Id == id);
+            if (water == null)
             {
                 return NotFound();
             }
-            Hydrocarbons = hydrocarbons;
+            Water = water;
             return Page();
         }
 
@@ -48,7 +48,7 @@ namespace loghid.Pages.Hydrocarbonspage
                 return Page();
             }
 
-            _context.Attach(Hydrocarbons).State = EntityState.Modified;
+            _context.Attach(Water).State = EntityState.Modified;
 
             try
             {
@@ -56,7 +56,7 @@ namespace loghid.Pages.Hydrocarbonspage
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!HydrocarbonsExists(Hydrocarbons.Id))
+                if (!WaterExists(Water.Id))
                 {
                     return NotFound();
                 }
@@ -69,9 +69,9 @@ namespace loghid.Pages.Hydrocarbonspage
             return RedirectToPage("./Index");
         }
 
-        private bool HydrocarbonsExists(int id)
+        private bool WaterExists(int id)
         {
-            return _context.Hydrocarbons.Any(e => e.Id == id);
+            return _context.Water.Any(e => e.Id == id);
         }
     }
 }

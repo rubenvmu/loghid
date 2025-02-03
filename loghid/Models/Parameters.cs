@@ -7,134 +7,179 @@ namespace Loghid.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-        public double IsoThreshold { get; set; } = 5;
-        public string Probability { get; set; } = "Rare (2)";
+        public required int Id { get; set; } 
+        public required string SubstanceName { get; set; }
+        public required double IsoThreshold { get; set; }
+        public required string MeasurementMethod { get; set; }
+        public required string MeasuredRange { get; set; }
+        public required string Probability { get; set; }
     }
 
     public class Methane : ISubstanceData
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-        public double IsoThreshold { get; set; } = 2;
-        public string Probability { get; set; } = "Unlikely (0)";
+        public required int Id { get; set; } 
+        public required string SubstanceName { get; set; }
+        public required double IsoThreshold { get; set; }
+        public required string MeasurementMethod { get; set; }
+        public required string MeasuredRange { get; set; }
+        public required string Probability { get; set; }
     }
 
     public class NonCH4Hydrocarbons : ISubstanceData
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-        public double IsoThreshold { get; set; } = 2;
-        public string Probability { get; set; } = "Unlikely (0)";
+        public required int Id { get; set; } 
+        public required string SubstanceName { get; set; }
+        public required double IsoThreshold { get; set; }
+        public required string MeasurementMethod { get; set; }
+        public required string MeasuredRange { get; set; }
+        public required string Probability { get; set; }
     }
 
     public class Oxygen : ISubstanceData
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-        public double IsoThreshold { get; set; } = 5;
-        public string Probability { get; set; } = "Rare (2)";
+        public required int Id { get; set; } 
+        public required string SubstanceName { get; set; }
+        public required double IsoThreshold { get; set; }
+        public required string MeasurementMethod { get; set; }
+        public required string MeasuredRange { get; set; }
+        public required string Probability { get; set; }
     }
 
     public class Helium : ISubstanceData
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-        public double IsoThreshold { get; set; } = 300;
-        public string Probability { get; set; } = "Unlikely (0)";
+        public required int Id { get; set; } 
+        public required string SubstanceName { get; set; }
+        public required double IsoThreshold { get; set; }
+        public required string MeasurementMethod { get; set; }
+        public required string MeasuredRange { get; set; }
+        public required string Probability { get; set; }
     }
 
     public class Nitrogen : ISubstanceData
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-        public double IsoThreshold { get; set; } = 100;
-        public string Probability { get; set; } = "Rare (2)";
+        public required int Id { get; set; } 
+        public required string SubstanceName { get; set; }
+        public required double IsoThreshold { get; set; }
+        public required string MeasurementMethod { get; set; }
+        public required string MeasuredRange { get; set; }
+        public required string Probability { get; set; }
     }
 
     public class Argon : ISubstanceData
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-        public double IsoThreshold { get; set; } = 100;
-        public string Probability { get; set; } = "Unlikely (0)";
+        public required int Id { get; set; } 
+        public required string SubstanceName { get; set; }
+        public required double IsoThreshold { get; set; }
+        public required string MeasurementMethod { get; set; }
+        public required string MeasuredRange { get; set; }
+        public required string Probability { get; set; }
     }
 
     public class CarbonDioxide : ISubstanceData
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-        public double IsoThreshold { get; set; } = 2;
-        public string Probability { get; set; } = "Very rare (1)";
+        public required int Id { get; set; } 
+        public required string SubstanceName { get; set; }
+        public required double IsoThreshold { get; set; }
+        public required string MeasurementMethod { get; set; }
+        public required string MeasuredRange { get; set; }
+        public required string Probability { get; set; }
     }
 
     public class CarbonMonoxide : ISubstanceData
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-        public double IsoThreshold { get; set; } = 0.2;
-        public string Probability { get; set; } = "Unlikely (0)";
+        public required int Id { get; set; } 
+        public required string SubstanceName { get; set; }
+        public required double IsoThreshold { get; set; }
+        public required string MeasurementMethod { get; set; }
+        public required string MeasuredRange { get; set; }
+        public required string Probability { get; set; }
     }
 
     public class SulphurCompounds : ISubstanceData
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-        public double IsoThreshold { get; set; } = 0.004;
-        public string Probability { get; set; } = "Unlikely (0)";
+        public required int Id { get; set; } 
+        public required string SubstanceName { get; set; }
+        public required double IsoThreshold { get; set; }
+        public required string MeasurementMethod { get; set; }
+        public required string MeasuredRange { get; set; }
+        public required string Probability { get; set; }
     }
 
     public class Formaldehyde : ISubstanceData
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-        public double IsoThreshold { get; set; } = 0.01;
-        public string Probability { get; set; } = "Unlikely (0)";
+        public required int Id { get; set; } 
+        public required string SubstanceName { get; set; }
+        public required double IsoThreshold { get; set; }
+        public required string MeasurementMethod { get; set; }
+        public required string MeasuredRange { get; set; }
+        public required string Probability { get; set; }
     }
 
     public class FormicAcid : ISubstanceData
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-        public double IsoThreshold { get; set; } = 0.2;
-        public string Probability { get; set; } = "Unlikely (0)";
+        public required int Id { get; set; } 
+        public required string SubstanceName { get; set; }
+        public required double IsoThreshold { get; set; }
+        public required string MeasurementMethod { get; set; }
+        public required string MeasuredRange { get; set; }
+        public required string Probability { get; set; }
     }
 
     public class Ammonia : ISubstanceData
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-        public double IsoThreshold { get; set; } = 0.1;
-        public string Probability { get; set; } = "Unlikely (0)";
+        public required int Id { get; set; } 
+        public required string SubstanceName { get; set; }
+        public required double IsoThreshold { get; set; }
+        public required string MeasurementMethod { get; set; }
+        public required string MeasuredRange { get; set; }
+        public required string Probability { get; set; }
     }
 
     public class HalogenatedCompounds : ISubstanceData
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-        public double IsoThreshold { get; set; } = 0.05;
-        public string Probability { get; set; } = "Unlikely (0)";
+        public required int Id { get; set; } 
+        public required string SubstanceName { get; set; }
+        public required double IsoThreshold { get; set; }
+        public required string MeasurementMethod { get; set; }
+        public required string MeasuredRange { get; set; }
+        public required string Probability { get; set; }
     }
 
     public class Hydrocarbons : ISubstanceData
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-        public double IsoThreshold { get; set; } = 2;
-        public string Probability { get; set; } = "Unlikely (0)";
+        public required int Id { get; set; } 
+        public required string SubstanceName { get; set; }
+        public required double IsoThreshold { get; set; }
+        public required string MeasurementMethod { get; set; }
+        public required string MeasuredRange { get; set; }
+        public required string Probability { get; set; }
     }
 }

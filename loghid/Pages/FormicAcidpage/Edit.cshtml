@@ -23,9 +23,27 @@
             <input type="hidden" asp-for="FormicAcid.Id" />
             <div class="form-group">
                 
+                <label asp-for="FormicAcid.SubstanceName" class="control-label"></label>
+                <input asp-for="FormicAcid.SubstanceName" class="form-control" />
+                <span asp-validation-for="FormicAcid.SubstanceName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
                 <label asp-for="FormicAcid.IsoThreshold" class="control-label"></label>
                 <input asp-for="FormicAcid.IsoThreshold" class="form-control" />
                 <span asp-validation-for="FormicAcid.IsoThreshold" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="FormicAcid.MeasurementMethod" class="control-label"></label>
+                <input asp-for="FormicAcid.MeasurementMethod" class="form-control" />
+                <span asp-validation-for="FormicAcid.MeasurementMethod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="FormicAcid.MeasuredRange" class="control-label"></label>
+                <input asp-for="FormicAcid.MeasuredRange" class="form-control" />
+                <span asp-validation-for="FormicAcid.MeasuredRange" class="text-danger"></span>
             </div>
             <div class="form-group">
                 
