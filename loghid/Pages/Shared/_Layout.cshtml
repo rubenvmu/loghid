@@ -13,60 +13,62 @@
 </head>
 
 @{
-    ViewData["Title"] = "Loghid H2 Measurement & e-Traceability";
+    ViewData["Title"] = "ISO 19880-8:2024 Loghid H2 Measurement & e-Traceability";
+    
 }
 
 <body>
     <!-- Navbar Vertical Izquierda -->
-    <nav class="navbar-vertical d-flex flex-column position-fixed top-0 left-0 h-100">
-        <div class="navbar-vertical">
-    <div class="flex-grow-1 d-flex flex-column pt-3">
-        <div class="brand-icon">
-            <i class="fas fa-leaf fa-2x text-white"></i>
+   <nav class="navbar-vertical d-flex flex-column position-fixed top-0 left-0 h-100">
+    <div class="navbar-vertical">
+        <div class="flex-grow-1 d-flex flex-column pt-3">
+            <div class="brand-icon">
+                <i class="fas fa-leaf fa-2x text-white"></i>
+            </div>
+
+            <a class="nav-link" asp-page="/Index">
+                <i class="fas fa-home fa-lg text-success"></i>
+                <span class="d-none d-lg-inline">Home</span>
+            </a>
+
+            <a class="nav-link" asp-page="/Dashboard">
+                <i class="fas fa-tachometer fa-lg text-success"></i>
+                <span class="d-none d-lg-inline">Home</span>
+            </a>
+
+            <a class="nav-link" asp-page="/Trazability">
+                <i class="fas fa-location-arrow fa-lg text-success"></i>
+                <span class="d-none d-lg-inline">Home</span>
+            </a>
+
+
+            <a class="nav-link" asp-page="/News">
+                <i class="fas fa-newspaper fa-lg text-success"></i>
+                <span class="d-none d-lg-inline">Privacy</span>
+            </a>
+
+            <a class="nav-link" asp-page="/Incidents">
+                <i class="fas fa-exclamation-circle fa-lg text-success"></i>
+                <span class="d-none d-lg-inline">Privacy</span>
+            </a>
+
+            <a class="nav-link" asp-page="/Support">
+                <i class="fas fa-info-circle fa-lg text-success"></i>
+                <span class="d-none d-lg-inline">Support</span>
+            </a>
+
+            <a class="nav-link" asp-page="/Privacy">
+                <i class="fas fa-shield-alt fa-lg text-success"></i>
+                <span class="d-none d-lg-inline">Privacy</span>
+            </a>
+
+            <a class="nav-link" asp-page="/Identify">
+                <i class="fas fa-id-badge fa-lg text-success"></i>
+                <span class="d-none d-lg-inline">Identify</span>
+            </a>
         </div>
-
-        <a class="nav-link" asp-controller="Home" asp-action="Index">
-            <i class="fas fa-home fa-lg text-success"></i>
-            <span class="d-none d-lg-inline">Home</span>
-        </a>
-
-        <a class="nav-link" asp-controller="Dashboard" asp-action="Index">
-            <i class="fas fa-chart-line fa-lg text-success"></i>
-            <span class="d-none d-lg-inline">Dashboard</span>
-        </a>
-
-        <a class="nav-link" asp-controller="Trazability" asp-action="Trazability">
-            <i class="fas fa-map-marked-alt fa-lg text-success"></i>
-            <span class="d-none d-lg-inline">Trazability</span>
-        </a>
-        
-        <a class="nav-link" asp-controller="News" asp-action="Create">
-            <i class="fas fa-newspaper fa-lg text-success"></i>
-            <span class="d-none d-lg-inline">News</span>
-        </a>
-
-        <a class="nav-link" asp-controller="Incidents" asp-action="Create">
-            <i class="fas fa-exclamation-circle fa-lg text-success"></i>
-            <span class="d-none d-lg-inline">Incidents</span>
-        </a>
-
-        <a class="nav-link" asp-controller="Profile" asp-action="Create">
-            <i class="fas fa-user-circle fa-lg text-success"></i>
-            <span class="d-none d-lg-inline">Profile</span>
-        </a>
-
-        <a class="nav-link" asp-controller="Contact" asp-action="Create">
-            <i class="fas fa-envelope fa-lg text-success"></i>
-            <span class="d-none d-lg-inline">Contact</span>
-        </a>
-
-        <a class="nav-link" asp-controller="Privacy" asp-action="Privacy">
-            <i class="fas fa-shield-alt fa-lg text-success"></i>
-            <span class="d-none d-lg-inline">Privacy</span>
-        </a>
     </div>
-</div>
-    </nav>
+</nav>
 
     <!-- Contenido Principal -->
     <main class="main-content">

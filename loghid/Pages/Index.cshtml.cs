@@ -1,9 +1,12 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using Loghid.Models;
 using Loghid.Data;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+using Loghid.Models;
 
 namespace Loghid.Pages
 {
@@ -11,22 +14,16 @@ namespace Loghid.Pages
     {
         private readonly LoghidDbContext _context;
 
-        // Inicializa la lista para evitar problemas de nullabilidad
-        public IList<Substance> Substances { get; set; } = new List<Substance>();
-
-        // Constructor con inyección de dependencias
         public IndexModel(LoghidDbContext context)
         {
             _context = context;
         }
 
-        // Método para manejar la solicitud GET de forma asincrónica
+        public IList<Substance> Substances { get; set; } = new List<Substance>();
+
         public async Task OnGetAsync()
         {
-            if (_context.Substances != null) // Verifica que la tabla exista
-            {
-                Substances = await _context.Substances.ToListAsync();
-            }
+            Substances = await _context.Substances.ToListAsync();
         }
     }
 }

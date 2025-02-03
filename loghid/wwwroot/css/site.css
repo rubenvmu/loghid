@@ -72,7 +72,7 @@ z-index: 1030;
 
 /* Expansión del Navbar al pasar el mouse */
 .navbar-vertical:hover {
-width: 280px;
+width: 240px;
 }
 
 /* Estilo de los Enlaces del Navbar */
@@ -128,4 +128,19 @@ color: white !important;
 border: none;
 padding: 8px 20px;
 border-radius: 25px;
+}
+
+.card-table {
+  font-size: 0.85em;
+}
+.card {
+  margin-bottom: 1rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.075);
+}
+.card-header {
+  padding: 0.5rem 1rem;
+  background-color: #f8f9fa;
+}
+.table-sm td, .table-sm th {
+  padding: 0.3rem;
 }
