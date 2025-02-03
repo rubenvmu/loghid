@@ -14,6 +14,7 @@ namespace Loghid.Models
         public required string MeasuredRange { get; set; }
         public required string Probability { get; set; }
     }
+    
 
     public class Methane : ISubstanceData
     {
