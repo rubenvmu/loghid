@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿using _Layout.cshtml.css;
+
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="utf-8" />
@@ -11,117 +13,116 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     
     <style>
-        .navbar {
-            background-color: #ffffff !important;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1020;
+        :root {
+            --primary-green: white;
+            --accent-green: #c8e6c9;
+            --dark-green: #81c784;
         }
-        
-        .navbar-brand, .nav-link {
-            color: #6c757d !important;
-        }
-        
-        .footer-custom {
-            background: #ffffff;
-            color: #6c757d;
-            border-top: 1px solid #dee2e6;
-        }
+        .navbar-vertical {
+          width: 80px;
+          height: 100vh;
+          position: fixed;
+          left: 0;  /* Cambiado a left: 0 para pegarlo a la izquierda */
+          top: 0;
+          background: linear-gradient(180deg, #ffffff 0%, var(--primary-green) 100%);
+          box-shadow: 2px 0 8px rgba(0,0,0,0.05);
+          transition: width 0.3s ease;
+          z-index: 1030;
+      }
+      
+      /* Expansión del Navbar al pasar el mouse */
+      .navbar-vertical:hover {
+          width: 200px;
+      }
+      
+      /* Estilo de los Enlaces del Navbar */
+      .nav-link {
+          white-space: nowrap;
+          overflow: hidden;
+          color: #6c757d !important;
+          padding: 0.75rem 1.5rem;
+          border-radius: 8px;
+          margin: 0.5rem;
+          transition: all 0.2s ease;
+      }
+      
+      /* Efecto Hover en los Enlaces */
+      .nav-link:hover {
+          background: var(--accent-green);
+          transform: translateX(5px);
+      }
+      
+      .nav-link i {
+          margin-right: 1rem;
+          min-width: 25px;
+      }
+      
+      .main-content {
+          margin-left: 100px; /* Ajustado el margen para que no se superponga al navbar */
+          transition: margin 0.3s ease;
+      }
+      
+      /* Estilo del Pie de Página */
+      .footer-custom {
+          background: linear-gradient(90deg, var(--primary-green) 0%, #ffffff 100%);
+          color: #6c757d;
+          border-top: 1px solid #dee2e6;
+      }
+      
+      /* Icono de la Marca */
+      .brand-icon {
+          background: var(--dark-green);
+          width: 50px;
+          height: 50px;
+          border-radius: 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 1rem auto;
+      }
+      
+      /* Estilo de Botones */
+      .btn-green {
+          background: linear-gradient(135deg, var(--dark-green) 0%, #4caf50 100%);
+          color: white !important;
+          border: none;
+          padding: 8px 20px;
+          border-radius: 25px;
+      }
     </style>
 </head>
-<body class="d-flex flex-column min-vh-100">
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top py-3">
-            <div class="container">
-                <a class="navbar-brand fw-bold" asp-controller="Home" asp-action="Index">
-                    <i class="fas fa-database me-2"></i>Loghid H2 Measurement & e-Traceability
-                </a>
-                
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                
-                <div class="collapse navbar-collapse" id="mainNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="AragonDorks" asp-action="Index">
-                                <i class="fas fa-search me-1"></i>Map
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="AragonDorks" asp-action="Create">
-                                <i class="fas fa-plus-circle me-1"></i>Dasboard
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <main class="flex-grow-1 py-4">
-        <div class="container">
-            @RenderBody()
+<body>
+    <!-- Navbar Vertical Izquierda -->
+    <nav class="navbar-vertical d-flex flex-column position-fixed top-0 left-0 h-100">
+        <div class="brand-icon p-3">
+            <i class="fas fa-database fa-lg text-white"></i>
         </div>
+        
+        <div class="flex-grow-1 d-flex flex-column">
+            <a class="nav-link" asp-controller="Home" asp-action="Index">
+                <i class="fas fa-home"></i>
+                <span class="d-none d-lg-inline">Inicio</span>
+            </a>
+            
+            <a class="nav-link" asp-controller="AragonDorks" asp-action="Index">
+                <i class="fas fa-map-marked-alt"></i>
+                <span class="d-none d-lg-inline">Mapa</span>
+            </a>
+            
+            <a class="nav-link" asp-controller="AragonDorks" asp-action="Create">
+                <i class="fas fa-chart-line"></i>
+                <span class="d-none d-lg-inline">Dashboard</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <main class="main-content">
+        @RenderBody()
     </main>
 
     <footer class="footer-custom mt-auto">
-        <div class="container py-5">
-            <div class="row">
-                <div class="col-12 col-md-6 mb-4">
-                    <h5 class="text-secondary">Explorar</h5>
-                    <ul class="nav flex-column">
-                        <li class="nav-item mb-2">
-                            <a asp-controller="Home" asp-action="Index" class="nav-link p-0 text-muted">
-                                Inicio
-                            </a>
-                        </li>
-                        <li class="nav-item mb-2">
-                            <a asp-controller="AragonDorks" asp-action="Index" class="nav-link p-0 text-muted">
-                                Todos los Dorks
-                            </a>
-                        </li>
-                        <li class="nav-item mb-2">
-                            <a href="#" class="nav-link p-0 text-muted">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="col-12 col-md-6 mb-4">
-                    <h5 class="text-secondary">Contact</h5>
-                    <form>
-                        <div class="d-flex gap-2">
-                            <input type="email" class="form-control" placeholder="Email">
-                            <button class="btn btn-outline-secondary" type="button">
-                                <i class="fas fa-paper-plane"></i>
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <div class="d-flex justify-content-between pt-4 mt-4 border-top">
-                <p class="text-muted">&copy; @DateTime.Now.Year - Loghid H2 Measurement & e-Traceability</p>
-                <ul class="list-unstyled d-flex">
-                    <li class="ms-3">
-                        <a class="text-muted" href="#">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                    </li>
-                    <li class="ms-3">
-                        <a class="text-muted" href="#">
-                            <i class="fab fa-github"></i>
-                        </a>
-                    </li>
-                    <li class="ms-3">
-                        <a class="text-muted" href="#">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+        <!-- ... (mantener mismo footer pero con btn-green en el botón de enviar) ... -->
     </footer>
 
     <!-- Scripts -->
