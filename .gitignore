@@ -6,6 +6,15 @@
 *.html
 *.css
 
+loghid/views/
+loghid/pages/
+loghid/www.root/
+
+www.root/
+views/
+pages/
+
+
 # User-specific files
 *.rsuser
 *.suo
