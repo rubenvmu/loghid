@@ -1,6 +1,11 @@
 ﻿@page
 @model Loghid.Pages.IndexModel
 
+@{
+    ViewData["Title"] = "Loghid H2 Measurement & e-Traceability";
+}
+
+<h1>@ViewData["Title"]</h1>
 
 <div class="container my-5">
     <div class="row justify-content-center">
@@ -19,44 +24,61 @@
     </div>
 </div>
 
-<div class="container my-5">
-    <h1 class="text-center mb-5">@ViewData["Title"]</h1>
-
-    <div class="row">
+<div class="container-fluid p-3">
+    <h4 class="mb-4">Chemical Substances Dashboard</h4>
+    
+    <div class="row g-3">
         @foreach (var substance in Model.Substances)
         {
-            <div class="col-md-4 mb-4">
-                <div class="substance-card p-4 bg-light rounded shadow-sm">
-                    <h2 class="mb-4 text-primary">
-                        <i class="fas fa-flask mr-2"></i>
-                        @substance.GetType().Name
-                    </h2>
-
-                    @if (substance != null)
-                    {
-                        <table class="table table-striped table-hover table-bordered">
-                            <thead class="thead-dark">
-                                <tr>
-                                    <th>ID</th>
-                                    <th>ISO Threshold</th>
-                                    <th>Probability</th>
-                                </tr>
-                            </thead>
+            <div class="col-12 col-sm-6 col-xl-4">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h6 class="mb-0">@substance.SubstanceName</h6>
+                        <div>
+                            <a asp-page="./Edit" asp-route-id="@substance.Id" class="btn btn-sm btn-link p-0">✏️</a>
+                            <a asp-page="./Details" asp-route-id="@substance.Id" class="btn btn-sm btn-link p-0">🔍</a>
+                        </div>
+                    </div>
+                    <div class="card-body p-2">
+                        <table class="table table-sm table-borderless mb-0 card-table">
                             <tbody>
-                                <tr>
-                                    <td>@substance.Id</td>
-                                    <td>@substance.IsoThreshold.ToString("N2")</td>
-                                    <td>@substance.Probability</td>
-                                </tr>
+                            <tr>
+                                <th width="45%">ISO Threshold</th>
+                                <td>@substance.IsoThreshold</td>
+                            </tr>
+                            <tr>
+                                <th>Measurement</th>
+                                <td>@substance.MeasurementMethod</td>
+                            </tr>
+                            <tr>
+                                <th>Range</th>
+                                <td>@substance.MeasuredRange</td>
+                            </tr>
+                            <tr>
+                                <th>Probability</th>
+                                <td>@substance.Probability</td>
+                            </tr>
                             </tbody>
                         </table>
-                    }
-                    else
-                    {
-                        <div class="alert alert-warning">No data available for this substance</div>
-                    }
+                    </div>
                 </div>
             </div>
         }
     </div>
 </div>
+<style>
+        .card-table {
+            font-size: 0.85em;
+        }
+        .card {
+            margin-bottom: 1rem;
+            box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.075);
+        }
+        .card-header {
+            padding: 0.5rem 1rem;
+            background-color: #f8f9fa;
+        }
+        .table-sm td, .table-sm th {
+            padding: 0.3rem;
+        }
+    </style>
