@@ -10,24 +10,7 @@
 <div class="container">
     <h1 class="text-center mb-5">@ViewData["Title"]</h1>
 
-    @foreach (var substance in new List<dynamic>
-    {
-        new { Name = "Water", Data = Model.WaterData },
-        new { Name = "Methane", Data = Model.MethaneData },
-        new { Name = "Non-CH4 Hydrocarbons", Data = Model.NonCH4HydrocarbonsData },
-        new { Name = "Oxygen", Data = Model.OxygenData },
-        new { Name = "Helium", Data = Model.HeliumData },
-        new { Name = "Nitrogen", Data = Model.NitrogenData },
-        new { Name = "Argon", Data = Model.ArgonData },
-        new { Name = "Carbon Dioxide", Data = Model.CarbonDioxideData },
-        new { Name = "Carbon Monoxide", Data = Model.CarbonMonoxideData },
-        new { Name = "Sulphur Compounds", Data = Model.SulphurCompoundsData },
-        new { Name = "Formaldehyde", Data = Model.FormaldehydeData },
-        new { Name = "Formic Acid", Data = Model.FormicAcidData },
-        new { Name = "Ammonia", Data = Model.AmmoniaData },
-        new { Name = "Halogenated Compounds", Data = Model.HalogenatedCompoundsData },
-        new { Name = "Hydrocarbons", Data = Model.HydrocarbonsData }
-    })
+    @foreach (var substance in Model.Substances)
     {
         <div class="substance-table mb-5 p-4 bg-light rounded shadow-sm">
             <h2 class="mb-4 text-primary">@substance.Name</h2>
@@ -39,8 +22,6 @@
                         <tr>
                             <th>ID</th>
                             <th>ISO Threshold</th>
-                            <th>PEM Min</th>
-                            <th>PEM Max</th>
                             <th>Probability</th>
                         </tr>
                     </thead>
@@ -49,10 +30,8 @@
                         {
                             <tr>
                                 <td>@item.Id</td>
-                                <td>@item.IsoThreshold?.ToString("N2") ?? "N/A"</td>
-                                <td>@item.PemResultMin?.ToString("N2") ?? "N/A"</td>
-                                <td>@item.PemResultMax?.ToString("N2") ?? "N/A"</td>
-                                <td>@item.Probability?.ToString("P1") ?? "N/A"</td>
+                                <td>@item.IsoThreshold.ToString("N2")</td>
+                                <td>@item.Probability</td>
                             </tr>
                         }
                     </tbody>
