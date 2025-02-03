@@ -1,0 +1,111 @@
+﻿@page
+@model loghid.Pages.IndexModel
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<h1>Dashboard</h1>
+
+<h2>Ideal Parameters</h2>
+@if (ViewBag.IdealParameters != null && ViewBag.IdealParameters.Count > 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Origin</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var param in ViewBag.IdealParameters)
+            {
+                <tr>
+                    <td>@param.Name</td>
+                    <td>@param.Origin</td>
+                    <td>@param.Value</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No ideal parameters found.</p>
+}
+
+<h2>Contaminant Parameters</h2>
+@if (ViewBag.ContaminantParameters != null && ViewBag.ContaminantParameters.Count > 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Origin</th>
+                <th>Max Limit</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var param in ViewBag.ContaminantParameters)
+            {
+                <tr>
+                    <td>@param.Name</td>
+                    <td>@param.Origin</td>
+                    <td>@param.MaxLimit</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No contaminant parameters found.</p>
+}
+
+    <div class="container">
+    
+
+    <h2>Agregar Parámetro ideal</h2>
+    <form method="post" asp-page-handler="AddIdealParameter">
+        <div class="form-group">
+            <label asp-for="NewIdealParameter.Name">Parámetro</label>
+            <!-- Input corregido: -->
+            <input asp-for="NewIdealParameter.Name" class="form-control" />
+            <span asp-validation-for="NewIdealParameter.Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="NewIdealParameter.Value">Valor ideal</label>  <!-- Cambiado de MaxLimit a Value -->
+            <input asp-for="NewIdealParameter.Value" class="form-control" />
+            <span asp-validation-for="NewIdealParameter.Value" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="NewIdealParameter.Origin">Origen</label>
+            <input asp-for="NewIdealParameter.Origin" class="form-control" />
+            <span asp-validation-for="NewIdealParameter.Origin" class="text-danger"></span>
+        </div>
+        &nbsp;
+        <button type="submit" class="btn btn-primary">Añadir</button>
+    </form>
+
+    <h2>Agregar Contaminante</h2>
+    <form method="post" asp-page-handler="AddContaminantParameter">
+        <div class="form-group">
+            <label asp-for="NewContaminant.Name">Contaminante</label>
+            <input asp-for="NewContaminant.Name" class="form-control" />
+            <span asp-validation-for="NewContaminant.Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="NewContaminant.MaxLimit">Límite Máximo</label>
+            <input asp-for="NewContaminant.MaxLimit" class="form-control" />
+            <span asp-validation-for="NewContaminant.MaxLimit" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="NewContaminant.Origin">Origen</label>
+            <input asp-for="NewContaminant.Origin" class="form-control" />
+            <span asp-validation-for="NewContaminant.Origin" class="text-danger"></span>
+        </div>
+        &nbsp;
+        <button type="submit" class="btn btn-primary">Añadir</button>
+    </form>
+</div>

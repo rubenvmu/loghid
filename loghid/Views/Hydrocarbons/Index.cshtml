@@ -1,0 +1,71 @@
+@model IEnumerable<Loghid.Models.Hydrocarbons>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IsoThreshold)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PemResultC2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PemResultC3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PemResultC4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PemResultC5)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PemResultC6C18)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Probability)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsoThreshold)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PemResultC2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PemResultC3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PemResultC4)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PemResultC5)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PemResultC6C18)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Probability)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
