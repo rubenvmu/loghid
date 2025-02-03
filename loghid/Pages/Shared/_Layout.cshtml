@@ -19,26 +19,53 @@
 <body>
     <!-- Navbar Vertical Izquierda -->
     <nav class="navbar-vertical d-flex flex-column position-fixed top-0 left-0 h-100">
-        <div class="brand-icon p-3">
-            <i class="fas fa-database fa-lg text-white"></i>
+        <div class="navbar-vertical">
+    <div class="flex-grow-1 d-flex flex-column pt-3">
+        <div class="brand-icon">
+            <i class="fas fa-leaf fa-2x text-white"></i>
         </div>
+
+        <a class="nav-link" asp-controller="Home" asp-action="Index">
+            <i class="fas fa-home fa-lg text-success"></i>
+            <span class="d-none d-lg-inline">Home</span>
+        </a>
+
+        <a class="nav-link" asp-controller="Dashboard" asp-action="Index">
+            <i class="fas fa-chart-line fa-lg text-success"></i>
+            <span class="d-none d-lg-inline">Dashboard</span>
+        </a>
+
+        <a class="nav-link" asp-controller="Map" asp-action="Create">
+            <i class="fas fa-map-marked-alt fa-lg text-success"></i>
+            <span class="d-none d-lg-inline">Trazability</span>
+        </a>
         
-        <div class="flex-grow-1 d-flex flex-column">
-            <a class="nav-link" asp-controller="Home" asp-action="Index">
-                <i class="fas fa-home"></i>
-                <span class="d-none d-lg-inline">Inicio</span>
-            </a>
-            
-            <a class="nav-link" asp-controller="AragonDorks" asp-action="Index">
-                <i class="fas fa-map-marked-alt"></i>
-                <span class="d-none d-lg-inline">Mapa</span>
-            </a>
-            
-            <a class="nav-link" asp-controller="AragonDorks" asp-action="Create">
-                <i class="fas fa-chart-line"></i>
-                <span class="d-none d-lg-inline">Dashboard</span>
-            </a>
-        </div>
+        <a class="nav-link" asp-controller="News" asp-action="Create">
+            <i class="fas fa-newspaper fa-lg text-success"></i>
+            <span class="d-none d-lg-inline">News</span>
+        </a>
+
+        <a class="nav-link" asp-controller="Incidents" asp-action="Create">
+            <i class="fas fa-exclamation-circle fa-lg text-success"></i>
+            <span class="d-none d-lg-inline">Incidents</span>
+        </a>
+
+        <a class="nav-link" asp-controller="Profile" asp-action="Create">
+            <i class="fas fa-user-circle fa-lg text-success"></i>
+            <span class="d-none d-lg-inline">Profile</span>
+        </a>
+
+        <a class="nav-link" asp-controller="Contact" asp-action="Create">
+            <i class="fas fa-envelope fa-lg text-success"></i>
+            <span class="d-none d-lg-inline">Contact</span>
+        </a>
+
+        <a class="nav-link" asp-controller="Privacy" asp-action="Create">
+            <i class="fas fa-shield-alt fa-lg text-success"></i>
+            <span class="d-none d-lg-inline">Privacy</span>
+        </a>
+    </div>
+</div>
     </nav>
 
     <!-- Contenido Principal -->
