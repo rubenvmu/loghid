@@ -1,111 +1,67 @@
 ﻿@page
-@model loghid.Pages.IndexModel
+@using Loghid.Pages
+@using System.Linq
+@model Loghid.Pages.IndexModel
 
 @{
     ViewData["Title"] = "Dashboard";
 }
 
-<h1>Dashboard</h1>
+<div class="container">
+    <h1 class="text-center mb-5">@ViewData["Title"]</h1>
 
-<h2>Ideal Parameters</h2>
-@if (ViewBag.IdealParameters != null && ViewBag.IdealParameters.Count > 0)
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Origin</th>
-                <th>Value</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var param in ViewBag.IdealParameters)
+    @foreach (var substance in new List<dynamic>
+    {
+        new { Name = "Water", Data = Model.WaterData },
+        new { Name = "Methane", Data = Model.MethaneData },
+        new { Name = "Non-CH4 Hydrocarbons", Data = Model.NonCH4HydrocarbonsData },
+        new { Name = "Oxygen", Data = Model.OxygenData },
+        new { Name = "Helium", Data = Model.HeliumData },
+        new { Name = "Nitrogen", Data = Model.NitrogenData },
+        new { Name = "Argon", Data = Model.ArgonData },
+        new { Name = "Carbon Dioxide", Data = Model.CarbonDioxideData },
+        new { Name = "Carbon Monoxide", Data = Model.CarbonMonoxideData },
+        new { Name = "Sulphur Compounds", Data = Model.SulphurCompoundsData },
+        new { Name = "Formaldehyde", Data = Model.FormaldehydeData },
+        new { Name = "Formic Acid", Data = Model.FormicAcidData },
+        new { Name = "Ammonia", Data = Model.AmmoniaData },
+        new { Name = "Halogenated Compounds", Data = Model.HalogenatedCompoundsData },
+        new { Name = "Hydrocarbons", Data = Model.HydrocarbonsData }
+    })
+    {
+        <div class="substance-table mb-5 p-4 bg-light rounded shadow-sm">
+            <h2 class="mb-4 text-primary">@substance.Name</h2>
+
+            @if (substance.Data != null && substance.Data.Any())
             {
-                <tr>
-                    <td>@param.Name</td>
-                    <td>@param.Origin</td>
-                    <td>@param.Value</td>
-                </tr>
+                <table class="table table-striped table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>ISO Threshold</th>
+                            <th>PEM Min</th>
+                            <th>PEM Max</th>
+                            <th>Probability</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in substance.Data)
+                        {
+                            <tr>
+                                <td>@item.Id</td>
+                                <td>@item.IsoThreshold?.ToString("N2") ?? "N/A"</td>
+                                <td>@item.PemResultMin?.ToString("N2") ?? "N/A"</td>
+                                <td>@item.PemResultMax?.ToString("N2") ?? "N/A"</td>
+                                <td>@item.Probability?.ToString("P1") ?? "N/A"</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
             }
-        </tbody>
-    </table>
-}
-else
-{
-    <p>No ideal parameters found.</p>
-}
-
-<h2>Contaminant Parameters</h2>
-@if (ViewBag.ContaminantParameters != null && ViewBag.ContaminantParameters.Count > 0)
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Origin</th>
-                <th>Max Limit</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var param in ViewBag.ContaminantParameters)
+            else
             {
-                <tr>
-                    <td>@param.Name</td>
-                    <td>@param.Origin</td>
-                    <td>@param.MaxLimit</td>
-                </tr>
+                <div class="alert alert-warning">No data available for @substance.Name</div>
             }
-        </tbody>
-    </table>
-}
-else
-{
-    <p>No contaminant parameters found.</p>
-}
-
-    <div class="container">
-    
-
-    <h2>Agregar Parámetro ideal</h2>
-    <form method="post" asp-page-handler="AddIdealParameter">
-        <div class="form-group">
-            <label asp-for="NewIdealParameter.Name">Parámetro</label>
-            <!-- Input corregido: -->
-            <input asp-for="NewIdealParameter.Name" class="form-control" />
-            <span asp-validation-for="NewIdealParameter.Name" class="text-danger"></span>
         </div>
-        <div class="form-group">
-            <label asp-for="NewIdealParameter.Value">Valor ideal</label>  <!-- Cambiado de MaxLimit a Value -->
-            <input asp-for="NewIdealParameter.Value" class="form-control" />
-            <span asp-validation-for="NewIdealParameter.Value" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <label asp-for="NewIdealParameter.Origin">Origen</label>
-            <input asp-for="NewIdealParameter.Origin" class="form-control" />
-            <span asp-validation-for="NewIdealParameter.Origin" class="text-danger"></span>
-        </div>
-        &nbsp;
-        <button type="submit" class="btn btn-primary">Añadir</button>
-    </form>
-
-    <h2>Agregar Contaminante</h2>
-    <form method="post" asp-page-handler="AddContaminantParameter">
-        <div class="form-group">
-            <label asp-for="NewContaminant.Name">Contaminante</label>
-            <input asp-for="NewContaminant.Name" class="form-control" />
-            <span asp-validation-for="NewContaminant.Name" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <label asp-for="NewContaminant.MaxLimit">Límite Máximo</label>
-            <input asp-for="NewContaminant.MaxLimit" class="form-control" />
-            <span asp-validation-for="NewContaminant.MaxLimit" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <label asp-for="NewContaminant.Origin">Origen</label>
-            <input asp-for="NewContaminant.Origin" class="form-control" />
-            <span asp-validation-for="NewContaminant.Origin" class="text-danger"></span>
-        </div>
-        &nbsp;
-        <button type="submit" class="btn btn-primary">Añadir</button>
-    </form>
+    }
 </div>

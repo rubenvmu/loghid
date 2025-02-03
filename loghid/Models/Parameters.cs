@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Loghid.Models
 {
-    public class Water
+    public class Water : ISubstanceData
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -13,7 +13,7 @@ namespace Loghid.Models
         public string Probability { get; set; } = "Rare (2)";
     }
 
-    public class Methane
+    public class Methane : ISubstanceData
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -23,7 +23,7 @@ namespace Loghid.Models
         public string Probability { get; set; } = "Unlikely (0)";
     }
 
-    public class NonCH4Hydrocarbons
+    public class NonCH4Hydrocarbons : ISubstanceData
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -34,7 +34,7 @@ namespace Loghid.Models
         public string Probability { get; set; } = "Unlikely (0)";
     }
 
-    public class Oxygen
+    public class Oxygen : ISubstanceData
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -45,7 +45,7 @@ namespace Loghid.Models
         public string Probability { get; set; } = "Rare (2)";
     }
 
-    public class Helium
+    public class Helium : ISubstanceData
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -56,7 +56,7 @@ namespace Loghid.Models
         public string Probability { get; set; } = "Unlikely (0)";
     }
 
-    public class Nitrogen
+    public class Nitrogen : ISubstanceData
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -67,7 +67,7 @@ namespace Loghid.Models
         public string Probability { get; set; } = "Rare (2)";
     }
 
-    public class Argon
+    public class Argon : ISubstanceData
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -77,7 +77,7 @@ namespace Loghid.Models
         public string Probability { get; set; } = "Unlikely (0)";
     }
 
-    public class CarbonDioxide
+    public class CarbonDioxide : ISubstanceData
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -88,7 +88,7 @@ namespace Loghid.Models
         public string Probability { get; set; } = "Very rare (1)";
     }
 
-    public class CarbonMonoxide
+    public class CarbonMonoxide : ISubstanceData
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -98,7 +98,7 @@ namespace Loghid.Models
         public string Probability { get; set; } = "Unlikely (0)";
     }
 
-    public class SulphurCompounds
+    public class SulphurCompounds : ISubstanceData
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -108,7 +108,7 @@ namespace Loghid.Models
         public string Probability { get; set; } = "Unlikely (0)";
     }
 
-    public class Formaldehyde
+    public class Formaldehyde : ISubstanceData
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -118,7 +118,7 @@ namespace Loghid.Models
         public string Probability { get; set; } = "Unlikely (0)";
     }
 
-    public class FormicAcid
+    public class FormicAcid : ISubstanceData
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -128,7 +128,7 @@ namespace Loghid.Models
         public string Probability { get; set; } = "Unlikely (0)";
     }
 
-    public class Ammonia
+    public class Ammonia : ISubstanceData
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -138,7 +138,7 @@ namespace Loghid.Models
         public string Probability { get; set; } = "Unlikely (0)";
     }
 
-    public class HalogenatedCompounds
+    public class HalogenatedCompounds : ISubstanceData
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -148,7 +148,7 @@ namespace Loghid.Models
         public string Probability { get; set; } = "Unlikely (0)";
     }
 
-    public class Hydrocarbons
+    public class Hydrocarbons : ISubstanceData
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
