@@ -52,44 +52,7 @@ body {
   --primary-green: white;
   --accent-green: #white;
   --dark-green: #2c3e50;
-<<<<<<< HEAD
-}
 
-.navbar-vertical {
-  width: 80px;
-  height: 100vh;
-  position: fixed;
-  left: 0;
-  top: 0;
-  background: linear-gradient(180deg, #ffffff 0%, var(--primary-green) 100%);
-  box-shadow: 2px 0 8px rgba(0,0,0,0.05);
-  transition: width 0.3s ease;
-  z-index: 1030;
-}
-
-.navbar-vertical:hover {
-  width: 240px;
-}
-
-.nav-link {
-  white-space: nowrap;
-  overflow: hidden;
-  color: #6c757d !important;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  margin: 0.5rem;
-  transition: all 0.2s ease;
-}
-
-.nav-link:hover {
-  background: #2c3e50;
-  transform: translateX(5px);
-}
-
-.nav-link i {
-  margin-right: 1rem;
-  min-width: 25px;
-=======
 }
 
 .navbar-horizontal {
@@ -154,7 +117,6 @@ body {
 .nav-link:hover + .nav-link,
 .nav-link:hover ~ .nav-link {
   transform: translateY(-5px) scale(1.05);
->>>>>>> 8832c8b (0.8)
 }
 
 .main-content {
@@ -319,22 +281,3 @@ body {
   font-family: monospace;
 }
 
-.auth-header {
-  position: relative;
-  z-index: 3;
-  text-align: center;
-}
-
-#authLeafIcon {
-<<<<<<< HEAD
-  color: #2c3e50;
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  filter: drop-shadow(0 2px 5px rgba(46, 204, 113, 0.3));
-=======
-  color: #2c3e50; /* Azul oscuro */
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  filter: drop-shadow(0 2px 5px rgba(37, 140, 251, 0.3)); /* Azul claro */
->>>>>>> 8832c8b (0.8)
-}
