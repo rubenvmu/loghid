@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Loghid.Models
 {
-    public class Measurement : IClientMeasurement
+    public class ClientMeasurement : IClientMeasurement
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

@@ -3,13 +3,8 @@ using Loghid.Models;
 
 namespace Loghid.Data
 {
-    public class LoghidDbContext : DbContext
+    public class LoghidDbContext(DbContextOptions<LoghidDbContext> options) : DbContext(options)
     {
-        public LoghidDbContext(DbContextOptions<LoghidDbContext> options)
-            : base(options)
-        {
-        }
-
         public DbSet<Substance> Substances { get; set; } = default!;
 
         public DbSet<Water> Water { get; set; }

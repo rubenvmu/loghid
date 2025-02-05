@@ -1,15 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 using Loghid.Models;
 
-namespace LoghidMeasurement.Models
+namespace Loghid.Data
 {
-    public class LoghidMeasurementDbContext : DbContext
+    public class LoghidClientMeasurementDbContext(DbContextOptions<LoghidClientMeasurementDbContext> options) : DbContext(options)
     {
-        public DbSet<Measurement> Measurements { get; set; }
-
-        public LoghidMeasurementDbContext(DbContextOptions<LoghidMeasurementDbContext> options) : base(options)
-        {
-        }
+        public DbSet<ClientMeasurement> Measurements { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
