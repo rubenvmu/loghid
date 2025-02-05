@@ -14,13 +14,6 @@ namespace LoghidMeasurement.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-            // Configuración de relaciones y restricciones adicionales si es necesario
-            modelBuilder.Entity<Measurement>()
-                .HasOne(m => m.Substance)
-                .WithMany(s => s.Measurements) // Configura la relación con Substances
-                .HasForeignKey(m => m.SubstanceId)
-                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

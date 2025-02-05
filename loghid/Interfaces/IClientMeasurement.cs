@@ -9,7 +9,6 @@ namespace Loghid.Models
         string Location { get; set; }
         decimal Value { get; set; }
         string? Notes { get; set; }
-        string SubstanceName { get; set; }
         double IsoThreshold { get; set; }
         string MeasurementMethod { get; set; }
         string MeasuredRange { get; set; }

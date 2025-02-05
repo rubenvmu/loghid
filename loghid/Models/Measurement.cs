@@ -17,21 +17,6 @@ namespace Loghid.Models
     public string Location { get; set; } = string.Empty; // Asegura que Location no sea nulo
 
     [Required]
-    public int SubstanceId { get; set; }
-
-    [ForeignKey("SubstanceId")]
-    public virtual Substance Substance { get; set; } = new Substance
-    {
-        // Inicializar las propiedades requeridas de Substance aquí
-        Id = 0, // Asigna un valor predeterminado apropiado o usa un valor real
-        SubstanceName = string.Empty,
-        IsoThreshold = 0.0,  // Asignar un valor adecuado
-        MeasurementMethod = string.Empty,
-        MeasuredRange = string.Empty,
-        Probability = string.Empty
-    };
-
-    [Required]
     public double IsoThreshold { get; set; }
 
     [Required]
@@ -43,13 +28,7 @@ namespace Loghid.Models
     [Required]
     public string Probability { get; set; } = string.Empty; // Asegura que Probability no sea nulo
 
-    // Implementación de la propiedad SubstanceName
-    [Required]
-    public string SubstanceName
-    {
-        get { return Substance?.SubstanceName ?? string.Empty; }
-        set { }
-    }
+    // Implementación de la propiedad SubstanceNam
 
     // Implementación de la propiedad Value (de la interfaz IClientMeasurement)
     [Required]

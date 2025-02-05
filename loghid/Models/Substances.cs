@@ -14,7 +14,6 @@ namespace Loghid.Models
         public required string MeasurementMethod { get; set; }
         public required string MeasuredRange { get; set; }
         public required string Probability { get; set; }
-        public virtual ICollection<Measurement> Measurements { get; set; } = new List<Measurement>();
 }
 
     // También puedes tener una enumeración para los tipos de sustancia
