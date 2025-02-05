@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Loghid.Data;
+using LoghidMeasurement.Models;
 using System;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Configurar DbContext con SQLite
 builder.Services.AddDbContext<LoghidDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddDbContext<LoghidMeasurementDbContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("SecondaryConnection")));
+
 
 builder.Services.AddRazorPages();
 
