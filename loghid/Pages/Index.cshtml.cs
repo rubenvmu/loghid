@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Loghid.Data;
 using Loghid.Models;
 
+
 namespace Loghid.Pages
 {
     public class IndexModel : PageModel
