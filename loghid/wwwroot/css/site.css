@@ -119,10 +119,6 @@ body {
   transform: translateY(-5px) scale(1.05);
 }
 
-.main-content {
-  margin-left: 100px;
-  transition: margin 0.3s ease;
-}
 
 .footer-custom {
   background: linear-gradient(90deg, #2c3e50 0%, #ffffff 100%);

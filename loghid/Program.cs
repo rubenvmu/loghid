@@ -14,6 +14,8 @@ builder.Services.AddDbContext<LoghidDbContext>(options =>
 builder.Services.AddDbContext<LoghidClientMeasurementDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("SecondaryConnection")));
 
+builder.Services.AddScoped<ISubstanceSearchService, SubstanceSearchService>();
+
 
 builder.Services.AddRazorPages();
 
@@ -25,6 +27,8 @@ lifetime.ApplicationStopping.Register(() =>
 {
     Console.WriteLine("La aplicación se está apagando.");
 });
+
+
 
 
 // Generar un puerto aleatorio dentro de un rango válido

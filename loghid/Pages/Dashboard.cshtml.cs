@@ -1,5 +1,6 @@
 ﻿
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Loghid.Data;
 using Loghid.Models;
@@ -19,6 +20,9 @@ namespace Loghid.Pages
             _context = context;
         }
         public List<Substance> CombinedSubstances { get; set; } = new List<Substance>();
+
+        [BindProperty(SupportsGet = true)]
+public string? SearchTerm { get; set; }
 
         public async Task OnGetAsync()
         {

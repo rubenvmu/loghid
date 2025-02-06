@@ -1,8 +1,143 @@
 ﻿@page
 @model NewsModel
 @{
-    ViewData["Title"] = "News";
+    ViewData["Title"] = "Green Hydrogen News";
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<!-- Navbar Fake -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Loghid News</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<!-- Main Content -->
+<div class="container my-5">
+    <!-- Featured News -->
+    <div class="row mb-5">
+        <div class="col-md-12">
+            <div class="card">
+                <img src="https://protenergia.com/wp-content/uploads/2024/05/portada-que-es-el-hidrogeno-verde.webp" class="card-img-top" alt="Featured News">
+                <div class="card-body">
+                    <h2 class="card-title">Europe's Largest Green Hydrogen Plant Opens in Spain</h2>
+                    <p class="card-text">
+                        The Iberdrola group has inaugurated the largest green hydrogen plant in Europe in Puertollano, Spain. 
+                        The plant will produce up to 3,000 tons of green hydrogen annually, reducing CO2 emissions by 48,000 tons per year.
+                        This project marks a significant step towards achieving Europe's carbon neutrality goals by 2050.
+                    </p>
+                    <a href="https://i.ytimg.com/vi/mI9lauj_U_A/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AHUBoAC4AOKAgwIABABGD4gUyhyMA8=&rs=AOn4CLC8Sl9oPtzA1Mho1L1UPdPkWaaTeA" 
+                       class="btn btn-primary" target="_blank">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Smaller News -->
+    <div class="row">
+        <!-- News 1 -->
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <img src="https://i.ytimg.com/vi/mI9lauj_U_A/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AHUBoAC4AOKAgwIABABGD4gUyhyMA8=&rs=AOn4CLC8Sl9oPtzA1Mho1L1UPdPkWaaTeA" class="card-img-top" alt="News 1">
+                <div class="card-body">
+                    <h3 class="card-title">Australia Plans $36 Billion Green Hydrogen Project</h3>
+                    <p class="card-text">
+                        The Australian Renewable Energy Agency (ARENA) has announced a $36 billion project to produce green hydrogen 
+                        using solar and wind energy. The project aims to export hydrogen to Asia and Europe by 2030.
+                    </p>
+                    <a href="https://arena.gov.au/news/australias-36-billion-green-hydrogen-project/" 
+                       class="btn btn-primary" target="_blank">Read More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- News 2 -->
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS99Ndim75_1iryIyTeBpqM6RL356oLqLyUvQ&s" class="card-img-top" alt="News 2">
+                <div class="card-body">
+                    <h3 class="card-title">Germany and Morocco Partner on Green Hydrogen</h3>
+                    <p class="card-text">
+                        Germany and Morocco have signed a partnership agreement to develop green hydrogen production facilities in Morocco. 
+                        The project will leverage Morocco's abundant solar energy to produce hydrogen for export to Europe.
+                    </p>
+                    <a href="https://www.bmwi.de/Redaktion/EN/Dossier/green-hydrogen.html" 
+                       class="btn btn-primary" target="_blank">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    .navbar {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .card {
+        border: none;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+
+    .card-img-top {
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    }
+
+    .card-body {
+        padding: 1.5rem;
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+
+    .card-text {
+        font-size: 1rem;
+        color: #555;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border: none;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+    header {
+        background: linear-gradient(90deg, #007bff, #00a8ff);
+    }
+
+    footer {
+        background: #343a40;
+    }
+</style>

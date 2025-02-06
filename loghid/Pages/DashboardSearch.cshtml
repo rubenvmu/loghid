@@ -1,0 +1,26 @@
+
+
+@if (Model.Substances != null && Model.Substances.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Descripción</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var substance in Model.Substances)
+            {
+                <tr>
+                    <td>@substance.SubstanceName</td>
+                    <td>@substance.Description</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No se encontraron resultados.</p>
+}
