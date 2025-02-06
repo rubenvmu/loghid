@@ -1,7 +1,7 @@
 
 # European H2 Measurement & e-Traceability Platform 🚀  
 
-![Hydrogen Green App](https://i.imgur.com/ca16e274-1176-4a0a-a404-5f3d687934bc)  
+![Hydrogen Green App](https://i.imgur.com/IbeVWcD.png)  
 
 ## 📌 About  
 
