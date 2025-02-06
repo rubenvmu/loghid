@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Loghid.Data;
 using Loghid.Models;
 
-namespace loghid.Pages.New_Client_Measurement
+namespace loghid.Pages.New_Measurement
 {
     public class CreateModel : PageModel
     {
