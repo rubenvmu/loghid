@@ -1,1 +1,35 @@
-﻿
+﻿/* Fuente moderna desde Google Fonts */
+
+
+
+h1, h2, h3, h4, h5, h6 {
+    text-align: center; /* Centrar el texto */
+    margin-top: 40px; /* Espacio arriba */
+    margin-bottom: 20px; /* Espacio abajo */
+    color: #333; /* Color oscuro para el texto */
+    font-weight: 700; /* Negrita para los títulos */
+    letter-spacing: 1px; /* Espaciado de las letras */
+}
+
+/* Estilo adicional para títulos de mayor tamaño */
+h1 {
+    font-size: 2.5rem; /* Tamaño grande para el título principal */
+    margin-top: 60px;
+}
+
+h2 {
+    font-size: 2rem; /* Tamaño para subtítulos */
+    margin-top: 50px;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-top: 40px;
+}
+
+/* Definimos que los títulos estén centrados también en pantallas pequeñas */
+@media screen and (max-width: 768px) {
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 90%; /* Ajuste del tamaño en pantallas más pequeñas */
+    }
+}

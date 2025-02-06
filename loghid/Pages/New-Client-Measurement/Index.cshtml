@@ -10,12 +10,174 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>Measurements</title>
+
 </head>
 <body>
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
+
+<style>
+    :root {
+        --primary-blue: #2c3e50;
+        --secondary-blue: #f5f6fa;
+        --accent-blue: #3498db;
+    }
+
+    body {
+        background-color: #f9fafb;
+        font-family: 'Inter', system-ui, sans-serif;
+        line-height: 1.6;
+    }
+
+    .table-container {
+        margin: 2rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        border: 1px solid #e2e8f0;
+        background: white;
+    }
+
+    .table-header {
+        padding: 1.5rem;
+        border-bottom: 2px solid var(--primary-blue);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: var(--primary-blue);
+    }
+
+    .table-title {
+        color: white;
+        font-size: 1.5rem;
+        font-weight: 600;
+        letter-spacing: -0.025em;
+    }
+
+    .btn-create {
+        background: var(--accent-blue);
+        color: white;
+        padding: 0.5rem 1.25rem;
+        border: none;
+        font-weight: 500;
+        transition: all 0.2s;
+    }
+
+    .btn-create:hover {
+        background: #2980b9;
+    }
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        background: white;
+    }
+
+    .table thead {
+        background: var(--secondary-blue);
+        border-bottom: 2px solid var(--primary-blue);
+    }
+
+    .table th {
+        color: var(--primary-blue);
+        font-weight: 600;
+        text-align: left;
+        padding: 1rem;
+        border-right: 1px solid #e2e8f0;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        letter-spacing: 0.05em;
+    }
+
+    .table td {
+        padding: 1rem;
+        border-bottom: 1px solid #edf2f7;
+        border-right: 1px solid #edf2f7;
+        vertical-align: top;
+        font-size: 0.925rem;
+        color: #4a5568;
+    }
+
+    .table tr:last-child td {
+        border-bottom: none;
+    }
+
+    .table tr:hover td {
+        background: #f8fafc;
+    }
+
+    .action-links {
+        display: flex;
+        gap: 0.75rem;
+    }
+
+    .action-link {
+        color: var(--accent-blue);
+        font-weight: 500;
+        padding: 0.25rem 0.5rem;
+        border: 1px solid #e2e8f0;
+        transition: all 0.2s;
+        text-decoration: none;
+        font-size: 0.875rem;
+    }
+
+    .action-link:hover {
+        background: var(--accent-blue);
+        color: white;
+        border-color: var(--accent-blue);
+    }
+
+    @@media (max-width: 768px) {
+        .table-container {
+            margin: 1rem;
+        }
+        
+        .table-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .table td, .table th {
+            padding: 0.75rem;
+        }
+    }
+
+    /* Estilo para el botón */
+.btn-custom {
+    background-color: #007bff; /* Color azul */
+    border: 2px solid #007bff; /* Borde azul */
+    color: white; /* Color del texto */
+    padding: 10px 20px; /* Espaciado dentro del botón */
+    font-size: 16px; /* Tamaño del texto */
+    text-align: center; /* Centrar el texto */
+    text-decoration: none; /* Elimina subrayado en enlaces */
+    border-radius: 0px; /* Bordes cuadrados */
+    transition: all 0.3s ease; /* Efecto de transición suave al pasar el mouse */
+}
+
+.btn-custom:hover {
+    background-color: #0056b3; /* Color azul más oscuro al pasar el mouse */
+    border-color: #0056b3; /* Borde azul más oscuro al pasar el mouse */
+    cursor: pointer; /* Cambiar el cursor al pasar por encima */
+}
+
+/* Estilo para el enlace */
+a.btn-custom-link {
+    display: inline-block; /* Hacer que el enlace sea un bloque en línea */
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #007bff;
+    text-decoration: none;
+    border: 2px solid #007bff;
+    border-radius: 0px; /* Bordes cuadrados */
+    transition: all 0.3s ease;
+}
+
+a.btn-custom-link:hover {
+    background-color: #0056b3;
+    color: white;
+    cursor: pointer;
+}
+</style>
+<a asp-page="Create" class="btn-custom-link">Create New Customer Measurement</a>
 <table class="table">
     <thead>
         <tr>
