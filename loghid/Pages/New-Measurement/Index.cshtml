@@ -11,11 +11,246 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
 <p>
     <a asp-page="Create">Create New</a>
 </p>
+<style>
+    .dashboard-card {
+        border: 1px solid #e0e0e0;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+        margin-bottom: 1.5rem;
+        background: #ffffff;
+        max-width: 100%;
+        min-height: 320px;
+    }
+
+    .card-header {
+        background: #2c3e50;
+        border-bottom: 2px solid #1a252f;
+        padding: 0.8rem 1rem;
+    }
+
+    .card-title {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #000000;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+    }
+
+    .data-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.6rem;
+        border: 1px solid #e0e0e0;
+        margin: 0.3rem 0;
+        background: #f8f9fa;
+        min-height: 60px;
+    }
+
+    .data-content {
+        flex: 1;
+        padding-right: 0.5rem;
+    }
+
+    .spec-label {
+        font-size: 0.78rem;
+        color: #6c757d;
+        font-weight: 500;
+        line-height: 1.2;
+    }
+
+    .spec-value {
+        font-size: 0.95rem;
+        color: #2c3e50;
+        font-weight: 700;
+        margin-top: 0.15rem;
+    }
+
+    .data-icon {
+        color: #3498db;
+        font-size: 1.2rem;
+        min-width: 30px;
+        text-align: center;
+    }
+
+    .atom-icon {
+        font-size: 1.2rem;
+        color: #ecf0f1;
+    }
+
+    .container-dashboard {
+        max-width: 1400px;
+        padding: 1.5rem 1rem;
+    }
+
+    .card-body {
+        padding: 0.8rem !important;
+    }
+
+    /* Estilos específicos para la tabla */
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 1.5rem;
+        background: #ffffff;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+    }
+
+    .table th,
+    .table td {
+        padding: 0.75rem;
+        border: 1px solid #e0e0e0;
+        text-align: left;
+    }
+
+    .table th {
+        background: #2c3e50;
+        color: #ffffff;
+        font-weight: 600;
+    }
+
+    .table tbody tr:nth-child(even) {
+        background: #f8f9fa;
+    }
+
+    .table tbody tr:hover {
+        background: #e9ecef;
+    }
+
+    .table a {
+        color: #3498db;
+        text-decoration: none;
+    }
+
+    .table a:hover {
+        text-decoration: underline;
+    }
+
+    .navbar-horizontal {
+  width: 100%;
+  height: 90px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  padding: 0 20px;
+  z-index: 1030;
+}
+
+.nav-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 1.95);
+  text-decoration: none !important;
+  position: relative;
+}
+
+.nav-link i {
+  font-size: 1.8rem;
+  color: #2c3e50 !important;
+  transition: all 0.3s ease;
+}
+
+.nav-link span {
+  font-size: 0.75rem;
+  color: #2c3e50;
+  position: absolute;
+  bottom: -25px;
+  opacity: 0;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  transform: translateY(-15px) scale(1.05);
+  background: rgba(244, 244, 244, 0.7);
+}
+
+.nav-link:hover i {
+  transform: scale(1.05);
+}
+
+.nav-link:hover span {
+  opacity: 1;
+  bottom: -20px;
+}
+
+/* Efecto para elementos adyacentes */
+.nav-link:hover + .nav-link,
+.nav-link:hover ~ .nav-link {
+  transform: translateY(-5px) scale(1.05);
+}
+
+</style>
+<nav class="navbar-horizontal">
+    <a class="nav-link" asp-page="/Index">
+        <i class="fas fa-home"></i>
+        <span>Index</span>
+    </a>
+
+
+    <a class="nav-link" asp-page="/Dashboard">
+        <i class="fas fa-chart-line"></i>
+        <span>ISO Parameters</span>
+    </a>
+
+    <a class="nav-link" asp-page="/Trazability">
+        <i class="fas fa-gas-pump"></i>
+        <span>Trazability</span>
+    </a>
+
+    <a class="nav-link" asp-page="/New-Measurement/Index">
+        <i class="fas fa-circle-plus"></i>
+        <span>New Measurement</span>
+    </a>
+
+    <a class="nav-link" asp-page="/New-Measurement/Index">
+        <i class="fas fa-circle-plus"></i>
+        <span>New Measurement</span>
+    </a>
+
+    <a class="nav-link" asp-page="/Certificates">
+        <i class="fas fa-certificate"></i>
+        <span>Certificates</span>
+    </a>
+
+    <a class="nav-link" asp-page="/News">
+        <i class="fas fa-newspaper"></i>
+        <span>News</span>
+    </a>
+
+    <a class="nav-link" asp-page="/Incidents">
+        <i class="fas fa-exclamation-circle"></i>
+        <span>Incidents</span>
+    </a>
+
+    <a class="nav-link" asp-page="/Support">
+        <i class="fas fa-info-circle"></i>
+        <span>Support</span>
+    </a>
+
+    <a class="nav-link" asp-page="/Privacy">
+        <i class="fas fa-shield-alt"></i>
+        <span>Privacy</span>
+    </a>
+
+</nav>
 <table class="table">
     <thead>
         <tr>
