@@ -22,7 +22,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="ClientMeasurement.Id_Measurement" />
             <div class="form-group">
-                
+                <span class="text-danger">*</span>
                 <label asp-for="ClientMeasurement.PublicID_Measurement" class="control-label"></label>
                 <input asp-for="ClientMeasurement.PublicID_Measurement" class="form-control" />
                 <span asp-validation-for="ClientMeasurement.PublicID_Measurement" class="text-danger"></span>
@@ -518,18 +518,6 @@
                 <label asp-for="ClientMeasurement.Hydrocarbons_Probability_Measurement" class="control-label"></label>
                 <input asp-for="ClientMeasurement.Hydrocarbons_Probability_Measurement" class="form-control" />
                 <span asp-validation-for="ClientMeasurement.Hydrocarbons_Probability_Measurement" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                
-                <label asp-for="ClientMeasurement.Method_Measurement" class="control-label"></label>
-                <input asp-for="ClientMeasurement.Method_Measurement" class="form-control" />
-                <span asp-validation-for="ClientMeasurement.Method_Measurement" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                
-                <label asp-for="ClientMeasurement.Range_Measurement" class="control-label"></label>
-                <input asp-for="ClientMeasurement.Range_Measurement" class="form-control" />
-                <span asp-validation-for="ClientMeasurement.Range_Measurement" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

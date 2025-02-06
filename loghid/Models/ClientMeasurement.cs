@@ -10,12 +10,14 @@ namespace Loghid.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id_Measurement { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)] // No permitir que la BD lo genere
-    public string? PublicID_Measurement { get; set; }
+        [Required]
+    [MaxLength(19)] // 16 caracteres + 3 guiones
+    public string PublicID_Measurement { get; private set; } // Evita que se modifique manualmente
 
     public ClientMeasurement()
     {
         PublicID_Measurement = GenerateUniquePublicId();
+        Date_Measurement = DateTimeOffset.UtcNow;
     }
 
     private static string GenerateUniquePublicId()
@@ -27,10 +29,8 @@ namespace Loghid.Models
 
         return $"{id.Substring(0, 4)}-{id.Substring(4, 4)}-{id.Substring(8, 4)}-{id.Substring(12, 4)}";
     }
-
         [Required]
-        public DateTimeOffset Date_Measurement { get; set; }
-
+        public DateTimeOffset Date_Measurement { get; private set; }
 
         [Required]
         public int CustomerID_Measurement { get; set; }
@@ -137,17 +137,5 @@ namespace Loghid.Models
         public string Hydrocarbons_MeasurementMethod_Measurement { get; set; } = string.Empty;
         public string Hydrocarbons_MeasuredRange_Measurement { get; set; } = string.Empty;
         public string Hydrocarbons_Probability_Measurement { get; set; } = string.Empty;
-        public string Method_Measurement { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string Range_Measurement { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-    }
-
-    public interface IMeasurementSubstanceData
-    {
-        int Id_Measurement { get; set; }
-        string SubstanceName_Measurement { get; set; }
-        double IsoThreshold_Measurement { get; set; }
-        string MeasurementMethod_Measurement { get; set; }
-        string MeasuredRange_Measurement { get; set; }
-        string Probability_Measurement { get; set; }
     }
 }

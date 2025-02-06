@@ -268,12 +268,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.ClientMeasurement[0].Hydrocarbons_Probability_Measurement)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Method_Measurement)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Range_Measurement)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -528,12 +522,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Hydrocarbons_Probability_Measurement)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Method_Measurement)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Range_Measurement)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id_Measurement">Edit</a> |

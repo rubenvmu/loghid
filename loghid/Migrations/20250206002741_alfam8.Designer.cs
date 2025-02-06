@@ -3,6 +3,7 @@ using System;
 using Loghid.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace loghid.Migrations
 {
     [DbContext(typeof(LoghidClientMeasurementDbContext))]
-    partial class LoghidClientMeasurementDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250206002741_alfam8")]
+    partial class alfam8
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.1");
@@ -107,9 +110,7 @@ namespace loghid.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<DateTimeOffset>("Date_Measurement")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT")
-                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
+                        .HasColumnType("TEXT");
 
                     b.Property<double>("Formaldehyde_IsoThreshold_Measurement")
                         .HasColumnType("REAL");
@@ -291,7 +292,6 @@ namespace loghid.Migrations
 
                     b.Property<string>("PublicID_Measurement")
                         .IsRequired()
-                        .ValueGeneratedOnAdd()
                         .HasMaxLength(19)
                         .HasColumnType("TEXT");
 

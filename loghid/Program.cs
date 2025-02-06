@@ -26,6 +26,7 @@ lifetime.ApplicationStopping.Register(() =>
     Console.WriteLine("La aplicación se está apagando.");
 });
 
+
 // Generar un puerto aleatorio dentro de un rango válido
 int GenerateRandomPort()
 {
