@@ -10,7 +10,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Green Hydrogen Tech</title>
+    <title>@ViewData["Title"] - Loghid</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -29,13 +29,14 @@
         }
 
         body {
-            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-        }
+    background-image: url('/images/loghid_main_panel.png'); /* Ruta a la imagen */
+    background-size: cover; /* Asegura que la imagen cubra toda la pantalla */
+    background-position: center center; /* Centra la imagen en el fondo */
+    background-repeat: no-repeat; /* No repetirá la imagen */
+    height: 100vh; /* Asegura que el fondo cubra todo el alto de la ventana */
+    margin: 0; /* Elimina el margen por defecto del body */
+    padding: 0; /* Elimina el padding por defecto del body */
+}
 
         .auth-container {
             background: white;
@@ -136,28 +137,11 @@
         }
     </style>
 </head>
-<body>
-    <div class="auth-wrapper">
-    <!-- Elemento decorativo giratorio -->
-    <div id="authSpinLogo" class="spin-logo">
-        <i class="fas fa-atom"></i>
-    </div>
-    
-    <!-- Texto Lorem Ipsum de fondo -->
-    <div id="authWatermark" class="lorem-watermark">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore...
-    </div>
-
-    <div id="authMainContainer" class="auth-container">
+<body>  
+<div id="authMainContainer" class="auth-container">
         <div class="auth-header">
-            <i class="fas fa-leaf" id="authLeafIcon"></i>
+            <i class="fas fa-leaf""></i>
             <h1>Loghid H2 Measurement & e-Traceability</h1>
         </div>
-
-        <div class="privacy-policy">
-            <p>@ViewData["Title"]</p>
-        </div>
-    </div>
-</div>
 </body>
 </html>
