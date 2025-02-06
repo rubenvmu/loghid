@@ -5,13 +5,18 @@ namespace Loghid.Models
     public interface IClientMeasurement
     {
         int Id_Measurement { get; set; }
+
+        string? PublicID_Measurement { get; set; }
         DateTimeOffset Date_Measurement { get; set; } // UTC + Offset
+
+        int CustomerID_Measurement { get; set; }
+        string Customer_Measurement { get; set; }
+
+        int SupplierID_Measurement { get; set; }
+        string Supplier_Measurement { get; set; }
         string Location_Measurement { get; set; }
-        decimal Value_Measurement { get; set; }
+
         string? Notes_Measurement { get; set; }
-        double IsoThreshold_Measurement { get; set; }
-        string MeasurementMethod_Measurement { get; set; }
-        string MeasuredRange_Measurement { get; set; }
-        string Probability_Measurement { get; set; }
+       
     }
 }

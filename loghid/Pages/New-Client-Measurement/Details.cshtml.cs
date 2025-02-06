@@ -8,18 +8,17 @@ using Microsoft.EntityFrameworkCore;
 using Loghid.Data;
 using Loghid.Models;
 
-namespace loghid.Pages.NewClientMeasurement
+namespace loghid.Pages.New_Client_Measurement
 {
-    public class DeleteModel : PageModel
+    public class DetailsModel : PageModel
     {
         private readonly Loghid.Data.LoghidClientMeasurementDbContext _context;
 
-        public DeleteModel(Loghid.Data.LoghidClientMeasurementDbContext context)
+        public DetailsModel(Loghid.Data.LoghidClientMeasurementDbContext context)
         {
             _context = context;
         }
 
-        [BindProperty]
         public ClientMeasurement ClientMeasurement { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
@@ -39,24 +38,6 @@ namespace loghid.Pages.NewClientMeasurement
             }
 
             return NotFound();
-        }
-
-        public async Task<IActionResult> OnPostAsync(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var clientmeasurement = await _context.Measurements.FindAsync(id);
-            if (clientmeasurement != null)
-            {
-                ClientMeasurement = clientmeasurement;
-                _context.Measurements.Remove(ClientMeasurement);
-                await _context.SaveChangesAsync();
-            }
-
-            return RedirectToPage("./Index");
         }
     }
 }

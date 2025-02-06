@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Loghid.Data;
 using Loghid.Models;
 
-namespace loghid.Pages.NewClientMeasurement
+namespace loghid.Pages.New_Client_Measurement
 {
     public class IndexModel : PageModel
     {

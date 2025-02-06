@@ -1,0 +1,548 @@
+@page
+@model loghid.Pages.New_Client_Measurement.IndexModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].PublicID_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Date_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].CustomerID_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Customer_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].SupplierID_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Supplier_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Location_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Notes_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Water_Name_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Water_ISO_Threshold_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Water_Measurement_Method_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Water_MeasuredRange_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Water_Probability_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Methane_SubstanceName_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Methane_IsoThreshold_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Methane_MeasurementMethod_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Methane_MeasuredRange_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Methane_Probability_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].NonCH4Hydrocarbons_SubstanceName_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].NonCH4Hydrocarbons_IsoThreshold_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].NonCH4Hydrocarbons_MeasurementMethod_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].NonCH4Hydrocarbons_MeasuredRange_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].NonCH4Hydrocarbons_Probability_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Oxygen_SubstanceName_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Oxygen_IsoThreshold_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Oxygen_MeasurementMethod_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Oxygen_MeasuredRange_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Oxygen_Probability_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Helium_SubstanceName_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Helium_IsoThreshold_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Helium_MeasurementMethod_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Helium_MeasuredRange_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Helium_Probability_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Nitrogen_SubstanceName_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Nitrogen_IsoThreshold_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Nitrogen_MeasurementMethod_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Nitrogen_MeasuredRange_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Nitrogen_Probability_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Argon_SubstanceName_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Argon_IsoThreshold_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Argon_MeasurementMethod_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Argon_MeasuredRange_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Argon_Probability_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].CarbonDioxide_SubstanceName_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].CarbonDioxide_Argon_IsoThreshold_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].CarbonDioxide_Argon_MeasurementMethod_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].CarbonDioxide_Argon_MeasuredRange_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].CarbonDioxide_Argon_Probability_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].CarbonMonoxid_SubstanceName_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].CarbonMonoxid_IsoThreshold_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].CarbonMonoxid_MeasurementMethod_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].CarbonMonoxid_MeasuredRange_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].CarbonMonoxid_Probability_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].SulphurCompounds_SubstanceName_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].SulphurCompounds_IsoThreshold_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].SulphurCompounds_MeasurementMethod_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].SulphurCompounds_MeasuredRange_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].SulphurCompounds_Probability_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Formaldehyde_SubstanceName_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Formaldehyde_IsoThreshold_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Formaldehyde_MeasurementMethod_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Formaldehyde_MeasuredRange_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Formaldehyde_Probability_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].FormicAcid_SubstanceName_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].FormicAcid_IsoThreshold_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].FormicAcid_MeasurementMethod_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].FormicAcid_MeasuredRange_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].FormicAcid_Probability_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Amonia_SubstanceName_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Amonia_IsoThreshold_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Amonia_MeasurementMethod_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Amonia_MeasuredRange_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Amonia_Probability_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].HalogenatedCompounds_SubstanceName_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].HalogenatedCompounds_IsoThreshold_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].HalogenatedCompounds_MeasurementMethod_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].HalogenatedCompounds_MeasuredRange_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].HalogenatedCompounds_Probability_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Hydrocarbons_SubstanceName_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Hydrocarbons_IsoThreshold_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Hydrocarbons_MeasurementMethod_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Hydrocarbons_MeasuredRange_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Hydrocarbons_Probability_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Method_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Range_Measurement)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.ClientMeasurement) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PublicID_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerID_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SupplierID_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Supplier_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Notes_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Water_Name_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Water_ISO_Threshold_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Water_Measurement_Method_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Water_MeasuredRange_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Water_Probability_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Methane_SubstanceName_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Methane_IsoThreshold_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Methane_MeasurementMethod_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Methane_MeasuredRange_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Methane_Probability_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NonCH4Hydrocarbons_SubstanceName_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NonCH4Hydrocarbons_IsoThreshold_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NonCH4Hydrocarbons_MeasurementMethod_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NonCH4Hydrocarbons_MeasuredRange_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NonCH4Hydrocarbons_Probability_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Oxygen_SubstanceName_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Oxygen_IsoThreshold_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Oxygen_MeasurementMethod_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Oxygen_MeasuredRange_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Oxygen_Probability_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Helium_SubstanceName_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Helium_IsoThreshold_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Helium_MeasurementMethod_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Helium_MeasuredRange_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Helium_Probability_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nitrogen_SubstanceName_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nitrogen_IsoThreshold_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nitrogen_MeasurementMethod_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nitrogen_MeasuredRange_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nitrogen_Probability_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Argon_SubstanceName_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Argon_IsoThreshold_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Argon_MeasurementMethod_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Argon_MeasuredRange_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Argon_Probability_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarbonDioxide_SubstanceName_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarbonDioxide_Argon_IsoThreshold_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarbonDioxide_Argon_MeasurementMethod_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarbonDioxide_Argon_MeasuredRange_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarbonDioxide_Argon_Probability_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarbonMonoxid_SubstanceName_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarbonMonoxid_IsoThreshold_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarbonMonoxid_MeasurementMethod_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarbonMonoxid_MeasuredRange_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarbonMonoxid_Probability_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SulphurCompounds_SubstanceName_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SulphurCompounds_IsoThreshold_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SulphurCompounds_MeasurementMethod_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SulphurCompounds_MeasuredRange_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SulphurCompounds_Probability_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Formaldehyde_SubstanceName_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Formaldehyde_IsoThreshold_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Formaldehyde_MeasurementMethod_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Formaldehyde_MeasuredRange_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Formaldehyde_Probability_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FormicAcid_SubstanceName_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FormicAcid_IsoThreshold_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FormicAcid_MeasurementMethod_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FormicAcid_MeasuredRange_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FormicAcid_Probability_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amonia_SubstanceName_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amonia_IsoThreshold_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amonia_MeasurementMethod_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amonia_MeasuredRange_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amonia_Probability_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HalogenatedCompounds_SubstanceName_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HalogenatedCompounds_IsoThreshold_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HalogenatedCompounds_MeasurementMethod_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HalogenatedCompounds_MeasuredRange_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HalogenatedCompounds_Probability_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hydrocarbons_SubstanceName_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hydrocarbons_IsoThreshold_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hydrocarbons_MeasurementMethod_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hydrocarbons_MeasuredRange_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hydrocarbons_Probability_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Method_Measurement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Range_Measurement)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id_Measurement">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id_Measurement">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id_Measurement">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>

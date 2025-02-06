@@ -3,6 +3,7 @@ using System;
 using Loghid.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace loghid.Migrations
 {
     [DbContext(typeof(LoghidClientMeasurementDbContext))]
-    partial class LoghidClientMeasurementDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250205234822_alfam6")]
+    partial class alfam6
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.1");
@@ -96,13 +99,6 @@ namespace loghid.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("CarbonMonoxid_SubstanceName_Measurement")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("CustomerID_Measurement")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Customer_Measurement")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
@@ -204,7 +200,18 @@ namespace loghid.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<double>("IsoThreshold_Measurement")
+                        .HasColumnType("REAL");
+
                     b.Property<string>("Location_Measurement")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("MeasuredRange_Measurement")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("MeasurementMethod_Measurement")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
@@ -224,10 +231,6 @@ namespace loghid.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Methane_SubstanceName_Measurement")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Method_Measurement")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
@@ -291,12 +294,7 @@ namespace loghid.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("PublicID_Measurement")
-                        .IsRequired()
-                        .HasMaxLength(19)
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Range_Measurement")
+                    b.Property<string>("Probability_Measurement")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
@@ -319,11 +317,7 @@ namespace loghid.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("SupplierID_Measurement")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Supplier_Measurement")
-                        .IsRequired()
+                    b.Property<decimal>("Value_Measurement")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Water_ISO_Threshold_Measurement")

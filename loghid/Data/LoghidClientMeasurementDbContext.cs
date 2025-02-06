@@ -9,9 +9,18 @@ namespace Loghid.Data
         public DbSet<Substance> Substances { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-        }
-        public DbSet<Loghid.Models.Substance> Substance { get; set; } = default!;
-    }
+{
+    base.OnModelCreating(modelBuilder);
+
+    modelBuilder.Entity<ClientMeasurement>()
+        .HasKey(m => m.Id_Measurement); // Clave primaria real (int)
+
+    modelBuilder.Entity<ClientMeasurement>()
+        .Property(m => m.PublicID_Measurement)
+        .HasMaxLength(19) // 16 caracteres + 3 guiones
+        .IsRequired(); // Asegurar que no sea nulo
+}
+
+}
+
 }
