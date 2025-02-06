@@ -13,7 +13,6 @@
     <title>Measurements</title>
 
 </head>
-<body>
 
 <style>
     :root {
@@ -22,11 +21,47 @@
         --accent-blue: #3498db;
     }
 
-    body {
-        background-color: #f9fafb;
-        font-family: 'Inter', system-ui, sans-serif;
-        line-height: 1.6;
+        html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
     }
+
+    #mapContainer {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: calc(100vh - 80px); /* Resta la altura del navbar */
+    }
+
+    #mapWrapper {
+        width: 100%;
+        height: 100%;
+    }
+
+    #mapWrapper iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        background: #f8f9fa;
+    }
+
+    #navbarHorizontal {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+        padding: 0 20px;
+        z-index: 1000;
 
     .table-container {
         margin: 2rem;
@@ -177,6 +212,56 @@ a.btn-custom-link:hover {
     cursor: pointer;
 }
 </style>
+
+<body>
+    <nav class="navbar-horizontal">
+    <a class="nav-link" asp-page="/Index">
+        <i class="fas fa-home"></i>
+        <span>Index</span>
+    </a>
+
+
+    <a class="nav-link" asp-page="/Dashboard">
+        <i class="fas fa-chart-line"></i>
+        <span>ISO-14687 Parameters</span>
+    </a>
+
+    <a class="nav-link" asp-page="/Trazability">
+        <i class="fas fa-gas-pump"></i>
+        <span>Trazability</span>
+    </a>
+
+    <a class="nav-link" asp-page="/New-Client-Measurement/Index">
+        <i class="fas fa-circle-plus"></i>
+        <span>New-Measurement</span>
+    </a>
+
+    <a class="nav-link" asp-page="/Certificates">
+        <i class="fas fa-certificate"></i>
+        <span>Certificates</span>
+    </a>
+
+    <a class="nav-link" asp-page="/News">
+        <i class="fas fa-newspaper"></i>
+        <span>News</span>
+    </a>
+
+    <a class="nav-link" asp-page="/Incidents">
+        <i class="fas fa-exclamation-circle"></i>
+        <span>Incidents</span>
+    </a>
+
+    <a class="nav-link" asp-page="/Support">
+        <i class="fas fa-info-circle"></i>
+        <span>Support</span>
+    </a>
+
+    <a class="nav-link" asp-page="/Privacy">
+        <i class="fas fa-shield-alt"></i>
+        <span>Privacy</span>
+    </a>
+
+</nav>
 <a asp-page="Create" class="btn-custom-link">Create New Customer Measurement</a>
 <table class="table">
     <thead>
@@ -686,12 +771,10 @@ a.btn-custom-link:hover {
                 @Html.DisplayFor(modelItem => item.Hydrocarbons_Probability_Measurement)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id_Measurement">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id_Measurement">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id_Measurement">Delete</a>
-            </td>
+                <a asp-page="./Edit" asp-route-id="@item.ID" class="action-link">Edit</a>
+                <a asp-page="./Details" asp-route-id="@item.ID" class="action-link">Details</a>
+                <a asp-page="./Delete" asp-route-id="@item.ID" class="action-link">Delete</a>
         </tr>
-}
     </tbody>
 </table>
 </body>

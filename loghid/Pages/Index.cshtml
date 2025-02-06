@@ -1,4 +1,5 @@
-﻿@page
+﻿
+@page
 @model Loghid.Pages.IndexModel
 
 @{
@@ -15,13 +16,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #2ECC71;
-            --primary-color: #2c3e50;
+            --primary-color: #ffffff;
             --accent-green: #ffffff;
-            --shadow-color: rgba(46, 204, 113, 0.1);
+            --dark-blue: #1a2a3a; /* Color azul oscuro */
         }
 
-        {
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -29,24 +29,29 @@
         }
 
         body {
-    background-image: url('/images/loghid_main_panel.png'); /* Ruta a la imagen */
-    background-size: cover; /* Asegura que la imagen cubra toda la pantalla */
-    background-position: center center; /* Centra la imagen en el fondo */
-    background-repeat: no-repeat; /* No repetirá la imagen */
-    height: 100vh; /* Asegura que el fondo cubra todo el alto de la ventana */
-    margin: 0; /* Elimina el margen por defecto del body */
-    padding: 0; /* Elimina el padding por defecto del body */
-}
+            background-image: url('/images/loghid_main_panel.png'); /* URL de la imagen de fondo */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: flex-end; /* Alinea el contenido a la derecha */
+            align-items: center;
+        }
 
         .auth-container {
             background: white;
-            border-radius: 1.5rem;
-            box-shadow: 0 8px 32px var(--shadow-color);
-            width: 100%;
+            width: 100%; /* Ocupa un tercio del ancho de la pantalla */
             max-width: 440px;
             padding: 2.5rem;
             position: relative;
             overflow: hidden;
+            box-shadow: none;
+            height: 100vh; /* Ocupa toda la altura de la pantalla */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .auth-header {
@@ -54,20 +59,19 @@
             margin-bottom: 2rem;
         }
 
-            .auth-header h1 {
-                color: #2c3e50;
-                font-size: 2rem;
-                margin-bottom: 0.5rem;
-            }
+        .auth-header h1 {
+            color: var(--dark-blue); /* Texto en azul oscuro */
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
 
-            .auth-header i {
-                font-size: 2.5rem;
-                color: var(--primary-color);
-                margin-bottom: 1rem;
-                background: var(--accent-green);
-                padding: 1rem;
-                border-radius: 50%;
-            }
+        .auth-header i {
+            font-size: 2.5rem;
+            color: var(--dark-blue); /* Icono en azul oscuro */
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border-radius: 50%;
+        }
 
         .form-group {
             margin-bottom: 1.5rem;
@@ -77,19 +81,11 @@
             width: 100%;
             padding: 0.875rem 1.5rem;
             border: 2px solid #e9ecef;
-            border-radius: 0.75rem;
             font-size: 1rem;
-            transition: all 0.3s ease;
         }
 
-            .form-control:focus {
-                border-color: var(--primary-color);
-                box-shadow: 0 0 0 3px var(--shadow-color);
-                outline: none;
-            }
-
         .btn-primary {
-            background: var(--primary-color);
+            background: var(--dark-blue); /* Botón en azul oscuro */
             color: white;
             padding: 1rem 2rem;
             border: none;
@@ -98,13 +94,7 @@
             font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
         }
-
-            .btn-primary:hover {
-                opacity: 0.9;
-                transform: translateY(-1px);
-            }
 
         .auth-footer {
             text-align: center;
@@ -112,36 +102,42 @@
             color: #6c757d;
         }
 
-            .auth-footer a {
-                color: var(--primary-color);
-                text-decoration: none;
-                font-weight: 500;
-            }
-
-        .privacy-policy {
-            border-top: 1px solid #e9ecef;
-            margin-top: 2rem;
-            padding-top: 1.5rem;
-            font-size: 0.875rem;
-            color: #6c757d;
+        .auth-footer a {
+            color: var(--dark-blue); /* Enlace en azul oscuro */
+            text-decoration: none;
+            font-weight: 500;
         }
 
-        @@media (max-width: 576px) {
-            body {
-                padding: 1rem;
-            }
-
-            .auth-container {
-                padding: 1.5rem;
-            }
+        .lorem-text {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #6c757d;
         }
     </style>
 </head>
-<body>  
-<div id="authMainContainer" class="auth-container">
+<body>
+    <div id="authMainContainer" class="auth-container">
         <div class="auth-header">
-            <i class="fas fa-leaf""></i>
+            <i class="fas fa-gas-pump"></i>
             <h1>Loghid H2 Measurement & e-Traceability</h1>
         </div>
+
+        <form action="#">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Usuario" required />
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="Contraseña" required />
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn-primary">Acceder</button>
+            </div>
+        </form>
+
+        <div class="lorem-text">
+            <p>Loghid es la mayor plataforma de medición y trazabilidad de hidrógeno verde de España. Contacta con nuestro equipo. Legal.</p>
+        </div>
+    </div>
 </body>
 </html>
