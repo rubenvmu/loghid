@@ -1,0 +1,130 @@
+﻿@page
+@model Loghid.Pages.CertificatesIndex 
+
+@{
+    ViewData["Title"] = "Certificates Dashboard";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards con Bootstrap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Primera Card -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Medición Cliente</h5>
+                        <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].PublicID_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Date_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].CustomerID_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Customer_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].SupplierID_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Supplier_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Location_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Notes_Measurement)
+            </th>
+                </div>
+            </div>
+
+            <!-- Segunda Card -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title
+                        ">Medición Laboratorio</h5>
+                        <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].PublicID_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Date_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].CustomerID_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Customer_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].SupplierID_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Supplier_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Location_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Notes_Measurement)
+            </th>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tercera Card -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title
+                        ">Certificado</h5>
+                        <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].PublicID_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Date_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].CustomerID_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Customer_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].SupplierID_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Supplier_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Location_Measurement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientMeasurement[0].Notes_Measurement)
+            </th>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+           
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+<div class="container-fluid">
+    <p class="mb-0">&copy; 2023 GreenH2 News. All rights reserved.</p>
+</div>
