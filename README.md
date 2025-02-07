@@ -93,4 +93,3 @@ For inquiries, collaborations, or support, reach out to us:
 
 ![.NET Version](https://img.shields.io/badge/.NET-6.0-blue)  
 ![License](https://img.shields.io/badge/License-MIT-green)  
-![GitHub Stars](https://img.shields.io/github/stars/yrubenvmu/loghid?style=social)  
