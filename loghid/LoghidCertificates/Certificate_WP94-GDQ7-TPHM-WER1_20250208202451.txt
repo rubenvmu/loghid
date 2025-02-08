@@ -1,0 +1,48 @@
+Loghid Certificate Customer Measurement Report - ISO 14687
+==========================
+Measurement ID: 1
+Public ID: WP94-GDQ7-TPHM-WER1
+Date: 06/02/2025
+Customer ID: 12
+Customer: Zoilo Ríos
+Supplier ID: 1233
+Supplier: Ruben-Vasile M. Ungureanu
+Location: Gasolinera Aragón 
+Notes: Sin incidentes
+Water: Agua
+Water ISO Threshold: 5
+Water Measurement Method: 3
+Water Measurement Range: 2
+Water Probability: OFCEAS (LOD: 2 µmol/mol)
+Methane: Metano
+Methane ISO Threshold: 2
+Methane Measurement Method: GC-PDHID (LOD: 25 µmol/mol)
+Methane Measurement Range: 2
+Methane Probability: 2
+Non-CH4 Hydrocarbons: NoCH4
+Non-CH4 Hydrocarbons ISO Threshold: 2
+Non-CH4 Hydrocarbons Measurement Method: 0.2
+Non-CH4 Hydrocarbons Measurement Range: 0
+Non-CH4 Hydrocarbons Probability: GC-methanizer-PID (LOD: 0.01 µmol/mol)
+Oxygen: *
+Oxygen ISO Threshold: 2
+Oxygen Measurement Method: *
+Oxygen Measurement Range: *
+Oxygen Probability: *
+Helium: *
+Helium ISO Threshold: 2
+Helium Measurement Method: *
+Helium Measurement Range: *
+Helium Probability: *
+Nitrogen: +
+Nitrogen ISO Threshold: 2
+Nitrogen Measurement Method: *
+Nitrogen Measurement Range: *
+Nitrogen Probability: *
+Argon: *
+Argon ISO Threshold: 2
+Argon Measurement Method: *
+Argon Measurement Range: *
+Argon Probability: *
+==========================
+Generated on: 08/02/2025 20:24
