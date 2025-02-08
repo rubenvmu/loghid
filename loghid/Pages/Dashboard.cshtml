@@ -6,6 +6,10 @@
 }
 
 <style>
+
+    .container {
+            margin-top: 20px; /* Aumentar margen superior */
+        }
     .dashboard-card {
         border: 1px solid #e0e0e0;
         box-shadow: 0 2px 4px rgba(0,0,0,0.08);
@@ -16,6 +20,15 @@
         margin-left: 0; /* Asegúrate de que no haya márgenes no deseados */
         margin-right: 0;
     }
+
+    html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #f1f1f1;
+            font-family: Arial, sans-serif;
+        }
 
     .card-header {
         background: #2c3e50;
@@ -110,7 +123,8 @@ input.form-control, .btn {
 
 
 <br>
-<div class="container-dashboard">
+<div class="container">
+    <h2 class="mb-4">ISO Parameters Dashboard</h2>
     <div class="cotainer-fluid"> 
     <p>Search specific parameter:</p>
     <form method="get" asp-page="/DashboardSearch">

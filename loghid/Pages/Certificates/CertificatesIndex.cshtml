@@ -9,6 +9,7 @@
     <title>@ViewData["Lastest Certificates"]</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
     <style>
         .container {
             margin-top: 20px; /* Aumentar margen superior */
@@ -43,20 +44,9 @@
             font-size: 1.25rem;
         }
 
-        .download-btn {
+        .edit {
             background: #2c3e50;
-            border: none;
-            padding: 0.5rem 1rem;
-            color: white;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s;
-        }
-
-        .download-btn:hover {
-            background: #2c3e50;
-            transform: translateY(-2px);
+            color: #ffffff;
         }
 
         .data-label {
@@ -113,7 +103,28 @@
   transition: all 0.3s ease;
   white-space: nowrap;
 }
+.download {
+    background: #2c3e50; /* Azul oscuro */
+    color: white; /* Texto e icono en blanco */
+    padding: 0.5rem 1rem; /* Espaciado interno */
+    display: flex;
+    gap: 0.5rem; /* Espacio entre icono y texto */
+    font-size: 1rem; /* Tamaño del texto */
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    width: fit-content;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
+.download i {
+    font-size: 1.2rem; /* Tamaño del icono */
+}
+
+.download:hover {
+    background: #1a252f; /* Azul más oscuro en hover */
+    transform: translateY(-3px); /* Efecto de elevación */
+}
 .nav-link:hover {
   transform: translateY(-15px) scale(1.05);
   background: rgba(244, 244, 244, 0.7);
@@ -136,7 +147,6 @@
 
 
     </style>
-</head>
 <nav class="navbar-horizontal">
     <a class="nav-link" asp-page="/Index">
         <i class="fas fa-home"></i>
@@ -164,11 +174,6 @@
         <span>Certificates</span>
     </a>
 
-    <a class="nav-link" asp-page="/News">
-        <i class="fas fa-newspaper"></i>
-        <span>News</span>
-    </a>
-
     <a class="nav-link" asp-page="/Incidents">
         <i class="fas fa-exclamation-circle"></i>
         <span>Incidents</span>
@@ -187,7 +192,7 @@
 </nav>
 <body>
     <div class="container">
-        <h2 class="mb-4">Lastest Certificates</h2>
+        <h2 class="mb-4">Loghid Certificates Database</h2>
         <div class="row row-cols-1 row-cols-md-3 g-4">
             @foreach (var item in Model.ClientMeasurement)
             {
@@ -195,10 +200,7 @@
                     <div class="card h-100">
                         <div class="card-header">
                             <h5 class="card-title">Medición @item.PublicID_Measurement</h5>
-                            <button class="download-btn">
-                                <i class="fas fa-download"></i>
-                                <span>Download</span>
-                            </button>
+                            <a asp-page="./CertificatesEdit" asp-route-id="@item.Id_Measurement"><i class="fas edit fa-file-pen"></i></a>
                         </div>
                         <div class="card-body">
                             <div class="row g-3">
@@ -207,12 +209,12 @@
                                     <div class="card-text">@item.Date_Measurement.ToString("dd/MM/yyyy")</div>
                                 </div>
                                 <div class="col-12">
-                                    <div class="data-label">Customer</div>
-                                    <div class="card-text">@item.Customer_Measurement</div>
+                                    <div class="data-label">Customer ID</div>
+                                    <div class="card-text">@item.CustomerID_Measurement</div>
                                 </div>
-                                <div class="col-12">
-                                    <div class="data-label">Supplier</div>
-                                    <div class="card-text">@item.Supplier_Measurement</div>
+                                <div class="col-12 mt-3">
+                                    <div class="data-label">Supplier ID</div>
+                                    <span class="badge-custom">@item.SupplierID_Measurement</span>
                                 </div>
                                 <div class="col-12">
                                     <div class="data-label">Location</div>
@@ -223,7 +225,7 @@
                                     <div class="card-text">@item.Notes_Measurement</div>
                                 </div>
                                 <div class="col-12 mt-3">
-                                    <span class="badge-custom">Certificated by @item.SupplierID_Measurement</span>
+                                    <div class="download"><i class="fas fa-download"></i>Download</div>
                                 </div>
                             </div>
                         </div>
@@ -232,6 +234,16 @@
             }
         </div>
     </div>
+
+    <div class="container-fluid">
+    <p class="mb-0"></p>
+</div>
+<div class="container-fluid">
+    <p class="mb-0"></p>
+</div>
+<div class="container-fluid">
+    <p class="mb-0"></p>
+</div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
