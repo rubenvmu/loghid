@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using iText.Kernel.Pdf;
 using iText.Layout;
+using System.Security.Cryptography;
+using System.Text;
 using iText.Layout.Element;
 using iText.Kernel.Font;
 using iText.IO.Font.Constants;
@@ -27,72 +29,93 @@ namespace Loghid.Pages
             _context = context;
         }
 
+        private string CalculateSHA256Hash(string content)
+{
+    using (SHA256 sha256 = SHA256.Create())
+    {
+        byte[] hashBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(content));
+        return BitConverter.ToString(hashBytes).Replace("-", "").ToLowerInvariant();
+    }
+}
+
         public async Task OnGetAsync()
         {
             ClientMeasurement = await _context.Measurements.ToListAsync();
         }
 
         public async Task<IActionResult> OnGetDownloadAsync(int id)
+{
+    var measurement = await _context.Measurements.FindAsync(id);
+    if (measurement == null)
+    {
+        Console.WriteLine("Measurement not found.");
+        return NotFound();
+    }
+
+    // Sanitizar el PublicID para el nombre del archivo
+    string sanitizedPublicId = Regex.Replace(
+        measurement.PublicID_Measurement ?? "default",
+        @"[^\w\-]", 
+        "_"
+    );
+
+    // Crear el directorio si no existe
+    string folderPath = Path.Combine(Directory.GetCurrentDirectory(), "LoghidCertificates");
+    Directory.CreateDirectory(folderPath);
+
+    // Generar el hash del contenido
+    var data = BuildDataDictionary(measurement);
+    string contentForHash = string.Join("\n", data.Select(kvp => $"{kvp.Key}: {kvp.Value}"));
+    string hash = CalculateSHA256Hash(contentForHash);
+
+    // Usar el ID y el hash en el nombre del archivo
+    string fileName = $"Certificate_{measurement.Id_Measurement}_{hash}.pdf";
+    string fullPath = Path.Combine(folderPath, fileName);
+
+    try
+    {
+        // Crear el PDF
+        using (var writer = new PdfWriter(fullPath))
+        using (var pdf = new PdfDocument(writer))
         {
-            var measurement = await _context.Measurements.FindAsync(id);
-            if (measurement == null)
+            var document = new Document(pdf);
+            PdfFont boldFont = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
+
+            // Agregar contenido al PDF
+            document.Add(new Paragraph("Loghid Certificate Customer Measurement Report")
+                .SetTextAlignment(TextAlignment.LEFT)
+                .SetFontSize(16)
+                .SetFont(boldFont));
+
+            document.Add(new Paragraph($"Generated on: {DateTime.Now:dd/MM/yyyy HH:mm}")
+                .SetTextAlignment(TextAlignment.LEFT)
+                .SetFontSize(12));
+
+            document.Add(new Paragraph("Name: The name or type of the measured substance. ISO Threshold: The ISO-defined threshold value for quality measurement. Measurement Method: The specific method used for measurement. Measurement Range: The valid range of measured values. Probability: Likely represents the confidence level of the measurement.")
+                .SetTextAlignment(TextAlignment.LEFT)
+                .SetFontSize(12));
+
+            // Agregar datos dinámicos
+            foreach (var item in data)
             {
-                Console.WriteLine("Measurement not found.");
-                return NotFound();
+                document.Add(new Paragraph($"{item.Key}: {item.Value}")
+                    .SetFontSize(12));
             }
 
-            // Sanitizar el PublicID para el nombre del archivo
-            string sanitizedPublicId = Regex.Replace(
-                measurement.PublicID_Measurement ?? "default",
-                @"[^\w\-]", 
-                "_"
-            );
-            
-            string folderPath = Path.Combine(Directory.GetCurrentDirectory(), "LoghidCertificates");
-            string fileName = $"Certificate_{sanitizedPublicId}_{DateTime.Now:yyyyMMddHHmmss}.pdf";
-            string fullPath = Path.Combine(folderPath, fileName);
-
-            try
-            {
-                // Asegurar que el directorio existe
-                Directory.CreateDirectory(folderPath);
-
-                // Crear el PDF
-                using (var writer = new PdfWriter(fullPath))
-                using (var pdf = new PdfDocument(writer))
-                {
-                    var document = new Document(pdf);
-                    PdfFont boldFont = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
-
-                    // Título del documento
-                    document.Add(new Paragraph("Loghid Certificate Customer Measurement Report - ISO 14687")
-                        .SetTextAlignment(TextAlignment.CENTER)
-                        .SetFontSize(16)
-                        .SetFont(boldFont));
-
-                    // Contenido dinámico
-                    var data = BuildDataDictionary(measurement);
-                    foreach (var item in data)
-                    {
-                        document.Add(new Paragraph($"{item.Key}: {item.Value}")
-                            .SetFontSize(12)
-                            .SetMarginBottom(5));
-                    }
-
-                    // Pie de página
-                    document.Add(new Paragraph($"Generated on: {DateTime.Now:dd/MM/yyyy HH:mm}")
-                        .SetTextAlignment(TextAlignment.CENTER)
-                        .SetFontSize(10));
-                }
-
-                return PhysicalFile(fullPath, "application/pdf", fileName);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error completo: {ex.ToString()}");
-                return BadRequest($"Error al generar el PDF: {ex.Message}");
-            }
+            // Agregar el hash al PDF
+            document.Add(new Paragraph($"Document Hash (SHA-256): {hash}")
+                .SetTextAlignment(TextAlignment.LEFT)
+                .SetFontSize(12));
         }
+
+        return PhysicalFile(fullPath, "application/pdf", fileName);
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Error completo: {ex.ToString()}");
+        return BadRequest($"Error al generar el PDF: {ex.Message}");
+    }
+}
 
         private Dictionary<string, string> BuildDataDictionary(ClientMeasurement measurement)
         {
