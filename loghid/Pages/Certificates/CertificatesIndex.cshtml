@@ -225,8 +225,10 @@
                                     <div class="card-text">@item.Notes_Measurement</div>
                                 </div>
                                 <div class="col-12 mt-3">
-                                    <div class="download"><i class="fas fa-download"></i>Download</div>
-                                </div>
+                                <a asp-page="/Certificates/CertificatesIndex" asp-page-handler="Download" asp-route-id="@item.Id_Measurement">
+    <i class="fas fa-download"></i> Download
+</a>
+</div>
                             </div>
                         </div>
                     </div>
