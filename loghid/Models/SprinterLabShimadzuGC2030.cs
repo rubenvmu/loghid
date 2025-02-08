@@ -1,22 +1,23 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Loghid.Interfaces;
 
 namespace Loghid.Models
 {
     public class Precio
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public string Sistema { get; set; } = string.Empty; // Inicializado con valor predeterminado
-        public string RangoPrecio { get; set; } = string.Empty; // Inicializado con valor predeterminado
-        public double PrecioBase { get; set; } = 0.0; // Inicializado con valor predeterminado
+        public string? Sistema { get; set; } // Marked as nullable
+        public string? RangoPrecio { get; set; } // Marked as nullable
+        public decimal PrecioBase { get; set; }
     }
 
     public class SprinterLabShimadzuGC2030 : ISprinterLabShimadzuGC2030
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        // Propiedades de la clase
+
+        // Class properties
         public string Vehiculo { get; set; } = "Mercedes-Benz Sprinter";
         public string TipoConversion { get; set; } = "Laboratorio móvil para análisis de hidrógeno";
         public double CapacidadCarga { get; set; } = 3500;
@@ -58,34 +59,6 @@ namespace Loghid.Models
         public bool SistemaClimatizacionControlada { get; set; } = true;
         public bool SistemaEnergiaIndependiente { get; set; } = true;
 
-        // Precios
-        public Precio PrecioVehiculo { get; set; } = new Precio();
-        public Precio PrecioTipoConversion { get; set; } = new Precio();
-        public Precio PrecioModeloEquipo { get; set; } = new Precio();
-        public Precio PrecioNormaHidrogeno { get; set; } = new Precio();
-        public Precio PrecioNormaPureza { get; set; } = new Precio();
-        public Precio PrecioDetectorHidrogeno { get; set; } = new Precio();
-        public Precio PrecioDetectorHidrocarburos { get; set; } = new Precio();
-        public Precio PrecioDetectorOxigeno { get; set; } = new Precio();
-        public Precio PrecioDetectorAzufre { get; set; } = new Precio();
-        public Precio PrecioFiltrado { get; set; } = new Precio();
-        public Precio PrecioMetodoTomaMuestra { get; set; } = new Precio();
-        public Precio PrecioUnidadFraccionMolar { get; set; } = new Precio();
-        public Precio PrecioUnidadContenidoAgua { get; set; } = new Precio();
-        public Precio PrecioUnidadImpurezas { get; set; } = new Precio();
-        public Precio PrecioMetodoCalibracion { get; set; } = new Precio();
-        public Precio PrecioNormaCalibracion { get; set; } = new Precio();
-        public Precio PrecioEnsayoPresion { get; set; } = new Precio();
-        public Precio PrecioEnsayoFugas { get; set; } = new Precio();
-        public Precio PrecioEnsayoCalidadHidrogeno { get; set; } = new Precio();
-        public Precio PrecioCarrierGas { get; set; } = new Precio();
-        public Precio PrecioCarrierAlternativo { get; set; } = new Precio();
-        public Precio PrecioSensibilidadMinima { get; set; } = new Precio();
-        public Precio PrecioSistemaAislamientoVibraciones { get; set; } = new Precio();
-        public Precio PrecioSistemaClimatizacionControlada { get; set; } = new Precio();
-        public Precio PrecioSistemaEnergiaIndependiente { get; set; } = new Precio();
-
-        // Constructor vacío (opcional, ya que las propiedades ya están inicializadas)
         public SprinterLabShimadzuGC2030()
         {
         }
