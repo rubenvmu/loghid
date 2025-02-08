@@ -10,8 +10,8 @@
 Welcome to the **European H2 Measurement & e-Traceability Platform**! 🌱  
 This platform is designed to revolutionize the way we measure, track, and manage hydrogen (H2) data across Europe. Built with cutting-edge technology, it ensures transparency, accuracy, and efficiency in hydrogen-related operations.  
 
-![Screen1](https://i.imgur.com/DS2Yh0f.png) 
-![Screen4](https://i.imgur.com/0Z0bqGq.png) 
+![Screen1](https://i.imgur.com/DS2Yh0f.png)
+![Screen4](https://i.imgur.com/0Z0bqGq.png)
 ![Screen2](https://i.imgur.com/CiDhUUW.png)
 ![Screen3](https://i.imgur.com/IDwoXgi.png)
 
@@ -41,18 +41,25 @@ This platform is designed to revolutionize the way we measure, track, and manage
 ## 📦 Installation  
 
 1. Clone the repository:  
+
    ```bash
    git clone https://github.com/rubenvmu/loghid.git
    ```
+
 2. Navigate to the project directory:  
+
    ```bash
    cd loghid
    ```
+
 3. Install dependencies:  
+
    ```bash
    dotnet restore
    ```
+
 4. Run the application:  
+
    ```bash
    dotnet run
    ```
