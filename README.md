@@ -1,6 +1,9 @@
 
 # European H2 Measurement & e-Traceability Platform 🚀  
 
+![.NET Version](https://img.shields.io/badge/.NET-9.0-purple)  
+![License](https://img.shields.io/badge/License-MIT-green)  
+
 ![Loghid](https://i.imgur.com/IbeVWcD.png)  
 
 ## 📌 About  
@@ -93,8 +96,3 @@ For inquiries, collaborations, or support, reach out to us:
 ---
 
 ---
-
-### Badges  
-
-![.NET Version](https://img.shields.io/badge/.NET-6.0-blue)  
-![License](https://img.shields.io/badge/License-MIT-green)  
