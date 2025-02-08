@@ -1,12 +1,17 @@
 
 # European H2 Measurement & e-Traceability Platform 🚀  
 
-![Hydrogen Green App](https://i.imgur.com/IbeVWcD.png)  
+![Loghid](https://i.imgur.com/IbeVWcD.png)  
 
 ## 📌 About  
 
 Welcome to the **European H2 Measurement & e-Traceability Platform**! 🌱  
 This platform is designed to revolutionize the way we measure, track, and manage hydrogen (H2) data across Europe. Built with cutting-edge technology, it ensures transparency, accuracy, and efficiency in hydrogen-related operations.  
+
+![Screen1](https://i.imgur.com/DS2Yh0f.png) 
+![Screen4](https://i.imgur.com/0Z0bqGq.png) 
+![Screen2](https://i.imgur.com/CiDhUUW.png)
+![Screen3](https://i.imgur.com/IDwoXgi.png)
 
 🔗 Visit us at: [loghid.com](https://loghid.com)  
 
@@ -24,7 +29,7 @@ This platform is designed to revolutionize the way we measure, track, and manage
 
 ## 🛠️ Technologies Used  
 
-- **.NET** 🖥️  
+- **.NET 9** 🖥️  
 - **SQLite** 🗄️  
 - **Hydrogen Analytics** 🌿  
 - **Dashboard Application** 📊  
