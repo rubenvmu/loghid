@@ -1,10 +1,17 @@
 using Microsoft.EntityFrameworkCore;
 using Loghid.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Loghid.Data
 {
-    public class SprinterLabShimadzuDbContext(DbContextOptions<SprinterLabShimadzuDbContext> options) : DbContext(options)
+    public class SprinterLabShimadzuDbContext : DbContext
     {
+        public SprinterLabShimadzuDbContext(DbContextOptions<SprinterLabShimadzuDbContext> options) 
+            : base(options) { }
+
         public DbSet<SprinterLab> SprinterLab { get; set; }
         
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -12,9 +19,7 @@ namespace Loghid.Data
             base.OnModelCreating(modelBuilder);
             
             modelBuilder.Entity<SprinterLab>()
-                .ToTable("SprinterLab")  
-                .HasKey(s => s.Id);  
-
+                .HasKey(m => m.Id); 
         }
     }
 }
