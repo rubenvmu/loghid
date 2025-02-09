@@ -212,25 +212,10 @@ html, body {
                 @Html.DisplayNameFor(model => model.SprinterLab[0].VehiclePrice)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SprinterLab[0].ConversionType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SprinterLab[0].ConversionTypePrice)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.SprinterLab[0].LoadCapacity)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SprinterLab[0].LoadCapacityPrice)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.SprinterLab[0].InteriorSpace)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SprinterLab[0].InteriorSpacePrice)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SprinterLab[0].EquipmentModel)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.SprinterLab[0].EquipmentModelPrice)
@@ -398,28 +383,13 @@ html, body {
                 @Html.DisplayFor(modelItem => item.VehiclePrice)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ConversionType)
+                @Html.DisplayFor(modelItem => item.LoadCapacity)/kg
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ConversionTypePrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LoadCapacity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LoadCapacityPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.InteriorSpace)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.InteriorSpacePrice)
+                @Html.DisplayFor(modelItem => item.InteriorSpace)/m3
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.EquipmentModel)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EquipmentModelPrice)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.HydrogenStandard)
