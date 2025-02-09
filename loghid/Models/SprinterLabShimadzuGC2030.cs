@@ -4,60 +4,52 @@ using Loghid.Interfaces;
 
 namespace Loghid.Models
 {
-    public class Precio
-    {
-        public int Id { get; set; }
-        public string? Sistema { get; set; } // Marked as nullable
-        public string? RangoPrecio { get; set; } // Marked as nullable
-        public decimal PrecioBase { get; set; }
-    }
 
     public class SprinterLabShimadzuGC2030 : ISprinterLabShimadzuGC2030
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        // Class properties
-        public string Vehiculo { get; set; } = "Mercedes-Benz Sprinter";
-        public string TipoConversion { get; set; } = "Laboratorio móvil para análisis de hidrógeno";
-        public double CapacidadCarga { get; set; } = 3500;
-        public double EspacioInterior { get; set; } = 14.0;
+        public string Vehicle { get; set; } = "Mercedes-Benz Sprinter";
+        public string ConversionType { get; set; } = "Mobile laboratory for hydrogen analysis";
+        public double LoadCapacity { get; set; } = 3500;
+        public double InteriorSpace { get; set; } = 14.0;
 
-        public string ModeloEquipo { get; set; } = "Shimadzu Nexis GC-2030";
-        public string NormaHidrogeno { get; set; } = "ISO 19880-8";
-        public string NormaPureza { get; set; } = "ISO 14687:2006";
-        public double PurezaMinima { get; set; } = 98.0;
-        public double PurezaOptima { get; set; } = 99.995;
+        public string EquipmentModel { get; set; } = "Shimadzu Nexis GC-2030";
+        public string HydrogenStandard { get; set; } = "ISO 19880-8";
+        public string PurityStandard { get; set; } = "ISO 14687:2006";
+        public double MinimumPurity { get; set; } = 98.0;
+        public double OptimalPurity { get; set; } = 99.995;
 
-        public string DetectorHidrogeno { get; set; } = "TCD - Thermal Conductivity Detector";
-        public string DetectorHidrocarburos { get; set; } = "FID - Flame Ionization Detector";
-        public string DetectorOxigenoOtros { get; set; } = "GC con sensibilidad 0.5 µmol/mol o 20%";
-        public string DetectorAzufre { get; set; } = "FPD - Flame Photometric Detector";
+        public string HydrogenDetector { get; set; } = "TCD - Thermal Conductivity Detector";
+        public string HydrocarbonDetector { get; set; } = "FID - Flame Ionization Detector";
+        public string OxygenOthersDetector { get; set; } = "GC with 0.5 µmol/mol or 20% sensitivity";
+        public string SulfurDetector { get; set; } = "FPD - Flame Photometric Detector";
 
-        public int FiltroMinimoMicrones { get; set; } = 10;
-        public int FiltroMaximoMicrones { get; set; } = 40;
+        public int MinimumMicronFilter { get; set; } = 10;
+        public int MaximumMicronFilter { get; set; } = 40;
 
-        public string MetodoTomaMuestra { get; set; } = "Botella de un lote representativo";
+        public string SampleCollectionMethod { get; set; } = "Bottle from a representative batch";
 
-        public string UnidadFraccionMolar { get; set; } = "%";
-        public string UnidadContenidoAgua { get; set; } = "cm3/m3 (higrómetro electrolítico)";
-        public string UnidadImpurezas { get; set; } = "µmol/mol";
+        public string MolarFractionUnit { get; set; } = "%";
+        public string WaterContentUnit { get; set; } = "cm3/m3 (electrolytic hygrometer)";
+        public string ImpuritiesUnit { get; set; } = "µmol/mol";
 
-        public string MetodoCalibracion { get; set; } = "Gas patrón de calibración con analito";
-        public string NormaCalibracion { get; set; } = "ISO 21087";
+        public string CalibrationMethod { get; set; } = "Calibration standard gas with analyte";
+        public string CalibrationStandard { get; set; } = "ISO 21087";
 
-        public bool EnsayoPresion { get; set; } = true;
-        public bool EnsayoFugas { get; set; } = true;
-        public bool EnsayoCalidadHidrogeno { get; set; } = true;
+        public bool PressureTest { get; set; } = true;
+        public bool LeakTest { get; set; } = true;
+        public bool HydrogenQualityTest { get; set; } = true;
 
-        public string CarrierGas { get; set; } = "He (Helio)";
-        public string CarrierAlternativo { get; set; } = "N2 (requiere más tiempo de análisis)";
+        public string CarrierGas { get; set; } = "He (Helium)";
+        public string AlternativeCarrier { get; set; } = "N2 (requires more analysis time)";
 
-        public double SensibilidadMinima { get; set; } = 0.1;
+        public double MinimumSensitivity { get; set; } = 0.1;
 
-        public bool SistemaAislamientoVibraciones { get; set; } = true;
-        public bool SistemaClimatizacionControlada { get; set; } = true;
-        public bool SistemaEnergiaIndependiente { get; set; } = true;
+        public bool VibrationIsolationSystem { get; set; } = true;
+        public bool ControlledClimateSystem { get; set; } = true;
+        public bool IndependentPowerSystem { get; set; } = true;
 
         public SprinterLabShimadzuGC2030()
         {
