@@ -1,0 +1,596 @@
+@page
+@model loghid.Pages.Movilabs.IndexModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Lastest Certificates"]</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f1f1f1;
+    font-family: Arial, sans-serif;
+}
+
+.drag-drop-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-container {
+    background: white;
+    padding: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 0;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.create-header {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    padding: 1rem 0;
+    border-bottom: 2px solid #f1f1f1;
+}
+
+.create-circle {
+    width: 120px;
+    height: 120px;
+    background-color: #2c3e50; /* Fondo azul */
+    border-radius: 50%;
+    margin: 2rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none; /* Evita la línea azul */
+}
+
+.create-circle i {
+    font-size: 3rem;
+    color: #ffffff; /* Ícono blanco */
+    transition: all 0.3s ease;
+}
+
+.create-circle:hover {
+    transform: scale(1.05);
+    background-color: #11181f; /* Azul más oscuro en hover */
+}
+
+.navbar-horizontal {
+    width: 100%;
+    height: 90px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    padding: 0 20px;
+    z-index: 1030;
+}
+
+.nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px;
+    border-radius: 16px;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 1.95);
+    text-decoration: none !important;
+    position: relative;
+}
+
+.nav-link i {
+    font-size: 1.8rem;
+    color: #2c3e50 !important; /* Íconos en azul */
+    transition: all 0.3s ease;
+}
+
+.nav-link span {
+    font-size: 0.75rem;
+    color: #2c3e50;
+    position: absolute;
+    bottom: -25px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.nav-link:hover {
+    transform: translateY(-15px) scale(1.05);
+    background: rgba(244, 244, 244, 0.7);
+}
+
+.nav-link:hover i {
+    transform: scale(1.05);
+}
+
+.nav-link:hover span {
+    opacity: 1;
+    bottom: -20px;
+}
+
+.nav-link:hover {
+    background-color: #ffffff; /* Fondo blanco en hover */
+}
+
+.nav-link:hover i {
+    color: #2c3e50; /* Los íconos siguen siendo azules cuando se pasa el cursor */
+}
+</style>
+
+    <nav class="navbar-horizontal">
+    <!-- Barra de navegación con íconos azul sobre blanco -->
+    <a class="nav-link" asp-page="/Index">
+        <i class="fas fa-home"></i>
+        <span>Index</span>
+    </a>
+    <a class="nav-link" asp-page="/Dashboard">
+        <i class="fas fa-chart-line"></i>
+        <span>ISO Parameters</span>
+    </a>
+    <a class="nav-link" asp-page="/Trazability">
+        <i class="fas fa-gas-pump"></i>
+        <span>Trazability</span>
+    </a>
+    <a class="nav-link" asp-page="/New-Measurement/Index">
+        <i class="fas fa-circle-plus"></i>
+        <span>New Measurement</span>
+    </a>
+    <a class="nav-link" asp-page="/Certificates/CertificatesIndex">
+        <i class="fas fa-certificate"></i>
+        <span>Certificates</span>
+    </a>
+    
+    <a class="nav-link" asp-page="/Movilabs/Index">
+        <i class="fas fa-truck"></i>
+        <span>Movilabs</span>
+    </a>
+
+    <a class="nav-link" asp-page="/Incidents">
+        <i class="fas fa-exclamation-circle"></i>
+        <span>Incidents</span>
+    </a>
+    <a class="nav-link" asp-page="/Support">
+        <i class="fas fa-info-circle"></i>
+        <span>Support</span>
+    </a>
+    <a class="nav-link" asp-page="/Privacy">
+        <i class="fas fa-shield-alt"></i>
+        <span>Privacy</span>
+    </a>
+</nav>
+
+<div class="drag-drop-container">
+    <div class="card-container">
+        <div class="create-header">
+            <h2>Movilabs</h2>
+        </div>
+        <a asp-page="Create" class="create-circle">
+            <i class="fa-solid fa-truck"></i> 
+        </a>
+    </div>
+</div>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].Vehicle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].VehiclePrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].ConversionType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].ConversionTypePrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].LoadCapacity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].LoadCapacityPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].InteriorSpace)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].InteriorSpacePrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].EquipmentModel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].EquipmentModelPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].HydrogenStandard)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].HydrogenStandardPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].PurityStandard)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].PurityStandardPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].MinimumPurity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].MinimumPurityPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].OptimalPurity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].OptimalPurityPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].HydrogenDetector)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].HydrogenDetectorPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].HydrocarbonDetector)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].HydrocarbonDetectorPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].OxygenOthersDetector)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].OxygenOthersDetectorPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].SulfurDetector)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].SulfurDetectorPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].MinimumMicronFilter)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].MinimumMicronFilterPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].MaximumMicronFilter)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].MaximumMicronFilterPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].SampleCollectionMethod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].SampleCollectionMethodPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].MolarFractionUnit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].MolarFractionUnitPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].WaterContentUnit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].WaterContentUnitPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].ImpuritiesUnit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].ImpuritiesUnitPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].CalibrationMethod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].CalibrationMethodPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].CalibrationStandard)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].CalibrationStandardPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].PressureTest)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].PressureTestPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].LeakTest)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].LeakTestPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].HydrogenQualityTest)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].HydrogenQualityTestPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].CarrierGas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].CarrierGasPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].AlternativeCarrier)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].AlternativeCarrierPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].MinimumSensitivity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].MinimumSensitivityPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].VibrationIsolationSystem)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].VibrationIsolationSystemPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].ControlledClimateSystem)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].ControlledClimateSystemPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].IndependentPowerSystem)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SprinterLab[0].IndependentPowerSystemPrice)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.SprinterLab) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vehicle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VehiclePrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ConversionType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ConversionTypePrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoadCapacity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoadCapacityPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InteriorSpace)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InteriorSpacePrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EquipmentModel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EquipmentModelPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HydrogenStandard)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HydrogenStandardPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PurityStandard)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PurityStandardPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MinimumPurity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MinimumPurityPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OptimalPurity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OptimalPurityPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HydrogenDetector)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HydrogenDetectorPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HydrocarbonDetector)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HydrocarbonDetectorPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OxygenOthersDetector)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OxygenOthersDetectorPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SulfurDetector)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SulfurDetectorPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MinimumMicronFilter)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MinimumMicronFilterPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaximumMicronFilter)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaximumMicronFilterPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SampleCollectionMethod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SampleCollectionMethodPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MolarFractionUnit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MolarFractionUnitPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WaterContentUnit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WaterContentUnitPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImpuritiesUnit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImpuritiesUnitPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CalibrationMethod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CalibrationMethodPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CalibrationStandard)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CalibrationStandardPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PressureTest)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PressureTestPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LeakTest)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LeakTestPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HydrogenQualityTest)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HydrogenQualityTestPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarrierGas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarrierGasPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AlternativeCarrier)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AlternativeCarrierPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MinimumSensitivity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MinimumSensitivityPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VibrationIsolationSystem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VibrationIsolationSystemPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ControlledClimateSystem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ControlledClimateSystemPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IndependentPowerSystem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IndependentPowerSystemPrice)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<div class="container-fluid">
+    &InvisibleComma;
+    &InvisibleComma;
+    &InvisibleComma;
+    &InvisibleComma;
+    &InvisibleComma;
+    &InvisibleComma;
+    &InvisibleComma;
+</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</html>
+

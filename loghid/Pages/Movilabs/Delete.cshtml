@@ -1,0 +1,391 @@
+@page
+@model loghid.Pages.Movilabs.DeleteModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>SprinterLab</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.Vehicle)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.Vehicle)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.VehiclePrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.VehiclePrice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.ConversionType)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.ConversionType)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.ConversionTypePrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.ConversionTypePrice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.LoadCapacity)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.LoadCapacity)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.LoadCapacityPrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.LoadCapacityPrice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.InteriorSpace)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.InteriorSpace)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.InteriorSpacePrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.InteriorSpacePrice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.EquipmentModel)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.EquipmentModel)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.EquipmentModelPrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.EquipmentModelPrice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.HydrogenStandard)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.HydrogenStandard)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.HydrogenStandardPrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.HydrogenStandardPrice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.PurityStandard)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.PurityStandard)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.PurityStandardPrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.PurityStandardPrice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.MinimumPurity)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.MinimumPurity)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.MinimumPurityPrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.MinimumPurityPrice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.OptimalPurity)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.OptimalPurity)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.OptimalPurityPrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.OptimalPurityPrice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.HydrogenDetector)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.HydrogenDetector)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.HydrogenDetectorPrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.HydrogenDetectorPrice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.HydrocarbonDetector)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.HydrocarbonDetector)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.HydrocarbonDetectorPrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.HydrocarbonDetectorPrice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.OxygenOthersDetector)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.OxygenOthersDetector)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.OxygenOthersDetectorPrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.OxygenOthersDetectorPrice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.SulfurDetector)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.SulfurDetector)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.SulfurDetectorPrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.SulfurDetectorPrice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.MinimumMicronFilter)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.MinimumMicronFilter)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.MinimumMicronFilterPrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.MinimumMicronFilterPrice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.MaximumMicronFilter)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.MaximumMicronFilter)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.MaximumMicronFilterPrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.MaximumMicronFilterPrice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.SampleCollectionMethod)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.SampleCollectionMethod)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.SampleCollectionMethodPrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.SampleCollectionMethodPrice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.MolarFractionUnit)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.MolarFractionUnit)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.MolarFractionUnitPrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.MolarFractionUnitPrice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.WaterContentUnit)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.WaterContentUnit)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.WaterContentUnitPrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.WaterContentUnitPrice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.ImpuritiesUnit)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.ImpuritiesUnit)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.ImpuritiesUnitPrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.ImpuritiesUnitPrice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.CalibrationMethod)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.CalibrationMethod)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.CalibrationMethodPrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.CalibrationMethodPrice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.CalibrationStandard)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.CalibrationStandard)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.CalibrationStandardPrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.CalibrationStandardPrice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.PressureTest)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.PressureTest)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.PressureTestPrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.PressureTestPrice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.LeakTest)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.LeakTest)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.LeakTestPrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.LeakTestPrice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.HydrogenQualityTest)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.HydrogenQualityTest)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.HydrogenQualityTestPrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.HydrogenQualityTestPrice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.CarrierGas)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.CarrierGas)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.CarrierGasPrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.CarrierGasPrice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.AlternativeCarrier)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.AlternativeCarrier)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.AlternativeCarrierPrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.AlternativeCarrierPrice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.MinimumSensitivity)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.MinimumSensitivity)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.MinimumSensitivityPrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.MinimumSensitivityPrice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.VibrationIsolationSystem)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.VibrationIsolationSystem)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.VibrationIsolationSystemPrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.VibrationIsolationSystemPrice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.ControlledClimateSystem)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.ControlledClimateSystem)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.ControlledClimateSystemPrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.ControlledClimateSystemPrice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.IndependentPowerSystem)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.IndependentPowerSystem)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SprinterLab.IndependentPowerSystemPrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SprinterLab.IndependentPowerSystemPrice)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="SprinterLab.Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>
+</body>
+</html>
