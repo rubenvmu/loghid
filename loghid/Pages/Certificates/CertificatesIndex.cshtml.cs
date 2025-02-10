@@ -52,36 +52,33 @@ namespace Loghid.Pages
         return NotFound();
     }
 
-    // Sanitizar el PublicID para el nombre del archivo
     string sanitizedPublicId = Regex.Replace(
         measurement.PublicID_Measurement ?? "default",
         @"[^\w\-]", 
         "_"
     );
 
-    // Crear el directorio si no existe
     string folderPath = Path.Combine(Directory.GetCurrentDirectory(), "LoghidCertificates");
     Directory.CreateDirectory(folderPath);
 
-    // Generar el hash del contenido
+
     var data = BuildDataDictionary(measurement);
     string contentForHash = string.Join("\n", data.Select(kvp => $"{kvp.Key}: {kvp.Value}"));
     string hash = CalculateSHA256Hash(contentForHash);
 
-    // Usar el ID y el hash en el nombre del archivo
     string fileName = $"Certificate_{measurement.Id_Measurement}_{hash}.pdf";
     string fullPath = Path.Combine(folderPath, fileName);
 
     try
     {
-        // Crear el PDF
+        
         using (var writer = new PdfWriter(fullPath))
         using (var pdf = new PdfDocument(writer))
         {
             var document = new Document(pdf);
             PdfFont boldFont = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
 
-            // Agregar contenido al PDF
+            
             document.Add(new Paragraph("Loghid Certificate Customer Measurement Report")
                 .SetTextAlignment(TextAlignment.LEFT)
                 .SetFontSize(16)
@@ -95,14 +92,14 @@ namespace Loghid.Pages
                 .SetTextAlignment(TextAlignment.LEFT)
                 .SetFontSize(12));
 
-            // Agregar datos dinámicos
+            
             foreach (var item in data)
             {
                 document.Add(new Paragraph($"{item.Key}: {item.Value}")
                     .SetFontSize(12));
             }
 
-            // Agregar el hash al PDF
+            
             document.Add(new Paragraph($"Document Hash (SHA-256): {hash}")
                 .SetTextAlignment(TextAlignment.LEFT)
                 .SetFontSize(12));
