@@ -79,35 +79,47 @@ This platform is designed to revolutionize the way we measure, track, and manage
 
 ```mermaid
 %%{init: {'theme': 'neutral', 'themeVariables': { 'primaryColor': '#ffffff', 'edgeLabelBackground':'#fff', 'tertiaryColor': '#fff0f0'}}}%%
-graph LR
+graph TB
     A[Organización Sin Ánimo de Lucro] --> B[Análisis y Certificación]
     A --> C[Consultoría Técnica]
     A --> D[Gestión de Suscripciones]
-    A --> E[Expansión Nacional]
+    A --> E[Expansión y Alianzas]
 
-    B --> F[Proveedores de Equipos]
-    F -->|Colaboración| G[Agilent, Thermo Fisher]
-    B --> H[[Tarifas por Análisis]]
-    B --> I[Hidrolineras/Productores]
+    %% Bloque de Certificación
+    B --> F[Proveedores Tecnológicos]
+    F --> G[[Equipos: Cromatógrafos, Sensores]]
+    B --> H[[Ingresos: Suscripción]]
+    B --> I[Hidrolineras/Generadoras]
 
-    C --> J[Consultoras Técnicas]
-    C --> K[[Honorarios Consultoría]]
-    C --> L[AENOR/ENAC]
+    %% Bloque de Consultoría
+    C --> J[Auditorías Normativas]
+    C --> K[[Ingresos: Honorarios Consultoría]]
+    C --> L[Reguladores: AENOR/ENAC]
 
-    D --> M[[Suscripciones]]
+    %% Bloque de Suscripciones
+    D --> M[[Suscripciones Mensuales/Anuales]]
     D --> N[[Formación Técnica]]
-    D --> O[Clientes]
+    D --> O[Clientes Registrados]
 
-    E --> P[Organizaciones Locales]
-    P -->|Alianzas| Q[Zoilo Ríos]
-    E --> R[Escalabilidad]
-    E --> S[Entrevistas Validadas]
+    %% Bloque de Expansión y Validación
+    E --> P[Alianzas Estratégicas]
+    P --> Q[ARPA]
+    P --> R[Ibercaja]
+    P --> S[Fund. Hidrógeno Aragón]
+    P --> T[EbroH2]
+    
+    E --> U[Validación]
+    U --> V[Zoilo Ríos]
+    U --> W[Encuesta: 30 personas]
+    W --> X[10 profesionales H2]
+    W --> Y[86% Satisfacción]
 
     style A fill:#2ecc71,stroke:#27ae60,color:#fff
     style B,C,D,E fill:#3498db,stroke:#2980b9,color:#fff
-    style F,J,P fill:#e67e22,stroke:#d35400
+    style F,P fill:#e67e22,stroke:#d35400
     style H,K,M,N fill:#9b59b6,stroke:#8e44ad,color:#fff
-    style I,O,Q,L,R,S fill:#f1c40f,stroke:#f39c12
+    style I,O,Q,R,S,T,V,W fill:#f1c40f,stroke:#f39c12
+    style X,Y fill:#2ecc71,stroke:#27ae60,color:#fff
 ```
 
 ---
