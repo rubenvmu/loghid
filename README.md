@@ -1,13 +1,13 @@
 
-# European H2 In-Situ Measurement & e-Traceability Platform 🚀  
+H2 In-Situ Measurement & e-Traceability Platform 🚀  
 
 ![.NET Version](https://img.shields.io/badge/.NET-9.0-purple) ![License](https://img.shields.io/badge/License-MIT-green)  
 
-![Loghid](https://i.imgur.com/IbeVWcD.png)  
+![Loghid](https://i.imgur.com/JA0DOEw.png)  
 
 ## 📌 About  
 
-Welcome to the **European H2 Measurement & e-Traceability Platform**! 🌱  
+Welcome to the **H2 Measurement & e-Traceability Platform**! 🌱  
 This platform is designed to revolutionize the way we measure, track, and manage hydrogen (H2) data across Europe. Built with cutting-edge technology, it ensures transparency, accuracy, and efficiency in hydrogen-related operations.  
 
 ![Screen1](https://i.imgur.com/DS2Yh0f.png)
