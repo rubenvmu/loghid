@@ -185,61 +185,46 @@ classDiagram
         +double AnalysisService
         +double Calibration
         +double VehicleMaintenance
-        +double TotalPrice()* «calculated»
+        +double TotalPrice()* Calculated
     }
 
     class eSprinterLab {
         <<Entity>>
-        -[Key]«PK» [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         +int Id
-        
-        -[Required][MaxLength(100)]
-        +string Vehicle = "Mercedes-Benz Sprinter"
-        
-        -[Range(0, double.MaxValue)]
+        +string Vehicle
         +double VehiclePrice
-        
-        -[Display("Cargo Capacity (kg)")][Range(0, double.MaxValue)]
-        +double CargoCapacity = 2854.0
-        
-        -[Display("Interior Space (m³)")][Range(0, double.MaxValue)]
-        +double InteriorSpace = 14.0
-        
-        -[Display("Autonomy Capacity")][Range(0, double.MaxValue)]
+        +double CargoCapacity
+        +double InteriorSpace
         +double AutonomyCapacity
-        
-        -[Display("Price per 100km")][Range(0, double.MaxValue)]
         +double PricePer100km
-
-        %% Chromatography Equipment
-        -[Range(0, double.MaxValue)]
-        +double Chromatograph = 65000.0
-        +double TCD = 8000.0
-        +double FID = 1400.0
-        +double Hygrometer = 1500.0
-        +double FPD = 3350.0
-
-        %% Gas System
-        -[Range(0, double.MaxValue)]
-        +double PressureRegulators = 2000.0
-        +double StandardGasBottles = 2550.0
-        +double GasColumns = 3000.0
-        +double HeliumCarrierGas = 200.0
-        +double AirFuelGas = 150.0
-
-        %% Certifications & Services
-        -[Range(0, double.MaxValue)]
-        +double ChromatographCertification = 3000.0
-        +double RegulatoryConsultations = 1000.0
-        +double AnalysisService = 640.0
-        +double Calibration = 300.0
-        +double VehicleMaintenance = 20.0
-
-        +double TotalPrice() «calculated» 
+        +double Chromatograph
+        +double TCD
+        +double FID
+        +double Hygrometer
+        +double FPD
+        +double PressureRegulators
+        +double StandardGasBottles
+        +double GasColumns
+        +double HeliumCarrierGas
+        +double AirFuelGas
+        +double ChromatographCertification
+        +double RegulatoryConsultations
+        +double AnalysisService
+        +double Calibration
+        +double VehicleMaintenance
+        +double TotalPrice() Calculated
+        
+        note for eSprinterLab "Annotations:
+        - [Key] (Primary Key)
+        - [DatabaseGenerated]
+        - [Required]
+        - [MaxLength(100)]
+        - [Range] validations
+        - Default values set"
     }
 
-    IeSprinterLab <|.. eSprinterLab : implements
-    ```
+    IeSprinterLab <|.. eSprinterLab
+   ```
 
 ---
 
