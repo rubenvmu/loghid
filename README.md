@@ -8,12 +8,7 @@
 ## 📌 About  
 
 Welcome to the **H2 Measurement & e-Traceability Platform**! 🌱  
-This platform is designed to revolutionize the way we measure, track, and manage hydrogen (H2) data across Europe. Built with cutting-edge technology, it ensures transparency, accuracy, and efficiency in hydrogen-related operations.  
-
-![Screen1](https://i.imgur.com/DS2Yh0f.png)
-![Screen4](https://i.imgur.com/0Z0bqGq.png)
-![Screen2](https://i.imgur.com/CiDhUUW.png)
-![Screen3](https://i.imgur.com/IDwoXgi.png)
+This platform is designed to revolutionize the way we measure, track, and manage hydrogen (H2). Built with .NET technologies, it ensures transparency, accuracy, and efficiency in hydrogen-related operations.  
 
 🔗 Visit us at: [loghid.com](https://loghid.com)  
 
@@ -24,7 +19,6 @@ This platform is designed to revolutionize the way we measure, track, and manage
 - **Real-time H2 Measurement** 📊  
 - **e-Traceability** 🛤️  
 - **Interactive Dashboard** 📈  
-- **Data Analytics** 🔍  
 - **Secure & Scalable** 🔒  
 
 ---
@@ -63,15 +57,6 @@ This platform is designed to revolutionize the way we measure, track, and manage
    ```bash
    dotnet run
    ```
-
----
-
-## 🌐 Usage  
-
-1. Log in to the platform.  
-2. Access the **Dashboard** for real-time H2 measurements.  
-3. Follow the **H2 Fingerprint** feature to track hydrogen data.  
-4. Generate reports and analytics for better decision-making.  
 
 ---
 
