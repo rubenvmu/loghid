@@ -119,6 +119,7 @@ graph TB
 
 ## 📊 Loghid Organizational Flowchart
 
+```mermaid
 %%{init: {'theme': 'neutral', 'themeVariables': { 'primaryColor': '#ffffff', 'edgeLabelBackground':'#fff', 'tertiaryColor': '#fff0f0'}}}%%
 graph TB
     A[Non-Profit Organization] --> B[Analysis and Certification]
@@ -161,6 +162,7 @@ graph TB
     style H,K,M,N fill:#9b59b6,stroke:#8e44ad,color:#fff
     style I,O,Q,R,S,T,V,W fill:#f1c40f,stroke:#f39c12
     style X,Y fill:#2ecc71,stroke:#27ae60,color:#fff
+```
 
 ---
 
