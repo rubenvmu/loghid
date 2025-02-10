@@ -80,10 +80,7 @@ namespace Loghid.Models
         [Range(0, double.MaxValue)]
         public double VehicleMaintenance { get; set; } = 20.0;
 
-        public double TotalPrice => VehiclePrice + Chromatograph + TCD + FID + Hygrometer +
-                                  FPD + PressureRegulators + StandardGasBottles + GasColumns +
-                                  HeliumCarrierGas + AirFuelGas + ChromatographCertification +
-                                  RegulatoryConsultations + AnalysisService + Calibration +
-                                  VehicleMaintenance;
+        [Display(Name = "Total Price (€)")]
+        public double TotalPrice { get; set; } = 0.0;
     }
 }

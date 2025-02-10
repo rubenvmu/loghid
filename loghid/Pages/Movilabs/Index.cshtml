@@ -6,159 +6,216 @@
 }
 
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>Mobile Labs</title>
+    <style>
+        /* Estilos anteriores se mantienen igual */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 2rem;
+            background-color: #f5f7fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .create-btn {
+            background-color: #2a5f8a;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 2rem;
+            transition: background-color 0.3s;
+        }
+
+        .create-btn:hover {
+            background-color: #1d4565;
+        }
+
+        .item-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+        }
+
+        .property-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .property-row:last-child {
+            border-bottom: none;
+        }
+
+        .property-label {
+            color: #2a5f8a;
+            font-weight: 600;
+        }
+
+        .property-value {
+            color: #333;
+            font-weight: 400;
+        }
+
+        .actions {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #eee;
+        }
+
+        .action-link {
+            color: #2a5f8a;
+            text-decoration: none;
+            margin-right: 1rem;
+            transition: color 0.3s;
+        }
+
+        .action-link:hover {
+            color: #1d4565;
+        }
+
+        .total-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2a5f8a;
+            margin-top: 1rem;
+        }
+    </style>
 </head>
 <body>
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.eSprinterLab[0].Vehicle)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.eSprinterLab[0].VehiclePrice)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.eSprinterLab[0].CargoCapacity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.eSprinterLab[0].InteriorSpace)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.eSprinterLab[0].AutonomyCapacity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.eSprinterLab[0].PricePer100km)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.eSprinterLab[0].Chromatograph)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.eSprinterLab[0].TCD)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.eSprinterLab[0].FID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.eSprinterLab[0].Hygrometer)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.eSprinterLab[0].FPD)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.eSprinterLab[0].PressureRegulators)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.eSprinterLab[0].StandardGasBottles)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.eSprinterLab[0].GasColumns)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.eSprinterLab[0].HeliumCarrierGas)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.eSprinterLab[0].AirFuelGas)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.eSprinterLab[0].ChromatographCertification)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.eSprinterLab[0].RegulatoryConsultations)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.eSprinterLab[0].AnalysisService)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.eSprinterLab[0].Calibration)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.eSprinterLab[0].VehicleMaintenance)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.eSprinterLab) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Vehicle)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VehiclePrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CargoCapacity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.InteriorSpace)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AutonomyCapacity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PricePer100km)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Chromatograph) 15 years
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TCD) 10 years
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FID) 10 years
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Hygrometer) 10 years
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FPD) 10 years
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PressureRegulators) 10 years
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StandardGasBottles) anual
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GasColumns) for 1.5 years
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HeliumCarrierGas) anual
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AirFuelGas) anual
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ChromatographCertification) anual
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RegulatoryConsultations) anual
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AnalysisService) for day.
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Calibration) for station.
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VehicleMaintenance) for day.
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <div class="container">
+        <a asp-page="Create" class="create-btn">Create New Lab</a>
+
+        @foreach (var item in Model.eSprinterLab)
+        {
+            <div class="item-card">
+                <div class="property-row">
+                    <div class="property-label">@Html.DisplayNameFor(model => model.eSprinterLab[0].Vehicle)</div>
+                    <div class="property-value">@item.Vehicle</div>
+                </div>
+                
+                <div class="property-row">
+                    <div class="property-label">@Html.DisplayNameFor(model => model.eSprinterLab[0].VehiclePrice)</div>
+                    <div class="property-value">@item.VehiclePrice.ToString("N0") €</div>
+                </div>
+
+                <div class="property-row">
+                    <div class="property-label">@Html.DisplayNameFor(model => model.eSprinterLab[0].CargoCapacity)</div>
+                    <div class="property-value">@item.CargoCapacity.ToString("N0") kg</div>
+                </div>
+
+                <div class="property-row">
+                    <div class="property-label">@Html.DisplayNameFor(model => model.eSprinterLab[0].InteriorSpace)</div>
+                    <div class="property-value">@item.InteriorSpace.ToString("N2") m³</div>
+                </div>
+
+                <div class="property-row">
+                    <div class="property-label">@Html.DisplayNameFor(model => model.eSprinterLab[0].AutonomyCapacity)</div>
+                    <div class="property-value">@item.AutonomyCapacity.ToString("N0") km</div>
+                </div>
+
+                <div class="property-row">
+                    <div class="property-label">@Html.DisplayNameFor(model => model.eSprinterLab[0].PricePer100km)</div>
+                    <div class="property-value">@item.PricePer100km.ToString("N2") €</div>
+                </div>
+
+                <div class="property-row">
+                    <div class="property-label">@Html.DisplayNameFor(model => model.eSprinterLab[0].Chromatograph)</div>
+                    <div class="property-value">@item.Chromatograph.ToString("N0") € (15 Years)</div>
+                </div>
+
+                <div class="property-row">
+                    <div class="property-label">@Html.DisplayNameFor(model => model.eSprinterLab[0].TCD)</div>
+                    <div class="property-value">@item.TCD.ToString("N0") € (10 Years)</div>
+                </div>
+
+                <div class="property-row">
+                    <div class="property-label">@Html.DisplayNameFor(model => model.eSprinterLab[0].FID)</div>
+                    <div class="property-value">@item.FID.ToString("N0") € (10 Years)</div>
+                </div>
+
+                <div class="property-row">
+                    <div class="property-label">@Html.DisplayNameFor(model => model.eSprinterLab[0].Hygrometer)</div>
+                    <div class="property-value">@item.Hygrometer.ToString("N0") € (10 Years)</div>
+                </div>
+
+                <div class="property-row">
+                    <div class="property-label">@Html.DisplayNameFor(model => model.eSprinterLab[0].FPD)</div>
+                    <div class="property-value">@item.FPD.ToString("N0") € (10 Years)</div>
+                </div>
+
+                <div class="property-row">
+                    <div class="property-label">@Html.DisplayNameFor(model => model.eSprinterLab[0].PressureRegulators)</div>
+                    <div class="property-value">@item.PressureRegulators.ToString("N0") € (10 Years)</div>
+                </div>
+
+                <div class="property-row">
+                    <div class="property-label">@Html.DisplayNameFor(model => model.eSprinterLab[0].StandardGasBottles)</div>
+                    <div class="property-value">@item.StandardGasBottles.ToString("N0") € (Anual)</div>
+                </div>
+
+                <div class="property-row">
+                    <div class="property-label">@Html.DisplayNameFor(model => model.eSprinterLab[0].GasColumns)</div>
+                    <div class="property-value">x3 @item.GasColumns.ToString("N0") € (1.5 Years)</div>
+                </div>
+
+                <div class="property-row">
+                    <div class="property-label">@Html.DisplayNameFor(model => model.eSprinterLab[0].HeliumCarrierGas)</div>
+                    <div class="property-value">@item.HeliumCarrierGas.ToString("N0") € (Anual)</div>
+                </div>
+
+                <div class="property-row">
+                    <div class="property-label">@Html.DisplayNameFor(model => model.eSprinterLab[0].AirFuelGas)</div>
+                    <div class="property-value">@item.AirFuelGas.ToString("N0") € (Anual)</div>
+                </div>
+
+                <div class="property-row">
+                    <div class="property-label">@Html.DisplayNameFor(model => model.eSprinterLab[0].ChromatographCertification)</div>
+                    <div class="property-value">@item.ChromatographCertification.ToString("N0") € (Anual)</div>
+                </div>
+
+                <div class="property-row">
+                    <div class="property-label">@Html.DisplayNameFor(model => model.eSprinterLab[0].RegulatoryConsultations)</div>
+                    <div class="property-value">@item.RegulatoryConsultations</div>
+                </div>
+
+                <div class="property-row">
+                    <div class="property-label">@Html.DisplayNameFor(model => model.eSprinterLab[0].AnalysisService)</div>
+                    <div class="property-value">@item.AnalysisService.ToString("N0") € (Per Day)</div>
+                </div>
+
+                <div class="property-row">
+                    <div class="property-label">@Html.DisplayNameFor(model => model.eSprinterLab[0].Calibration)</div>
+                    <div class="property-value">@item.Calibration.ToString("N0") € (Per Station)</div>
+                </div>
+
+                <div class="property-row">
+                    <div class="property-label">@Html.DisplayNameFor(model => model.eSprinterLab[0].VehicleMaintenance)</div>
+                    <div class="property-value">@item.VehicleMaintenance.ToString("N0") € (Per Day)</div>
+                </div>
+
+                <div class="total-price">
+                    Total Price: @item.TotalPrice.ToString("N0") €
+                </div>
+
+                <div class="actions">
+                    <a asp-page="./Edit" asp-route-id="@item.Id" class="action-link">Edit</a>
+                    <a asp-page="./Details" asp-route-id="@item.Id" class="action-link">Details</a>
+                    <a asp-page="./Delete" asp-route-id="@item.Id" class="action-link">Delete</a>
+                </div>
+            </div>
+        }
+    </div>
 </body>
 </html>

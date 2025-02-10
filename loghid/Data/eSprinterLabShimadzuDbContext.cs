@@ -10,6 +10,8 @@ namespace Loghid.Data
 
         public DbSet<eSprinterLab> eSprinterLab { get; set; }
 
+        
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -18,6 +20,14 @@ namespace Loghid.Data
             modelBuilder.Entity<eSprinterLab>()
                 .HasKey(m => m.Id);
 
+            modelBuilder.Entity<eSprinterLab>()
+                .Property(m => m.TotalPrice)
+                .HasColumnType("decimal(18,2)")
+                .HasComputedColumnSql(
+                    "[VehiclePrice] + [Chromatograph] + [TCD] + [FID] + [Hygrometer] + [FPD] + " +
+                    "[PressureRegulators] + [StandardGasBottles] + [GasColumns] + [HeliumCarrierGas] + " +
+                    "[AirFuelGas] + [ChromatographCertification] + [RegulatoryConsultations] + [AnalysisService] + " +
+                    "[Calibration] + [VehicleMaintenance]", stored: false);
 
         }
     }
