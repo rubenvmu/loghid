@@ -13,29 +13,29 @@ This platform is designed to revolutionize the way we measure, track, and manage
 🔗 Visit us at: [loghid.com](https://loghid.com)  
 
 ```mermaid
-flowchart TD
-    subgraph Features["🚀 Features"]
-        F1[Real-time H2 Measurement 📊]
-        F2[e-Traceability 🛤️]
-        F3[Interactive Dashboard 📈]
-        F4[Secure & Scalable 🔒]
+flowchart TB
+    subgraph Features["🚀 Features                                                                                    "]
+        F1[Real-time H2 Measurement 📊]:::featureStyle
+        F2[e-Traceability 🛤️]:::featureStyle
+        F3[Interactive Dashboard 📈]:::featureStyle
+        F4[Secure & Scalable 🔒]:::featureStyle
     end
 
-    subgraph Technologies["🛠️ Technologies Used"]
-        T1[.NET 9 🖥️]
-        T2[SQLite 🗄️]
-        T3[Hydrogen Analytics 🌿]
-        T4[Dashboard Application 📊]
+    Features --> Space[ ]:::invisible
+
+    subgraph Technologies["🛠️ Technologies Used                                                                 "]
+        T1[.NET 9 🖥️]:::techStyle
+        T2[SQLite 🗄️]:::techStyle
+        T3[Hydrogen Analytics 🌿]:::techStyle
+        T4[Dashboard Application 📊]:::techStyle
     end
+
+    classDef featureStyle fill:#C8E6C9,stroke:#81C784,stroke-width:1px,min-width:250px
+    classDef techStyle fill:#BBDEFB,stroke:#64B5F6,stroke-width:1px,min-width:250px
+    classDef invisible fill:#ffffff00,stroke:#ffffff00,color:#ffffff00
 
     style Features fill:#E8F5E9,stroke:#4CAF50,stroke-width:2px,color:#2E7D32
     style Technologies fill:#E3F2FD,stroke:#2196F3,stroke-width:2px,color:#1565C0
-    
-    classDef featureStyle fill:#C8E6C9,stroke:#81C784,stroke-width:1px
-    classDef techStyle fill:#BBDEFB,stroke:#64B5F6,stroke-width:1px
-    
-    class F1,F2,F3,F4 featureStyle
-    class T1,T2,T3,T4 techStyle
 ```
 
 ## 📦 Installation  
