@@ -14,13 +14,12 @@ builder.Services.AddDbContext<LoghidDbContext>(options =>
 builder.Services.AddDbContext<LoghidClientMeasurementDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("SecondaryConnection")));
 
-builder.Services.AddDbContext<Loghid.Data.SprinterLabShimadzuDbContext>(options =>
+builder.Services.AddDbContext<Loghid.Data.eSprinterLabShimadzuDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("ThirdyConnection")));
 
 builder.Services.AddScoped<ISubstanceSearchService, SubstanceSearchService>();
 
 builder.Services.AddRazorPages();
-
 
 var app = builder.Build();
 

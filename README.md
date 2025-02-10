@@ -70,10 +70,12 @@ This platform is designed to revolutionize the way we measure, track, and manage
 
 1. Log in to the platform.  
 2. Access the **Dashboard** for real-time H2 measurements.  
-3. Use the **e-Traceability** feature to track hydrogen data.  
+3. Follow the **H2 Fingerprint** feature to track hydrogen data.  
 4. Generate reports and analytics for better decision-making.  
 
 ---
+
+## 📊 Loghid ISO structure 
 
 ```mermaid
 classDiagram
@@ -153,6 +155,94 @@ classDiagram
 
 ---
 
+## 📊 Loghid eMovilab structure
+
+```mermaid
+classDiagram
+    direction BT
+    
+    class IeSprinterLab {
+        <<interface>>
+        +int Id
+        +string Vehicle
+        +double VehiclePrice
+        +double CargoCapacity
+        +double InteriorSpace
+        +double AutonomyCapacity
+        +double PricePer100km
+        +double Chromatograph
+        +double TCD
+        +double FID
+        +double Hygrometer
+        +double FPD
+        +double PressureRegulators
+        +double StandardGasBottles
+        +double GasColumns
+        +double HeliumCarrierGas
+        +double AirFuelGas
+        +double ChromatographCertification
+        +double RegulatoryConsultations
+        +double AnalysisService
+        +double Calibration
+        +double VehicleMaintenance
+        +double TotalPrice()* «calculated»
+    }
+
+    class eSprinterLab {
+        <<Entity>>
+        -[Key]«PK» [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        +int Id
+        
+        -[Required][MaxLength(100)]
+        +string Vehicle = "Mercedes-Benz Sprinter"
+        
+        -[Range(0, double.MaxValue)]
+        +double VehiclePrice
+        
+        -[Display("Cargo Capacity (kg)")][Range(0, double.MaxValue)]
+        +double CargoCapacity = 2854.0
+        
+        -[Display("Interior Space (m³)")][Range(0, double.MaxValue)]
+        +double InteriorSpace = 14.0
+        
+        -[Display("Autonomy Capacity")][Range(0, double.MaxValue)]
+        +double AutonomyCapacity
+        
+        -[Display("Price per 100km")][Range(0, double.MaxValue)]
+        +double PricePer100km
+
+        %% Chromatography Equipment
+        -[Range(0, double.MaxValue)]
+        +double Chromatograph = 65000.0
+        +double TCD = 8000.0
+        +double FID = 1400.0
+        +double Hygrometer = 1500.0
+        +double FPD = 3350.0
+
+        %% Gas System
+        -[Range(0, double.MaxValue)]
+        +double PressureRegulators = 2000.0
+        +double StandardGasBottles = 2550.0
+        +double GasColumns = 3000.0
+        +double HeliumCarrierGas = 200.0
+        +double AirFuelGas = 150.0
+
+        %% Certifications & Services
+        -[Range(0, double.MaxValue)]
+        +double ChromatographCertification = 3000.0
+        +double RegulatoryConsultations = 1000.0
+        +double AnalysisService = 640.0
+        +double Calibration = 300.0
+        +double VehicleMaintenance = 20.0
+
+        +double TotalPrice() «calculated» 
+    }
+
+    IeSprinterLab <|.. eSprinterLab : implements
+    ```
+
+---
+
 ## 📊 Loghid First Year Investment Flowchart
 
 ```mermaid
@@ -202,39 +292,39 @@ graph TB
 ```mermaid
 %%{init: {'theme': 'neutral', 'themeVariables': { 'primaryColor': '#ffffff', 'edgeLabelBackground':'#fff', 'tertiaryColor': '#fff0f0'}}}%%
 graph TB
-    A[Organización Sin Ánimo de Lucro] --> B[Análisis y Certificación]
-    A --> C[Consultoría Técnica]
-    A --> D[Gestión de Suscripciones]
-    A --> E[Expansión y Alianzas]
+    A[Non-Profit Organization] --> B[Analysis and Certification]
+    A --> C[Technical Consulting]
+    A --> D[Subscription Management]
+    A --> E[Expansion and Alliances]
 
-    %% Bloque de Certificación
-    B --> F[Proveedores Tecnológicos]
-    F --> G[[Equipos: Cromatógrafos, Vehículos, Higrómetro]]
-    B --> H[[Ingresos: Suscripción]]
-    B --> I[Hidrolineras/Generadoras]
+    %% Certification Block
+    B --> F[Technology Providers]
+    F --> G[[Equipment: Chromatographs, Vehicles, Hygrometer]]
+    B --> H[[Revenue: Subscription]]
+    B --> I[Hydroliners/Generators]
 
-    %% Bloque de Consultoría
-    C --> J[Auditorías Normativas]
-    C --> K[[Ingresos: Honorarios Consultoría]]
-    C --> L[Reguladores: AENOR/ENAC]
+    %% Consulting Block
+    C --> J[Regulatory Audits]
+    C --> K[[Revenue: Consulting Fees]]
+    C --> L[Regulators: AENOR/ENAC]
 
-    %% Bloque de Suscripciones
-    D --> M[[Suscripciones Mensuales/Anuales]]
-    D --> N[[Formación Técnica]]
-    D --> O[Clientes Registrados]
+    %% Subscriptions Block
+    D --> M[[Monthly/Annual Subscriptions]]
+    D --> N[[Technical Training]]
+    D --> O[Registered Clients]
 
-    %% Bloque de Expansión y Validación
-    E --> P[Alianzas Estratégicas]
+    %% Expansion and Validation Block
+    E --> P[Strategic Alliances]
     P --> Q[ARPA]
     P --> R[Ibercaja]
-    P --> S[Fund. Hidrógeno Aragón]
+    P --> S[Hydrogen Aragon Foundation]
     P --> T[EbroH2]
     
-    E --> U[Validación]
+    E --> U[Validation]
     U --> V[Zoilo Ríos]
-    U --> W[Encuesta: 30 personas]
-    W --> X[10 profesionales H2]
-    W --> Y[80% Considerán Necesario Loghid]
+    U --> W[Survey: 30 people]
+    W --> X[10 H2 Professionals]
+    W --> Y[80% Consider Loghid Necessary]
 
     style A fill:#2ecc71,stroke:#27ae60,color:#fff
     style B,C,D,E fill:#3498db,stroke:#2980b9,color:#fff
