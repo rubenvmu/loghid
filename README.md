@@ -77,6 +77,7 @@ This platform is designed to revolutionize the way we measure, track, and manage
 
 ## 📊 Loghid First Year Investment Flowchart
 
+```mermaid
 %%{init: {'theme': 'neutral', 'themeVariables': { 'primaryColor': '#ffffff', 'edgeLabelBackground':'#fff', 'tertiaryColor': '#fff0f0'}}}%%
 graph TB
     A[LOGHID Setup Costs] --> B[One-Time Costs]
@@ -114,6 +115,7 @@ graph TB
     style E,F,G,H,I,J,K,L,M,N,O fill:#e67e22,stroke:#d35400
     style P,Q,R fill:#9b59b6,stroke:#8e44ad,color:#fff
     style S,T,U,V fill:#f1c40f,stroke:#f39c12
+```
 
 ---
 
@@ -122,39 +124,39 @@ graph TB
 ```mermaid
 %%{init: {'theme': 'neutral', 'themeVariables': { 'primaryColor': '#ffffff', 'edgeLabelBackground':'#fff', 'tertiaryColor': '#fff0f0'}}}%%
 graph TB
-    A[Non-Profit Organization] --> B[Analysis and Certification]
-    A --> C[Technical Consulting]
-    A --> D[Subscription Management]
-    A --> E[Expansion and Alliances]
+    A[Organización Sin Ánimo de Lucro] --> B[Análisis y Certificación]
+    A --> C[Consultoría Técnica]
+    A --> D[Gestión de Suscripciones]
+    A --> E[Expansión y Alianzas]
 
-    %% Certification Block
-    B --> F[Technology Providers]
-    F --> G[[Equipment: Chromatographs, Vehicles, Hygrometer]]
-    B --> H[[Revenue: Subscription]]
-    B --> I[Hydrogen Stations/Generators]
+    %% Bloque de Certificación
+    B --> F[Proveedores Tecnológicos]
+    F --> G[[Equipos: Cromatógrafos, Vehículos, Higrómetro]]
+    B --> H[[Ingresos: Suscripción]]
+    B --> I[Hidrolineras/Generadoras]
 
-    %% Consulting Block
-    C --> J[Regulatory Audits]
-    C --> K[[Revenue: Consulting Fees]]
-    C --> L[Regulators: AENOR/ENAC]
+    %% Bloque de Consultoría
+    C --> J[Auditorías Normativas]
+    C --> K[[Ingresos: Honorarios Consultoría]]
+    C --> L[Reguladores: AENOR/ENAC]
 
-    %% Subscription Block
-    D --> M[[Monthly/Annual Subscriptions]]
-    D --> N[[Technical Training]]
-    D --> O[Registered Clients]
+    %% Bloque de Suscripciones
+    D --> M[[Suscripciones Mensuales/Anuales]]
+    D --> N[[Formación Técnica]]
+    D --> O[Clientes Registrados]
 
-    %% Expansion and Validation Block
-    E --> P[Strategic Alliances]
+    %% Bloque de Expansión y Validación
+    E --> P[Alianzas Estratégicas]
     P --> Q[ARPA]
     P --> R[Ibercaja]
-    P --> S[Fund. Hydrogen Aragón]
+    P --> S[Fund. Hidrógeno Aragón]
     P --> T[EbroH2]
     
-    E --> U[Validation]
+    E --> U[Validación]
     U --> V[Zoilo Ríos]
-    U --> W[Survey: 30 people]
-    W --> X[10 H2 professionals]
-    W --> Y[80% Consider Loghid Necessary]
+    U --> W[Encuesta: 30 personas]
+    W --> X[10 profesionales H2]
+    W --> Y[80% Considerán Necesario Loghid]
 
     style A fill:#2ecc71,stroke:#27ae60,color:#fff
     style B,C,D,E fill:#3498db,stroke:#2980b9,color:#fff
