@@ -87,7 +87,7 @@ graph TB
 
     %% Bloque de Certificación
     B --> F[Proveedores Tecnológicos]
-    F --> G[[Equipos: Cromatógrafos, Sensores]]
+    F --> G[[Equipos: Cromatógrafos, Vehículos, Higrómetro]]
     B --> H[[Ingresos: Suscripción]]
     B --> I[Hidrolineras/Generadoras]
 
@@ -112,7 +112,7 @@ graph TB
     U --> V[Zoilo Ríos]
     U --> W[Encuesta: 30 personas]
     W --> X[10 profesionales H2]
-    W --> Y[86% Satisfacción]
+    W --> Y[80% Considerán Necesario Loghid]
 
     style A fill:#2ecc71,stroke:#27ae60,color:#fff
     style B,C,D,E fill:#3498db,stroke:#2980b9,color:#fff
