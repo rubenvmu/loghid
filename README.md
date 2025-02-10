@@ -80,32 +80,34 @@ This platform is designed to revolutionize the way we measure, track, and manage
 ```mermaid
 %%{init: {'theme': 'neutral', 'themeVariables': { 'primaryColor': '#ffffff', 'edgeLabelBackground':'#fff', 'tertiaryColor': '#fff0f0'}}}%%
 graph LR
-    A[Organización Sin Ánimo de Lucro] --> B[Análisis y Certificación de Calidad]
-    A --> C[Consultoría Técnica y Auditorías]
+    A[Organización Sin Ánimo de Lucro] --> B[Análisis y Certificación]
+    A --> C[Consultoría Técnica]
     A --> D[Gestión de Suscripciones]
-    A --> E[Expansión Regional/Nacional]
+    A --> E[Expansión Nacional]
 
-    B --> F{{Proveedores de Equipos<br>(Agilent, Thermo Fisher)}}
-    B --> G[[Línea de Ingreso: Tarifas por Análisis]]
-    B --> H[Hidrolineras y Productores]
+    B --> F[Proveedores de Equipos]
+    F -->|Colaboración| G[Agilent, Thermo Fisher]
+    B --> H[[Tarifas por Análisis]]
+    B --> I[Hidrolineras/Productores]
 
-    C --> I{{Consultoras Técnicas<br>y Auditoras}}
-    C --> J[[Línea de Ingreso: Honorarios<br>por Consultoría/Auditorías]]
-    C --> K[Entidades Reguladoras<br>(AENOR, ENAC)]
+    C --> J[Consultoras Técnicas]
+    C --> K[[Honorarios Consultoría]]
+    C --> L[AENOR/ENAC]
 
-    D --> L[[Línea de Ingreso: Suscripciones<br>Mensuales/Anuales]]
-    D --> M[[Línea de Ingreso: Formación Técnica]]
-    D --> N[Clientes: Hidrolineras,<br>Productores, Clusters]
+    D --> M[[Suscripciones]]
+    D --> N[[Formación Técnica]]
+    D --> O[Clientes]
 
-    E --> O{{Organizaciones Locales<br>(Zoilo Ríos, Fundación H2 Aragón)}}
-    E --> P[Escalabilidad Nacional/<br>Internacional]
-    E --> Q[Validación con Entrevistas<br>(X entrevistas realizadas)]
+    E --> P[Organizaciones Locales]
+    P -->|Alianzas| Q[Zoilo Ríos]
+    E --> R[Escalabilidad]
+    E --> S[Entrevistas Validadas]
 
     style A fill:#2ecc71,stroke:#27ae60,color:#fff
     style B,C,D,E fill:#3498db,stroke:#2980b9,color:#fff
-    style F,I,O fill:#e67e22,stroke:#d35400
-    style G,J,L,M fill:#9b59b6,stroke:#8e44ad,color:#fff
-    style H,N,K,P,Q fill:#f1c40f,stroke:#f39c12
+    style F,J,P fill:#e67e22,stroke:#d35400
+    style H,K,M,N fill:#9b59b6,stroke:#8e44ad,color:#fff
+    style I,O,Q,L,R,S fill:#f1c40f,stroke:#f39c12
 ```
 
 ---
