@@ -75,6 +75,84 @@ This platform is designed to revolutionize the way we measure, track, and manage
 
 ---
 
+```mermaid
+classDiagram
+    direction BT
+
+    class ISubstanceData {
+        <<interface>>
+        +int Id
+        +string SubstanceName
+        +double IsoThreshold
+        +string MeasurementMethod
+        +string MeasuredRange
+        +string Probability
+    }
+
+    ISubstanceData <|.. Water
+    ISubstanceData <|.. Methane
+    ISubstanceData <|.. NonCH4Hydrocarbons
+    ISubstanceData <|.. Oxygen
+    ISubstanceData <|.. Helium
+    ISubstanceData <|.. Nitrogen
+    ISubstanceData <|.. Argon
+    ISubstanceData <|.. CarbonDioxide
+    ISubstanceData <|.. CarbonMonoxide
+    ISubstanceData <|.. SulphurCompounds
+    ISubstanceData <|.. Formaldehyde
+    ISubstanceData <|.. FormicAcid
+    ISubstanceData <|.. Ammonia
+    ISubstanceData <|.. HalogenatedCompounds
+    ISubstanceData <|.. Hydrocarbons
+
+    class Water {
+    }
+
+    class Methane {
+    }
+
+    class NonCH4Hydrocarbons {
+    }
+
+    class Oxygen {
+    }
+
+    class Helium {
+    }
+
+    class Nitrogen {
+    }
+
+    class Argon {
+    }
+
+    class CarbonDioxide {
+    }
+
+    class CarbonMonoxide {
+    }
+
+    class SulphurCompounds {
+    }
+
+    class Formaldehyde {
+    }
+
+    class FormicAcid {
+    }
+
+    class Ammonia {
+    }
+
+    class HalogenatedCompounds {
+    }
+
+    class Hydrocarbons {
+    }
+```
+
+---
+
 ## 📊 Loghid First Year Investment Flowchart
 
 ```mermaid
