@@ -36,7 +36,7 @@ flowchart TD
     
     class F1,F2,F3,F4 featureStyle
     class T1,T2,T3,T4 techStyle
-    ```
+```
 
 ## 📦 Installation  
 
