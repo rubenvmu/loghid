@@ -75,7 +75,51 @@ This platform is designed to revolutionize the way we measure, track, and manage
 
 ---
 
-## 📊 Data Flow  
+## 📊 Loghid First Year Business Flowchart
+
+```mermaid
+%%{init: {'theme': 'neutral', 'themeVariables': { 'primaryColor': '#ffffff', 'edgeLabelBackground':'#fff', 'tertiaryColor': '#fff0f0'}}}%%
+graph TB
+    A[Costes de Constitución LOGHID] --> B[Gastos Únicos]
+    A --> C[Gastos Anuales]
+    A --> D[Inversión Total 1er Año]
+    
+    %% Gastos Únicos
+    B --> E[Registro Asociación: 150€]
+    B --> F[Notaría: 80-120€]
+    B --> G[Inscripción: 50-100€]
+    B --> H[Asesoría Legal: 400-600€]
+    B --> I[Cuenta Bancaria: 0-100€]
+    B --> J[Registro Marca: 150€]
+    B --> K[Otros Gastos: 200-400€]
+    
+    %% Gastos Anuales
+    C --> L[Seguro RC: 250-400€]
+    C --> M[Contabilidad: 600-1200€]
+    C --> N[Web/Hosting: 100-200€]
+    C --> O[Dominio: 100-200€]
+    
+    %% Totales
+    D --> P[Total Constitución: 780-1220€]
+    D --> Q[Total Operación: 1150-2200€]
+    D --> R[Inversión Total: 1930-3420€]
+    
+    %% Validación
+    A --> S[Validación y Apoyo]
+    S --> T[Zoilo Ríos]
+    S --> U[Encuesta 30 personas]
+    U --> V[86% Satisfacción]
+    
+    style A fill:#2ecc71,stroke:#27ae60,color:#fff
+    style B,C fill:#3498db,stroke:#2980b9,color:#fff
+    style E,F,G,H,I,J,K,L,M,N,O fill:#e67e22,stroke:#d35400
+    style P,Q,R fill:#9b59b6,stroke:#8e44ad,color:#fff
+    style S,T,U,V fill:#f1c40f,stroke:#f39c12
+```
+
+---
+
+## 📊 Loghid Organizational Flowchart
 
 ```mermaid
 %%{init: {'theme': 'neutral', 'themeVariables': { 'primaryColor': '#ffffff', 'edgeLabelBackground':'#fff', 'tertiaryColor': '#fff0f0'}}}%%
