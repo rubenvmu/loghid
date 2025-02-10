@@ -75,88 +75,85 @@ This platform is designed to revolutionize the way we measure, track, and manage
 
 ---
 
-## 📊 Loghid First Year Business Flowchart
+## 📊 Loghid First Year Investment Flowchart
 
-```mermaid
 %%{init: {'theme': 'neutral', 'themeVariables': { 'primaryColor': '#ffffff', 'edgeLabelBackground':'#fff', 'tertiaryColor': '#fff0f0'}}}%%
 graph TB
-    A[Costes de Constitución LOGHID] --> B[Gastos Únicos]
-    A --> C[Gastos Anuales]
-    A --> D[Inversión Total 1er Año]
+    A[LOGHID Setup Costs] --> B[One-Time Costs]
+    A --> C[Annual Costs]
+    A --> D[Total 1st Year Investment]
     
-    %% Gastos Únicos
-    B --> E[Registro Asociación: 150€]
-    B --> F[Notaría: 80-120€]
-    B --> G[Inscripción: 50-100€]
-    B --> H[Asesoría Legal: 400-600€]
-    B --> I[Cuenta Bancaria: 0-100€]
-    B --> J[Registro Marca: 150€]
-    B --> K[Otros Gastos: 200-400€]
+    %% One-Time Costs
+    B --> E[Association Registration: €150]
+    B --> F[Notary: €80-120]
+    B --> G[Registration: €50-100]
+    B --> H[Legal Advisory: €400-600]
+    B --> I[Bank Account: €0-100]
+    B --> J[Trademark Registration: €150]
+    B --> K[Other Costs: €200-400]
     
-    %% Gastos Anuales
-    C --> L[Seguro RC: 250-400€]
-    C --> M[Contabilidad: 600-1200€]
-    C --> N[Web/Hosting: 100-200€]
-    C --> O[Dominio: 100-200€]
+    %% Annual Costs
+    C --> L[Liability Insurance: €250-400]
+    C --> M[Accounting: €600-1200]
+    C --> N[Web/Hosting: €100-200]
+    C --> O[Domain: €100-200]
     
-    %% Totales
-    D --> P[Total Constitución: 780-1220€]
-    D --> Q[Total Operación: 1150-2200€]
-    D --> R[Inversión Total: 1930-3420€]
+    %% Totals
+    D --> P[Setup Total: €780-1220]
+    D --> Q[Operation Total: €1150-2200]
+    D --> R[Total Investment: €1930-3420]
     
-    %% Validación
-    A --> S[Validación y Apoyo]
+    %% Validation
+    A --> S[Validation & Support]
     S --> T[Zoilo Ríos]
-    S --> U[Encuesta 30 personas]
-    U --> V[86% Satisfacción]
+    S --> U[30 People Survey]
+    U --> V[86% Satisfaction]
     
     style A fill:#2ecc71,stroke:#27ae60,color:#fff
     style B,C fill:#3498db,stroke:#2980b9,color:#fff
     style E,F,G,H,I,J,K,L,M,N,O fill:#e67e22,stroke:#d35400
     style P,Q,R fill:#9b59b6,stroke:#8e44ad,color:#fff
     style S,T,U,V fill:#f1c40f,stroke:#f39c12
-```
 
 ---
 
 ## 📊 Loghid Organizational Flowchart
 
-```mermaid
 %%{init: {'theme': 'neutral', 'themeVariables': { 'primaryColor': '#ffffff', 'edgeLabelBackground':'#fff', 'tertiaryColor': '#fff0f0'}}}%%
 graph TB
-    A[Organización Sin Ánimo de Lucro] --> B[Análisis y Certificación]
-    A --> C[Consultoría Técnica]
-    A --> D[Gestión de Suscripciones]
-    A --> E[Expansión y Alianzas]
+    A[Non-Profit Organization] --> B[Analysis and Certification]
+    A --> C[Technical Consulting]
+    A --> D[Subscription Management]
+    A --> E[Expansion and Alliances]
 
-    %% Bloque de Certificación
-    B --> F[Proveedores Tecnológicos]
-    F --> G[[Equipos: Cromatógrafos, Vehículos, Higrómetro]]
-    B --> H[[Ingresos: Suscripción]]
-    B --> I[Hidrolineras/Generadoras]
+    %% Certification Block
+    B --> F[Technology Providers]
+    F --> G[[Equipment: Chromatographs, Vehicles, Hygrometer]]
+    B --> H[[Revenue: Subscription]]
+    B --> I[Hydrogen Stations/Generators]
 
-    %% Bloque de Consultoría
-    C --> J[Auditorías Normativas]
-    C --> K[[Ingresos: Honorarios Consultoría]]
-    C --> L[Reguladores: AENOR/ENAC]
+    %% Consulting Block
+    C --> J[Regulatory Audits]
+    C --> K[[Revenue: Consulting Fees]]
+    C --> L[Regulators: AENOR/ENAC]
 
-    %% Bloque de Suscripciones
-    D --> M[[Suscripciones Mensuales/Anuales]]
-    D --> N[[Formación Técnica]]
-    D --> O[Clientes Registrados]
+    %% Subscription Block
+    D --> M[[Monthly/Annual Subscriptions]]
+    D --> N[[Technical Training]]
+    D --> O[Registered Clients]
 
-    %% Bloque de Expansión y Validación
-    E --> P[Alianzas Estratégicas]
+    %% Expansion and Validation Block
+    E --> P[Strategic Alliances]
     P --> Q[ARPA]
     P --> R[Ibercaja]
-    P --> S[Fund. Hidrógeno Aragón]
+    P --> S[Fund. Hydrogen Aragón]
     P --> T[EbroH2]
     
-    E --> U[Validación]
+    E --> U[Validation]
     U --> V[Zoilo Ríos]
-    U --> W[Encuesta: 30 personas]
-    W --> X[10 profesionales H2]
-    W --> Y[80% Considerán Necesario Loghid]
+    U --> W[Survey: 30 people]
+    W --> X[10 H2 professionals]
+    W --> Y[80% Consider Loghid Necessary]
 
     style A fill:#2ecc71,stroke:#27ae60,color:#fff
     style B,C,D,E fill:#3498db,stroke:#2980b9,color:#fff
@@ -164,7 +161,6 @@ graph TB
     style H,K,M,N fill:#9b59b6,stroke:#8e44ad,color:#fff
     style I,O,Q,R,S,T,V,W fill:#f1c40f,stroke:#f39c12
     style X,Y fill:#2ecc71,stroke:#27ae60,color:#fff
-```
 
 ---
 
