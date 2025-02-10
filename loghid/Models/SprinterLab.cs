@@ -16,18 +16,9 @@ namespace Loghid.Models
         [Range(0, double.MaxValue)]
         public decimal VehiclePrice { get; set; }
 
-        [Required]
-        [MaxLength(150)]
-        public string ConversionType { get; set; } = "Mobile laboratory for hydrogen analysis";
-
-        [Range(0, double.MaxValue)]
-        public decimal ConversionTypePrice { get; set; }
-
         [Range(0, double.MaxValue)]
         public double LoadCapacity { get; set; } = 3500;
 
-        [Range(0, double.MaxValue)]
-        public decimal LoadCapacityPrice { get; set; }
 
         [Range(0, double.MaxValue)]
         public double InteriorSpace { get; set; } = 14.0;
@@ -37,10 +28,10 @@ namespace Loghid.Models
 
         [Required]
         [MaxLength(100)]
-        public string EquipmentModel { get; set; } = "Shimadzu Nexis GC-2030";
+        public string Chromatograph { get; set; } = "Shimadzu Nexis GC-2030";
 
         [Range(0, double.MaxValue)]
-        public decimal EquipmentModelPrice { get; set; }
+        public decimal ChromatographPrice { get; set; }
 
         [Required]
         [MaxLength(50)]

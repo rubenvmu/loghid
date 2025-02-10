@@ -1,5 +1,5 @@
 
-H2 In-Situ Measurement & e-Traceability Platform 🚀  
+# H2 In-Situ Measurement & e-Traceability Platform 🚀  
 
 ![.NET Version](https://img.shields.io/badge/.NET-9.0-purple) ![License](https://img.shields.io/badge/License-MIT-green)  
 
@@ -78,11 +78,34 @@ This platform is designed to revolutionize the way we measure, track, and manage
 ## 📊 Data Flow  
 
 ```mermaid
+%%{init: {'theme': 'neutral', 'themeVariables': { 'primaryColor': '#ffffff', 'edgeLabelBackground':'#fff', 'tertiaryColor': '#fff0f0'}}}%%
 graph LR
-    A[H2 Production] --> B[Measurement]
-    B --> C[Data Storage]
-    C --> D[Dashboard]
-    D --> E[Analytics & Reports]
+    A[Organización Sin Ánimo de Lucro] --> B[Análisis y Certificación de Calidad]
+    A --> C[Consultoría Técnica y Auditorías]
+    A --> D[Gestión de Suscripciones]
+    A --> E[Expansión Regional/Nacional]
+
+    B --> F{{Proveedores de Equipos<br>(Agilent, Thermo Fisher)}}
+    B --> G[[Línea de Ingreso: Tarifas por Análisis]]
+    B --> H[Hidrolineras y Productores]
+
+    C --> I{{Consultoras Técnicas<br>y Auditoras}}
+    C --> J[[Línea de Ingreso: Honorarios<br>por Consultoría/Auditorías]]
+    C --> K[Entidades Reguladoras<br>(AENOR, ENAC)]
+
+    D --> L[[Línea de Ingreso: Suscripciones<br>Mensuales/Anuales]]
+    D --> M[[Línea de Ingreso: Formación Técnica]]
+    D --> N[Clientes: Hidrolineras,<br>Productores, Clusters]
+
+    E --> O{{Organizaciones Locales<br>(Zoilo Ríos, Fundación H2 Aragón)}}
+    E --> P[Escalabilidad Nacional/<br>Internacional]
+    E --> Q[Validación con Entrevistas<br>(X entrevistas realizadas)]
+
+    style A fill:#2ecc71,stroke:#27ae60,color:#fff
+    style B,C,D,E fill:#3498db,stroke:#2980b9,color:#fff
+    style F,I,O fill:#e67e22,stroke:#d35400
+    style G,J,L,M fill:#9b59b6,stroke:#8e44ad,color:#fff
+    style H,N,K,P,Q fill:#f1c40f,stroke:#f39c12
 ```
 
 ---
