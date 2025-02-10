@@ -66,7 +66,7 @@ namespace Loghid.Pages
     string contentForHash = string.Join("\n", data.Select(kvp => $"{kvp.Key}: {kvp.Value}"));
     string hash = CalculateSHA256Hash(contentForHash);
 
-    string fileName = $"Certificate_{measurement.Id_Measurement}_{hash}.pdf";
+    string fileName = $"H2Fingerprint_{measurement.Id_Measurement}_{hash}.pdf";
     string fullPath = Path.Combine(folderPath, fileName);
 
     try
@@ -79,7 +79,7 @@ namespace Loghid.Pages
             PdfFont boldFont = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
 
             
-            document.Add(new Paragraph("Loghid Certificate Customer Measurement Report")
+            document.Add(new Paragraph("Loghid H2 Fingerprint - Certificate Customer Measurement Report")
                 .SetTextAlignment(TextAlignment.LEFT)
                 .SetFontSize(16)
                 .SetFont(boldFont));
@@ -100,7 +100,7 @@ namespace Loghid.Pages
             }
 
             
-            document.Add(new Paragraph($"Document Hash (SHA-256): {hash}")
+            document.Add(new Paragraph($"SHA-256: {hash}")
                 .SetTextAlignment(TextAlignment.LEFT)
                 .SetFontSize(12));
         }
@@ -109,8 +109,8 @@ namespace Loghid.Pages
     }
     catch (Exception ex)
     {
-        Console.WriteLine($"Error completo: {ex.ToString()}");
-        return BadRequest($"Error al generar el PDF: {ex.Message}");
+        Console.WriteLine($"Error{ex.ToString()}");
+        return BadRequest($"Error{ex.Message}");
     }
 }
 

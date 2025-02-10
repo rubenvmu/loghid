@@ -75,7 +75,7 @@ This platform is designed to revolutionize the way we measure, track, and manage
 
 ---
 
-## 📊 Loghid ISO structure 
+## 📊 Loghid ISO Parameters Diagram
 
 ```mermaid
 classDiagram
@@ -155,7 +155,7 @@ classDiagram
 
 ---
 
-## 📊 Loghid eMovilab structure
+## 📊 Loghid eMovilab Diagram
 
 ```mermaid
 classDiagram
@@ -317,6 +317,52 @@ graph TB
     style H,K,M,N fill:#9b59b6,stroke:#8e44ad,color:#fff
     style I,O,Q,R,S,T,V,W fill:#f1c40f,stroke:#f39c12
     style X,Y fill:#2ecc71,stroke:#27ae60,color:#fff
+```
+
+---
+
+## 📊 Loghid H2 Fingerprint - SHA256 Hash
+
+```mermaid
+flowchart TB
+    A[User accesses /Certificates] --> B[GET: OnGetAsync]
+    B --> C[Load measurements from DB]
+    C --> D{Display list}
+    
+    D --> |User selects| E[GET: OnGetDownloadAsync?id]
+    E --> F[Search for measurement in DB]
+    F --> G{Does it exist?}
+    G --> |No| H[Return 404]
+    G --> |Yes| I[Sanitize PublicID]
+    I --> J[Create LoghidCertificates directory]
+    J --> K[Build data dictionary]
+    K --> L[Calculate SHA-256 of data]
+    L --> M[Generate PDF with iText]
+    M --> N["PDF Content:
+    - Styled header
+    - Measurement metadata
+    - Substance values
+    - SHA-256 hash"]
+    N --> O[Save as H2Fingerprint_ID_HASH.pdf]
+    O --> P[Return physical file]
+    
+    G --> |Error| Q[Log to console]
+    M --> |Error| Q
+    Q --> R[Return 400 with error]
+    
+    style A stroke:#4CAF50,stroke-width:2px
+    style E stroke:#2196F3
+    style L stroke:#FF9800
+    style O stroke:#9C27B0
+    style H,R stroke:#f44336
+    style N fill:#FFF3E0
+    
+    classDef default fill:#ffffff,stroke:#607D8B
+    classDef process fill:#E3F2FD,stroke:#1976D2
+    classDef decision fill:#FFF8E1,stroke:#FFA000
+    
+    class A,E,L,O process
+    class G decision
 ```
 
 ---
