@@ -1,0 +1,60 @@
+@page
+@model loghid.Pages.ISO14067Pages.CreateModel
+
+        @{
+        ViewData["Title"] = "Create";
+        }
+        
+        <h1>Create</h1>
+        
+    <h4>ISO14067</h4>
+    <hr />
+    <div class="row">
+    <div class="col-md-4">
+    <form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="ISO14067.LifeCycleAssessmentMethod" class="control-label"></label>
+                <input asp-for="ISO14067.LifeCycleAssessmentMethod" class="form-control" />
+                <span asp-validation-for="ISO14067.LifeCycleAssessmentMethod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="ISO14067.CarbonFootprint" class="control-label"></label>
+                <input asp-for="ISO14067.CarbonFootprint" class="form-control" />
+                <span asp-validation-for="ISO14067.CarbonFootprint" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="ISO14067.DisplayName" class="control-label"></label>
+                <input asp-for="ISO14067.DisplayName" class="form-control" />
+                <span asp-validation-for="ISO14067.DisplayName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="ISO14067.StandardCode" class="control-label"></label>
+                <input asp-for="ISO14067.StandardCode" class="form-control" />
+                <span asp-validation-for="ISO14067.StandardCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ISO14067.Year" class="control-label"></label>
+                <input asp-for="ISO14067.Year" class="form-control" />
+                <span asp-validation-for="ISO14067.Year" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ISO14067.Description" class="control-label"></label>
+                <input asp-for="ISO14067.Description" class="form-control" />
+                <span asp-validation-for="ISO14067.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+

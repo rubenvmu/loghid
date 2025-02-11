@@ -1,0 +1,58 @@
+@page
+@model loghid.Pages.ISO14040_14044Pages.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ISO14040_14044</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ISO14040_14044.LCAMethodology)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ISO14040_14044.LCAMethodology)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ISO14040_14044.EnvironmentalImpactMetrics)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ISO14040_14044.EnvironmentalImpactMetrics)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ISO14040_14044.DisplayName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ISO14040_14044.DisplayName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ISO14040_14044.StandardCode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ISO14040_14044.StandardCode)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ISO14040_14044.Year)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ISO14040_14044.Year)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ISO14040_14044.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ISO14040_14044.Description)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="ISO14040_14044.Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

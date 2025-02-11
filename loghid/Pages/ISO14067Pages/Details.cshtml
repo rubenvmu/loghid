@@ -1,0 +1,55 @@
+@page
+@model loghid.Pages.ISO14067Pages.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>ISO14067</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ISO14067.LifeCycleAssessmentMethod)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ISO14067.LifeCycleAssessmentMethod)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ISO14067.CarbonFootprint)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ISO14067.CarbonFootprint)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ISO14067.DisplayName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ISO14067.DisplayName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ISO14067.StandardCode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ISO14067.StandardCode)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ISO14067.Year)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ISO14067.Year)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ISO14067.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ISO14067.Description)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.ISO14067.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

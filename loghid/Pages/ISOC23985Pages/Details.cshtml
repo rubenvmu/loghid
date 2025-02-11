@@ -1,0 +1,55 @@
+@page
+@model loghid.Pages.ISOC23985Pages.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>ISOC23985</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ISOC23985.SustainabilityCriteria)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ISOC23985.SustainabilityCriteria)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ISOC23985.ProductionProcessVerified)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ISOC23985.ProductionProcessVerified)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ISOC23985.DisplayName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ISOC23985.DisplayName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ISOC23985.StandardCode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ISOC23985.StandardCode)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ISOC23985.Year)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ISOC23985.Year)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ISOC23985.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ISOC23985.Description)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.ISOC23985.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

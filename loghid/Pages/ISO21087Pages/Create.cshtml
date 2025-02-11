@@ -1,0 +1,60 @@
+@page
+@model loghid.Pages.ISO21087Pages.CreateModel
+
+        @{
+        ViewData["Title"] = "Create";
+        }
+        
+        <h1>Create</h1>
+        
+    <h4>ISO21087</h4>
+    <hr />
+    <div class="row">
+    <div class="col-md-4">
+    <form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="ISO21087.AnalysisMethod" class="control-label"></label>
+                <input asp-for="ISO21087.AnalysisMethod" class="form-control" />
+                <span asp-validation-for="ISO21087.AnalysisMethod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="ISO21087.ImpurityDetectionLimit" class="control-label"></label>
+                <input asp-for="ISO21087.ImpurityDetectionLimit" class="form-control" />
+                <span asp-validation-for="ISO21087.ImpurityDetectionLimit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="ISO21087.DisplayName" class="control-label"></label>
+                <input asp-for="ISO21087.DisplayName" class="form-control" />
+                <span asp-validation-for="ISO21087.DisplayName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="ISO21087.StandardCode" class="control-label"></label>
+                <input asp-for="ISO21087.StandardCode" class="form-control" />
+                <span asp-validation-for="ISO21087.StandardCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ISO21087.Year" class="control-label"></label>
+                <input asp-for="ISO21087.Year" class="form-control" />
+                <span asp-validation-for="ISO21087.Year" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ISO21087.Description" class="control-label"></label>
+                <input asp-for="ISO21087.Description" class="form-control" />
+                <span asp-validation-for="ISO21087.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+

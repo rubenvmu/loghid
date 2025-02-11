@@ -1,0 +1,63 @@
+@page
+@model loghid.Pages.ISOTR15916Pages.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>ISOTR15916</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="ISOTR15916.RiskAssessmentMethod" class="control-label"></label>
+                <input asp-for="ISOTR15916.RiskAssessmentMethod" class="form-control" />
+                <span asp-validation-for="ISOTR15916.RiskAssessmentMethod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="ISOTR15916.SafetyMeasures" class="control-label"></label>
+                <input asp-for="ISOTR15916.SafetyMeasures" class="form-control" />
+                <span asp-validation-for="ISOTR15916.SafetyMeasures" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="ISOTR15916.Id" />
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="ISOTR15916.DisplayName" class="control-label"></label>
+                <input asp-for="ISOTR15916.DisplayName" class="form-control" />
+                <span asp-validation-for="ISOTR15916.DisplayName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="ISOTR15916.StandardCode" class="control-label"></label>
+                <input asp-for="ISOTR15916.StandardCode" class="form-control" />
+                <span asp-validation-for="ISOTR15916.StandardCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="ISOTR15916.Year" class="control-label"></label>
+                <input asp-for="ISOTR15916.Year" class="form-control" />
+                <span asp-validation-for="ISOTR15916.Year" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="ISOTR15916.Description" class="control-label"></label>
+                <input asp-for="ISOTR15916.Description" class="form-control" />
+                <span asp-validation-for="ISOTR15916.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+

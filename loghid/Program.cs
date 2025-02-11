@@ -17,6 +17,9 @@ builder.Services.AddDbContext<LoghidClientMeasurementDbContext>(options =>
 builder.Services.AddDbContext<Loghid.Data.eSprinterLabShimadzuDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("ThirdyConnection")));
 
+builder.Services.AddDbContext<Loghid.data.OtherISOsDbContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("ForthyConnection")));
+
 builder.Services.AddScoped<ISubstanceSearchService, SubstanceSearchService>();
 
 builder.Services.AddRazorPages();

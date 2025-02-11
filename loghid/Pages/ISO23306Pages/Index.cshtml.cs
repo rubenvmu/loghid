@@ -1,0 +1,29 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
+using Loghid.Models;
+using Loghid.data;
+
+namespace loghid.Pages.ISO23306Pages
+{
+    public class IndexModel : PageModel
+    {
+        private readonly Loghid.data.OtherISOsDbContext _context;
+
+        public IndexModel(Loghid.data.OtherISOsDbContext context)
+        {
+            _context = context;
+        }
+
+        public IList<ISO23306> ISO23306 { get;set; } = default!;
+
+        public async Task OnGetAsync()
+        {
+            ISO23306 = await _context.ISO23306s.ToListAsync();
+        }
+    }
+}

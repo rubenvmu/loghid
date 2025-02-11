@@ -1,0 +1,66 @@
+@page
+@model loghid.Pages.ISOTR15916Pages.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ISOTR15916[0].RiskAssessmentMethod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ISOTR15916[0].SafetyMeasures)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ISOTR15916[0].DisplayName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ISOTR15916[0].StandardCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ISOTR15916[0].Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ISOTR15916[0].Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.ISOTR15916) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RiskAssessmentMethod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SafetyMeasures)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DisplayName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StandardCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

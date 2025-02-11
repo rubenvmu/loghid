@@ -1,0 +1,66 @@
+@page
+@model loghid.Pages.ISO19880_1Pages.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ISO19880_1[0].SafetyRequirements)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ISO19880_1[0].PerformanceMetrics)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ISO19880_1[0].DisplayName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ISO19880_1[0].StandardCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ISO19880_1[0].Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ISO19880_1[0].Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.ISO19880_1) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SafetyRequirements)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PerformanceMetrics)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DisplayName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StandardCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
