@@ -1,8 +1,232 @@
 ﻿@page
-@model IncidentsModel
+@model IdentifyModel
 @{
-    ViewData["Title"] = "Incidents";
+    ViewData["Title"] = "Reportar Incidencia - Proyecto Hidrógeno";
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<style>
+    /* Estilos base del tema */
+    body {
+        background: linear-gradient(135deg, #0a192f 0%, #0d2342 100%);
+        min-height: 100vh;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    .incident-container {
+        background: rgba(23, 42, 69, 0.95);
+        border-radius: 20px;
+        padding: 3rem;
+        margin: 3rem auto;
+        max-width: 900px;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        border: 1px solid rgba(47, 67, 104, 0.5);
+        backdrop-filter: blur(10px);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .incident-container::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(45deg, transparent 20%, #64ffda33 50%, transparent 80%);
+        animation: gradientShift 20s infinite linear;
+    }
+
+    h1 {
+        color: #64ffda;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        position: relative;
+        font-size: 2.5rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    h1::before {
+        content: '⚠️';
+        filter: hue-rotate(120deg);
+        font-size: 2.2rem;
+    }
+
+    .form-section {
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+        background: rgba(31, 48, 79, 0.4);
+        border-radius: 12px;
+        transition: transform 0.3s ease;
+        border-left: 4px solid #64ffda;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    label {
+        color: #88a9d6;
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+    }
+
+    input, select, textarea {
+        width: 100%;
+        padding: 0.8rem;
+        background: rgba(47, 67, 104, 0.3);
+        border: 1px solid #2f4368;
+        border-radius: 8px;
+        color: #ccd6f6;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+    }
+
+    input:focus, select:focus, textarea:focus {
+        border-color: #64ffda;
+        box-shadow: 0 0 0 3px rgba(100, 255, 218, 0.2);
+        outline: none;
+    }
+
+    textarea {
+        min-height: 120px;
+        resize: vertical;
+    }
+
+    button {
+        background: #64ffda;
+        color: #0a192f;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    button:hover {
+        background: #88ffe5;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(100, 255, 218, 0.3);
+    }
+
+    .priority-tag {
+        display: inline-flex;
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        margin: 0.5rem 0.5rem 0 0;
+    }
+
+    .priority-low { background: rgba(100, 255, 218, 0.2); color: #64ffda; }
+    .priority-medium { background: rgba(255, 193, 7, 0.2); color: #ffc107; }
+    .priority-high { background: rgba(255, 87, 87, 0.2); color: #ff5757; }
+
+    @@keyframes gradientShift {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    @@media (max-width: 768px) {
+        .incident-container {
+            margin: 1.5rem;
+            padding: 2rem;
+        }
+        
+        h1 {
+            font-size: 2rem;
+        }
+    }
+
+    .confirmation-message {
+        display: none;
+        background: rgba(31, 48, 79, 0.6);
+        padding: 1.5rem;
+        border-radius: 8px;
+        border-left: 4px solid #64ffda;
+        margin-top: 2rem;
+        animation: fadeIn 0.5s ease;
+    }
+
+    @@keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+
+<div class="incident-container">
+    <h1>@ViewData["Title"]</h1>
+    
+    <form id="incidentForm">
+        <div class="form-section">
+            <div class="form-group">
+                <label for="incidentTitle">Título de la Incidencia</label>
+                <input type="text" id="incidentTitle" required>
+            </div>
+
+            <div class="form-group">
+                <label for="incidentType">Tipo de Incidencia</label>
+                <select id="incidentType" required>
+                    <option value="">Seleccionar tipo...</option>
+                    <option value="technical">Técnica</option>
+                    <option value="safety">Seguridad</option>
+                    <option value="logistics">Logística</option>
+                    <option value="other">Otros</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <div class="form-group">
+                <label>Prioridad</label>
+                <div>
+                    <span class="priority-tag priority-low">Baja</span>
+                    <span class="priority-tag priority-medium">Media</span>
+                    <span class="priority-tag priority-high">Alta</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="incidentDate">Fecha de Detección</label>
+                <input type="datetime-local" id="incidentDate" required>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <div class="form-group">
+                <label for="incidentDescription">Descripción Detallada</label>
+                <textarea id="incidentDescription" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="attachments">Adjuntar Archivos</label>
+                <input type="file" id="attachments" multiple>
+            </div>
+        </div>
+
+        <div class="form-section" style="text-align: center;">
+            <button type="submit">Reportar Incidencia</button>
+        </div>
+    </form>
+
+    <div class="confirmation-message">
+        <h3 style="color: #64ffda; margin-bottom: 0.5rem;">✅ Incidencia Reportada</h3>
+        <p>Su reporte ha sido registrado exitosamente. Nuestro equipo técnico lo revisará dentro de las próximas 24 horas.</p>
+    </div>
+</div>
+
+<script>
+    document.getElementById('incidentForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        document.querySelector('.confirmation-message').style.display = 'block';
+        this.reset();
+        setTimeout(() => {
+            document.querySelector('.confirmation-message').style.display = 'none';
+        }, 5000);
+    });
+</script>

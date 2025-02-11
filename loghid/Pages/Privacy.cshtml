@@ -1,8 +1,132 @@
 ﻿@page
 @model PrivacyModel
 @{
-    ViewData["Title"] = "Privacy Policy";
+    ViewData["Title"] = "Política de Privacidad - Proyecto Hidrógeno";
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<style>
+    body {
+        background: linear-gradient(135deg, #0a192f 0%, #0d2342 100%);
+        min-height: 100vh;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    .privacy-container {
+        background: rgba(23, 42, 69, 0.95);
+        border-radius: 20px;
+        padding: 3rem;
+        margin: 3rem auto;
+        max-width: 900px;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        border: 1px solid rgba(47, 67, 104, 0.5);
+        backdrop-filter: blur(10px);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .privacy-container::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(45deg, transparent 20%, #64ffda33 50%, transparent 80%);
+        animation: gradientShift 20s infinite linear;
+    }
+    
+    h1 {
+        color: #64ffda;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        position: relative;
+        font-size: 2.5rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    h1::before {
+        content: '🔒';
+        filter: hue-rotate(120deg);
+        font-size: 2.2rem;
+    }
+    
+    .policy-section {
+        margin-bottom: 2.5rem;
+        padding: 1.5rem;
+        background: rgba(31, 48, 79, 0.4);
+        border-radius: 12px;
+        transition: transform 0.3s ease;
+        border-left: 4px solid #64ffda;
+    }
+
+    .policy-section:hover {
+        transform: translateX(10px);
+    }
+    
+    h2 {
+        color: #88a9d6;
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+        font-weight: 600;
+    }
+    
+    p {
+        color: #ccd6f6;
+        line-height: 1.8;
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .highlight {
+        color: #64ffda;
+        font-weight: 500;
+    }
+
+    @@keyframes gradientShift {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    @@media (max-width: 768px) {
+        .privacy-container {
+            margin: 1.5rem;
+            padding: 2rem;
+        }
+        
+        h1 {
+            font-size: 2rem;
+        }
+    }
+</style>
+
+<div class="privacy-container">
+    <h1>@ViewData["Title"]</h1>
+    
+    <div class="policy-section">
+        <h2>Recopilación de Datos</h2>
+        <p>En <span class="highlight">Loghid</span>, recopilamos únicamente la información esencial para la operación segura de nuestros sistemas de energía limpia. Esto incluye datos técnicos de operación y métricas de rendimiento anonimizadas.</p>
+    </div>
+
+    <div class="policy-section">
+        <h2>Seguridad de la Información</h2>
+        <p>Implementamos protocolos de cifrado <span class="highlight">AES-256</span> para todas las comunicaciones de datos y utilizamos sistemas de almacenamiento distribuido con redundancia cuántica para garantizar la máxima protección.</p>
+    </div>
+
+    <div class="policy-section">
+        <h2>Compartición con Terceros</h2>
+        <p>Los datos técnicos pueden ser compartidos con socios de investigación bajo acuerdos de confidencialidad estrictos, manteniendo siempre el anonimato de la información sensible.</p>
+    </div>
+
+    <div class="policy-section">
+        <h2>Derechos del Usuario</h2>
+        <p>Usted puede solicitar acceso, rectificación o eliminación de datos personales a través de nuestro <span class="highlight">Portal de Transparencia Energética</span>, disponible 24/7 en nuestra plataforma segura.</p>
+    </div>
+
+    <div class="policy-section">
+        <h2>Actualizaciones de la Política</h2>
+        <p>Esta política se actualizará acorde a los avances en tecnología de hidrógeno y regulaciones internacionales. Las versiones históricas están disponibles en nuestro archivo digital certificado.</p>
+    </div>
+</div>

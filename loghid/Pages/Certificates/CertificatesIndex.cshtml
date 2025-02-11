@@ -1,66 +1,151 @@
 ﻿@page
 @model Loghid.Pages.CertificatesIndex 
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Lastest Certificates"]</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-    <style>
-        .container {
-            margin-top: 20px; /* Aumentar margen superior */
-        }
+<style>
+    body {
+        background: linear-gradient(135deg, #0a192f 0%, #0d2342 100%);
+        color: #ccd6f6;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        min-height: 100vh;
+        padding: 2rem 1rem 100px 1rem;
+    }
 
-        /* Estilo para las cards */
-        .card {
-            margin-bottom: 2rem;
-            border: 0;
-            border-radius: 0;
-            background: #f8f9fa;
-            transition: transform 0.3s;
-            position: relative;
-        }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        backdrop-filter: blur(10px);
+    }
 
-        .card:hover {
-            transform: translateY(-5px);
-        }
+    h2 {
+        color: #64ffda;
+        font-weight: 600;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid #2f4368;
+    }
 
-        .card-header {
-            background: #2c3e50;
-            color: white;
-            border-radius: 0 !important;
-            padding: 1rem 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    .row {
+        gap: 1.5rem 0;
+    }
 
-        .card-title {
-            margin: 0;
-            font-size: 1.25rem;
-        }
+    .card {
+        background: rgba(23, 42, 69, 0.95);
+        border: 1px solid #2f4368;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        margin-bottom: 1.5rem;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
 
-        .edit {
-            background: #2c3e50;
-            color: #ffffff;
-        }
+    .card::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(45deg, transparent 20%, #64ffda33 50%, transparent 80%);
+        animation: gradientShift 20s infinite linear;
+    }
 
-        .data-label {
-            font-weight: 600;
-            color: #455a64;
-            font-size: 0.9rem;
-        }
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    }
 
-        .card-text {
-            color: #37474f;
-            font-size: 0.95rem;
-        }
+    .card-header {
+        background: rgba(31, 48, 79, 0.4);
+        border-bottom: 1px solid #2f4368;
+        padding: 1.5rem;
+        position: relative;
+        z-index: 1;
+    }
 
-.navbar-horizontal {
+    .card-title {
+        color: #64ffda;
+        margin: 0;
+        font-size: 1.3rem;
+        font-weight: 600;
+    }
+
+    .card-body {
+        position: relative;
+        z-index: 1;
+        padding: 1.5rem;
+    }
+
+    .data-label {
+        color: #88a9d6;
+        font-size: 0.9rem;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+    }
+
+    .card-text {
+        color: #ccd6f6;
+        font-size: 0.95rem;
+        margin-bottom: 1rem;
+    }
+
+    .badge-custom {
+        background: rgba(100, 255, 218, 0.1);
+        color: #64ffda;
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.85rem;
+    }
+
+    .edit-link {
+        color: #64ffda;
+        padding: 0.5rem;
+        transition: all 0.3s ease;
+    }
+
+    .edit-link:hover {
+        color: #88ffe5;
+        transform: scale(1.1);
+    }
+
+    .download-link {
+        background: #64ffda;
+        color: #0a192f;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .download-link:hover {
+        background: #88ffe5;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(100, 255, 218, 0.3);
+    }
+
+    .download-link i {
+        color: #0a192f;
+    }
+
+    @@keyframes gradientShift {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    /* Navbar sin cambios */
+    .navbar-horizontal {
   width: 100%;
   height: 90px;
   position: fixed;
@@ -123,54 +208,17 @@
   transform: translateY(-5px) scale(1.05);
 }
 
-edit-link {
-    color: #2c3e50; /* Texto e icono en blanco */
-    padding: 0.5rem 1rem; /* Espaciado interno */
-    display: flex;
-    gap: 0.5rem; /* Espacio entre icono y texto */
-    font-size: 1.2rem; /* Tamaño del texto */
-    font-weight: bold;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    width: fit-content;
-}
-
-.edit-link i {
-    font-size: 1.5rem; /* Tamaño del icono */
-    color: #2c3e50;
-}
-
-
-.download-link {
-    background: #2c3e50; /* Azul oscuro */
-    color: white; /* Texto e icono en blanco */
-    padding: 0.5rem 1rem; /* Espaciado interno */
-    display: flex;
-    gap: 0.5rem; /* Espacio entre icono y texto */
-    font-size: 1rem; /* Tamaño del texto */
-    font-weight: bold;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    width: fit-content;
-}
-
-.download-link i {
-    font-size: 1.2rem; /* Tamaño del icono */
-    color: white;
-}
-
-
-/* Eliminar el estilo de enlace (color azul) */
-.download-link:focus, .download-link:active, .download-link:link, .download-link:visited {
-    color: white;
-    text-decoration: none
-
-.edit-link:focus, .edit-link:active, .edit-link:link, .edit-link:visited {
-    color: white;
-    text-decoration: none
-
-
+    @@media (max-width: 768px) {
+        .card {
+            margin-bottom: 1rem;
+        }
+        
+        .card-header {
+            padding: 1rem;
+        }
+    }
 </style>
+
 <nav class="navbar-horizontal">
     <a class="nav-link" asp-page="/Index">
         <i class="fas fa-home"></i>
@@ -208,10 +256,6 @@ edit-link {
         <span>Incidents</span>
     </a>
 
-    <a class="nav-link" asp-page="/Support">
-        <i class="fas fa-info-circle"></i>
-        <span>Support</span>
-    </a>
 
     <a class="nav-link" asp-page="/Privacy">
         <i class="fas fa-shield-alt"></i>
@@ -219,9 +263,10 @@ edit-link {
     </a>
 
 </nav>
+
 <body>
     <div class="container">
-        <h2 class="mb-4">Loghid H2 Fingerprint Database</h2>
+        <h2>Loghid H2 Fingerprint Database</h2>
         <div class="row row-cols-1 row-cols-md-3 g-4">
             @foreach (var item in Model.ClientMeasurement)
             {
@@ -254,17 +299,23 @@ edit-link {
                                 </div>
 
                                 <div class="col-12 mt-3 d-flex justify-content-between">
-        <div class="col-12 mt-3 d-flex justify-content-between">
-    <div class="edit2">
-    <a asp-page="/New-Measurement/Details" asp-route-id="@item.Id_Measurement" class="edit-link"><i class="fas fa-circle-info"></i></a>  <a asp-page="/New-Measurement/Edit" asp-route-id="@item.Id_Measurement" class="edit-link"><i class="fas fa-pen-to-square"></i></a> <a asp-page="/New-Measurement/Delete" asp-route-id="@item.Id_Measurement" class="edit-link"><i class="fas fa-trash"></i></a>
-</div>
-    <div class="download ml-auto">
-        <a asp-page="/Certificates/CertificatesIndex" asp-page-handler="Download" asp-route-id="@item.Id_Measurement" class="download-link">
-            <i class="fas fa-download"></i> Download
-        </a>
-    </div>
-</div>
-</div>
+                                    <div class="edit2">
+                                        <a asp-page="/New-Measurement/Details" asp-route-id="@item.Id_Measurement" class="edit-link">
+                                            <i class="fas fa-circle-info"></i>
+                                        </a>
+                                        <a asp-page="/New-Measurement/Edit" asp-route-id="@item.Id_Measurement" class="edit-link">
+                                            <i class="fas fa-pen-to-square"></i>
+                                        </a>
+                                        <a asp-page="/New-Measurement/Delete" asp-route-id="@item.Id_Measurement" class="edit-link">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </div>
+                                    <div class="download ml-auto">
+                                        <a asp-page="/Certificates/CertificatesIndex" asp-page-handler="Download" asp-route-id="@item.Id_Measurement" class="download-link">
+                                            <i class="fas fa-download"></i> Download
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -274,13 +325,10 @@ edit-link {
     </div>
 
     <div class="container-fluid">
-    <p class="mb-0">.</p>
-</div>
-<div class="container-fluid">
-    <p class="mb-0">.</p>
-</div>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <p class="mb-0">.</p>
+    </div>
+    <div class="container-fluid">
+        <p class="mb-0">.</p>
+    </div>
 </body>
 </html>

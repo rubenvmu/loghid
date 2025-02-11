@@ -1,6 +1,5 @@
 @page
 @model loghid.Pages.New_Measurement.IndexModel
-
 @{
     Layout = null;
 }
@@ -11,8 +10,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Lastest Certificates"]</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 <style>
@@ -21,119 +20,163 @@
         padding: 0;
         width: 100%;
         height: 100%;
-        background-color: #f1f1f1;
-        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #0a192f 0%, #0d2342 100%);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        overflow: hidden;
     }
 
     .drag-drop-container {
         width: 100%;
-        height: 100%;
+        height: 100vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        position: relative;
     }
 
     .card-container {
-        background: white;
-        padding: 2rem;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        border-radius: 0;
+        background: rgba(23, 42, 69, 0.95);
+        padding: 3rem;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        border-radius: 15px;
         width: 80%;
         max-width: 500px;
         text-align: center;
+        border: 1px solid #2f4368;
+        backdrop-filter: blur(10px);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .card-container::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(45deg, transparent 20%, #64ffda33 50%, transparent 80%);
+        animation: gradientShift 20s infinite linear;
     }
 
     .create-header {
-        font-size: 1.5rem;
-        font-weight: bold;
-        color: #2c3e50;
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: #64ffda;
         margin-bottom: 2rem;
-        padding: 1rem 0;
-        border-bottom: 2px solid #f1f1f1;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid #2f4368;
+        position: relative;
+        z-index: 1;
     }
 
     .create-circle {
-    width: 120px;
-    height: 120px;
-    background-color: #2c3e50;
-    border-radius: 50%;
-    margin: 2rem auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-decoration: none; /* Evita la línea azul */
-}
+        width: 140px;
+        height: 140px;
+        background: rgba(100, 255, 218, 0.1);
+        border-radius: 50%;
+        margin: 2rem auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 2px solid #64ffda;
+        position: relative;
+        z-index: 1;
+    }
 
     .create-circle i {
-        font-size: 3rem;
-        color: #ffffff; /* Ícono en color f1f1f1 */
+        font-size: 3.5rem;
+        color: #64ffda;
         transition: all 0.3s ease;
     }
 
     .create-circle:hover {
         transform: scale(1.05);
-        background-color: #11181f; /* Azul más oscuro en hover */
+        background: rgba(100, 255, 218, 0.2);
+        box-shadow: 0 0 25px rgba(100, 255, 218, 0.3);
+    }
+
+    @@keyframes gradientShift {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
     }
 
     .navbar-horizontal {
-        width: 100%;
-        height: 90px;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        background: rgba(255, 255, 255, 0.98);
-        box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(8px);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 25px;
-        padding: 0 20px;
-        z-index: 1030;
-    }
+  width: 100%;
+  height: 90px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  padding: 0 20px;
+  z-index: 1030;
+}
 
-    .nav-link {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 12px;
-        border-radius: 16px;
-        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 1.95);
-        text-decoration: none !important;
-        position: relative;
-    }
+.nav-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 1.95);
+  text-decoration: none !important;
+  position: relative;
+}
 
-    .nav-link i {
-        font-size: 1.8rem;
-        color: #2c3e50 !important;
-        transition: all 0.3s ease;
-    }
+.nav-link i {
+  font-size: 1.8rem;
+  color: #2c3e50 !important;
+  transition: all 0.3s ease;
+}
 
-    .nav-link span {
-        font-size: 0.75rem;
-        color: #2c3e50;
-        position: absolute;
-        bottom: -25px;
-        opacity: 0;
-        transition: all 0.3s ease;
-        white-space: nowrap;
-    }
+.nav-link span {
+  font-size: 0.75rem;
+  color: #2c3e50;
+  position: absolute;
+  bottom: -25px;
+  opacity: 0;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+.nav-link:hover {
+  transform: translateY(-15px) scale(1.05);
+  background: rgba(244, 244, 244, 0.7);
+}
 
-    .nav-link:hover {
-        transform: translateY(-15px) scale(1.05);
-        background: rgba(244, 244, 244, 0.7);
-    }
+.nav-link:hover i {
+  transform: scale(1.05);
+}
 
-    .nav-link:hover i {
-        transform: scale(1.05);
-    }
+.nav-link:hover span {
+  opacity: 1;
+  bottom: -20px;
+}
 
-    .nav-link:hover span {
-        opacity: 1;
-        bottom: -20px;
+/* Efecto para elementos adyacentes */
+.nav-link:hover + .nav-link,
+.nav-link:hover ~ .nav-link {
+  transform: translateY(-5px) scale(1.05);
+}
+
+    @@media (max-width: 768px) {
+        .card-container {
+            width: 90%;
+            padding: 2rem;
+        }
+        
+        .create-circle {
+            width: 120px;
+            height: 120px;
+        }
     }
 </style>
 
@@ -169,10 +212,6 @@
             <i class="fas fa-exclamation-circle"></i>
             <span>Incidents</span>
         </a>
-        <a class="nav-link" asp-page="/Support">
-            <i class="fas fa-info-circle"></i>
-            <span>Support</span>
-        </a>
         <a class="nav-link" asp-page="/Privacy">
             <i class="fas fa-shield-alt"></i>
             <span>Privacy</span>
@@ -182,15 +221,12 @@
     <div class="drag-drop-container">
         <div class="card-container">
             <div class="create-header">
-                </h2>New Customer Measurement</h2>
+                New Customer Measurement
             </div>
             <a asp-page="Create" class="create-circle">
-                <i class="fa-solid fa-plus"></i> <!-- Icono actualizado -->
+                <i class="fa-solid fa-plus"></i>
             </a>
         </div>
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
