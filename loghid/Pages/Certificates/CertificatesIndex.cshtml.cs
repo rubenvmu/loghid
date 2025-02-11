@@ -66,47 +66,47 @@ namespace Loghid.Pages
     string contentForHash = string.Join("\n", data.Select(kvp => $"{kvp.Key}: {kvp.Value}"));
     string hash = CalculateSHA256Hash(contentForHash);
 
-    string fileName = $"H2Fingerprint_{measurement.Id_Measurement}_{hash}.pdf";
+    string fileName = $"CertificateCustomer_{measurement.Id_Measurement}_{hash}.pdf";
     string fullPath = Path.Combine(folderPath, fileName);
 
     try
+{
+    using (var writer = new PdfWriter(fullPath))
+    using (var pdf = new PdfDocument(writer))
     {
+        var document = new Document(pdf);
+        PdfFont boldFont = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
+
+        document.Add(new Paragraph("Certificate Customer Measurement")
+            .SetTextAlignment(TextAlignment.LEFT)
+            .SetFontSize(16)
+            .SetFont(boldFont));
+
+        document.Add(new Paragraph($"Generated on: {DateTime.Now:dd/MM/yyyy HH:mm}")
+            .SetTextAlignment(TextAlignment.LEFT)
+            .SetFontSize(12));
+
+        Table table = new Table(2).UseAllAvailableWidth();
         
-        using (var writer = new PdfWriter(fullPath))
-        using (var pdf = new PdfDocument(writer))
+        
+        table.AddCell(new Cell().Add(new Paragraph("Parameter").SetFont(boldFont)).SetBackgroundColor(iText.Kernel.Colors.ColorConstants.LIGHT_GRAY));
+        table.AddCell(new Cell().Add(new Paragraph("Value").SetFont(boldFont)).SetBackgroundColor(iText.Kernel.Colors.ColorConstants.LIGHT_GRAY));
+
+        foreach (var item in data)
         {
-            var document = new Document(pdf);
-            PdfFont boldFont = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
-
-            
-            document.Add(new Paragraph("Loghid H2 Fingerprint - Certificate Customer Measurement Report")
-                .SetTextAlignment(TextAlignment.LEFT)
-                .SetFontSize(16)
-                .SetFont(boldFont));
-
-            document.Add(new Paragraph($"Generated on: {DateTime.Now:dd/MM/yyyy HH:mm}")
-                .SetTextAlignment(TextAlignment.LEFT)
-                .SetFontSize(12));
-
-            document.Add(new Paragraph("Name: The name or type of the measured substance. ISO Threshold: The ISO-defined threshold value for quality measurement. Measurement Method: The specific method used for measurement. Measurement Range: The valid range of measured values. Probability: Likely represents the confidence level of the measurement.")
-                .SetTextAlignment(TextAlignment.LEFT)
-                .SetFontSize(12));
-
-            
-            foreach (var item in data)
-            {
-                document.Add(new Paragraph($"{item.Key}: {item.Value}")
-                    .SetFontSize(12));
-            }
-
-            
-            document.Add(new Paragraph($"SHA-256: {hash}")
-                .SetTextAlignment(TextAlignment.LEFT)
-                .SetFontSize(12));
+            table.AddCell(new Cell().Add(new Paragraph(item.Key)).SetFontSize(12));
+            table.AddCell(new Cell().Add(new Paragraph(item.Value)).SetFontSize(12));
         }
 
-        return PhysicalFile(fullPath, "application/pdf", fileName);
+        document.Add(table);
+
+        document.Add(new Paragraph($"SHA-256: {hash}")
+            .SetTextAlignment(TextAlignment.LEFT)
+            .SetFontSize(12));
     }
+
+    return PhysicalFile(fullPath, "application/pdf", fileName);
+}
     catch (Exception ex)
     {
         Console.WriteLine($"Error{ex.ToString()}");
@@ -118,8 +118,8 @@ namespace Loghid.Pages
         {
             return new Dictionary<string, string>
             {
-                {"Measurement ID", measurement.Id_Measurement.ToString()},
-            {"Public ID", measurement.PublicID_Measurement ?? "N/A"},
+            {"Measurement ID", measurement.Id_Measurement.ToString()},
+            {"H2 Fingerprint", measurement.PublicID_Measurement ?? "N/A"},
             {"Date", measurement.Date_Measurement.ToString("dd/MM/yyyy")},
             {"Customer ID", measurement.CustomerID_Measurement.ToString()},
             {"Customer", measurement.Customer_Measurement},

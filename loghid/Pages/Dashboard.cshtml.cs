@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Loghid.Data;
 using Loghid.Models;
-using Loghid.data; // Add this line
+using Loghid.data;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
