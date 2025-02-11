@@ -17,119 +17,134 @@
     <h4>ClientMeasurement</h4>
     <hr />
     <style>
-    .dashboard-card {
-        border: 1px solid #e0e0e0;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+    /* Reset estilos anteriores */
+    .dashboard-card, .card-header, .card-title, .data-row, 
+    .spec-label, .spec-value, .data-icon, .table {
+        all: unset;
+    }
+
+    /* Estilo moderno tipo dashboard */
+    body {
+        background: linear-gradient(135deg, #0a192f 0%, #0d2342 100%);
+        color: #ccd6f6;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        min-height: 100vh;
+        padding: 2rem 1rem;
+    }
+
+    h4 {
+        color: #64ffda;
+        font-size: 1.8rem;
         margin-bottom: 1.5rem;
-        background: #ffffff;
-        max-width: 100%;
-        min-height: 320px;
     }
 
-    .card-header {
-        background: #2c3e50;
-        border-bottom: 2px solid #1a252f;
-        padding: 0.8rem 1rem;
+    .row {
+        max-width: 1200px;
+        margin: 0 auto;
+        backdrop-filter: blur(10px);
     }
 
-    .card-title {
-        font-size: 1rem;
-        font-weight: 600;
-        color: #ffffff;
-        margin: 0;
-        display: flex;
-        align-items: center;
-        gap: 0.6rem;
+    form {
+        background: rgba(23, 42, 69, 0.95);
+        padding: 2rem;
+        border-radius: 15px;
+        border: 1px solid #2f4368;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        position: relative;
+        overflow: hidden;
     }
 
-    .data-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0.6rem;
-        border: 1px solid #e0e0e0;
-        margin: 0.3rem 0;
-        background: #f8f9fa;
-        min-height: 60px;
+    form::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(45deg, transparent 20%, #64ffda33 50%, transparent 80%);
+        animation: form-gradient 20s infinite linear;
     }
 
-    .data-content {
-        flex: 1;
-        padding-right: 0.5rem;
-    }
-
-    .spec-label {
-        font-size: 0.78rem;
-        color: #6c757d;
-        font-weight: 500;
-        line-height: 1.2;
-    }
-
-    .spec-value {
-        font-size: 0.95rem;
-        color: #2c3e50;
-        font-weight: 700;
-        margin-top: 0.15rem;
-    }
-
-    .data-icon {
-        color: #3498db;
-        font-size: 1.2rem;
-        min-width: 30px;
-        text-align: center;
-    }
-
-    .atom-icon {
-        font-size: 1.2rem;
-        color: #ecf0f1;
-    }
-
-    .container-dashboard {
-        max-width: 1400px;
-        padding: 1.5rem 1rem;
-    }
-
-    .card-body {
-        padding: 0.8rem !important;
-    }
-
-    /* Estilos específicos para la tabla */
-    .table {
-        width: 100%;
-        border-collapse: collapse;
+    .form-group {
         margin-bottom: 1.5rem;
-        background: #ffffff;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+        position: relative;
+        z-index: 1;
     }
 
-    .table th,
-    .table td {
-        padding: 0.75rem;
-        border: 1px solid #e0e0e0;
-        text-align: left;
+    .form-control {
+        background: rgba(47, 67, 104, 0.3);
+        border: 1px solid #2f4368;
+        color: #ccd6f6 !important;
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        transition: all 0.3s ease;
     }
 
-    .table th {
-        background: #2c3e50;
-        color: #ffffff;
+    .form-control:focus {
+        background: rgba(47, 67, 104, 0.5);
+        border-color: #64ffda;
+        box-shadow: 0 0 0 3px rgba(100, 255, 218, 0.2);
+    }
+
+    label.control-label {
+        color: #88a9d6 !important;
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+        display: block;
+    }
+
+    .text-danger {
+        color: #ff6363 !important;
+    }
+
+    .btn-primary {
+        background: #64ffda;
+        color: #0a192f;
+        border: none;
+        padding: 0.75rem 2rem;
         font-weight: 600;
+        border-radius: 8px;
+        transition: all 0.3s ease;
     }
 
-    .table tbody tr:nth-child(even) {
-        background: #f8f9fa;
+    .btn-primary:hover {
+        background: #88ffe5;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(100, 255, 218, 0.3);
     }
 
-    .table tbody tr:hover {
-        background: #e9ecef;
-    }
-
-    .table a {
-        color: #3498db;
+    a {
+        color: #64ffda;
         text-decoration: none;
+        transition: color 0.3s ease;
     }
 
-    .table a:hover {
-        text-decoration: underline;
+    a:hover {
+        color: #88ffe5;
+    }
+
+    hr {
+        border-color: #2f4368;
+        margin: 2rem 0;
+    }
+
+    @@keyframes form-gradient {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    @@media (max-width: 768px) {
+        .row {
+            padding: 1rem;
+        }
+        
+        form {
+            padding: 1.5rem;
+        }
+        
+        .form-control {
+            padding: 0.6rem;
+        }
     }
 </style>
     <div class="row">
@@ -192,11 +207,6 @@
                 <span asp-validation-for="ClientMeasurement.Water_MeasuredRange_Measurement" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ClientMeasurement.Water_Probability_Measurement" class="control-label"></label>
-                <input asp-for="ClientMeasurement.Water_Probability_Measurement" class="form-control" />
-                <span asp-validation-for="ClientMeasurement.Water_Probability_Measurement" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="ClientMeasurement.Methane_SubstanceName_Measurement" class="control-label"></label>
                 <input asp-for="ClientMeasurement.Methane_SubstanceName_Measurement" class="form-control" />
                 <span asp-validation-for="ClientMeasurement.Methane_SubstanceName_Measurement" class="text-danger"></span>
@@ -215,11 +225,6 @@
                 <label asp-for="ClientMeasurement.Methane_MeasuredRange_Measurement" class="control-label"></label>
                 <input asp-for="ClientMeasurement.Methane_MeasuredRange_Measurement" class="form-control" />
                 <span asp-validation-for="ClientMeasurement.Methane_MeasuredRange_Measurement" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ClientMeasurement.Methane_Probability_Measurement" class="control-label"></label>
-                <input asp-for="ClientMeasurement.Methane_Probability_Measurement" class="form-control" />
-                <span asp-validation-for="ClientMeasurement.Methane_Probability_Measurement" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ClientMeasurement.NonCH4Hydrocarbons_SubstanceName_Measurement" class="control-label"></label>
@@ -242,11 +247,6 @@
                 <span asp-validation-for="ClientMeasurement.NonCH4Hydrocarbons_MeasuredRange_Measurement" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ClientMeasurement.NonCH4Hydrocarbons_Probability_Measurement" class="control-label"></label>
-                <input asp-for="ClientMeasurement.NonCH4Hydrocarbons_Probability_Measurement" class="form-control" />
-                <span asp-validation-for="ClientMeasurement.NonCH4Hydrocarbons_Probability_Measurement" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="ClientMeasurement.Oxygen_SubstanceName_Measurement" class="control-label"></label>
                 <input asp-for="ClientMeasurement.Oxygen_SubstanceName_Measurement" class="form-control" />
                 <span asp-validation-for="ClientMeasurement.Oxygen_SubstanceName_Measurement" class="text-danger"></span>
@@ -265,11 +265,6 @@
                 <label asp-for="ClientMeasurement.Oxygen_MeasuredRange_Measurement" class="control-label"></label>
                 <input asp-for="ClientMeasurement.Oxygen_MeasuredRange_Measurement" class="form-control" />
                 <span asp-validation-for="ClientMeasurement.Oxygen_MeasuredRange_Measurement" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ClientMeasurement.Oxygen_Probability_Measurement" class="control-label"></label>
-                <input asp-for="ClientMeasurement.Oxygen_Probability_Measurement" class="form-control" />
-                <span asp-validation-for="ClientMeasurement.Oxygen_Probability_Measurement" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ClientMeasurement.Helium_SubstanceName_Measurement" class="control-label"></label>
@@ -292,11 +287,6 @@
                 <span asp-validation-for="ClientMeasurement.Helium_MeasuredRange_Measurement" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ClientMeasurement.Helium_Probability_Measurement" class="control-label"></label>
-                <input asp-for="ClientMeasurement.Helium_Probability_Measurement" class="form-control" />
-                <span asp-validation-for="ClientMeasurement.Helium_Probability_Measurement" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="ClientMeasurement.Nitrogen_SubstanceName_Measurement" class="control-label"></label>
                 <input asp-for="ClientMeasurement.Nitrogen_SubstanceName_Measurement" class="form-control" />
                 <span asp-validation-for="ClientMeasurement.Nitrogen_SubstanceName_Measurement" class="text-danger"></span>
@@ -315,11 +305,6 @@
                 <label asp-for="ClientMeasurement.Nitrogen_MeasuredRange_Measurement" class="control-label"></label>
                 <input asp-for="ClientMeasurement.Nitrogen_MeasuredRange_Measurement" class="form-control" />
                 <span asp-validation-for="ClientMeasurement.Nitrogen_MeasuredRange_Measurement" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ClientMeasurement.Nitrogen_Probability_Measurement" class="control-label"></label>
-                <input asp-for="ClientMeasurement.Nitrogen_Probability_Measurement" class="form-control" />
-                <span asp-validation-for="ClientMeasurement.Nitrogen_Probability_Measurement" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ClientMeasurement.Argon_SubstanceName_Measurement" class="control-label"></label>
@@ -342,11 +327,6 @@
                 <span asp-validation-for="ClientMeasurement.Argon_MeasuredRange_Measurement" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ClientMeasurement.Argon_Probability_Measurement" class="control-label"></label>
-                <input asp-for="ClientMeasurement.Argon_Probability_Measurement" class="form-control" />
-                <span asp-validation-for="ClientMeasurement.Argon_Probability_Measurement" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="ClientMeasurement.CarbonDioxide_SubstanceName_Measurement" class="control-label"></label>
                 <input asp-for="ClientMeasurement.CarbonDioxide_SubstanceName_Measurement" class="form-control" />
                 <span asp-validation-for="ClientMeasurement.CarbonDioxide_SubstanceName_Measurement" class="text-danger"></span>
@@ -365,11 +345,6 @@
                 <label asp-for="ClientMeasurement.CarbonDioxide_Argon_MeasuredRange_Measurement" class="control-label"></label>
                 <input asp-for="ClientMeasurement.CarbonDioxide_Argon_MeasuredRange_Measurement" class="form-control" />
                 <span asp-validation-for="ClientMeasurement.CarbonDioxide_Argon_MeasuredRange_Measurement" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ClientMeasurement.CarbonDioxide_Argon_Probability_Measurement" class="control-label"></label>
-                <input asp-for="ClientMeasurement.CarbonDioxide_Argon_Probability_Measurement" class="form-control" />
-                <span asp-validation-for="ClientMeasurement.CarbonDioxide_Argon_Probability_Measurement" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ClientMeasurement.CarbonMonoxid_SubstanceName_Measurement" class="control-label"></label>
@@ -392,11 +367,6 @@
                 <span asp-validation-for="ClientMeasurement.CarbonMonoxid_MeasuredRange_Measurement" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ClientMeasurement.CarbonMonoxid_Probability_Measurement" class="control-label"></label>
-                <input asp-for="ClientMeasurement.CarbonMonoxid_Probability_Measurement" class="form-control" />
-                <span asp-validation-for="ClientMeasurement.CarbonMonoxid_Probability_Measurement" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="ClientMeasurement.SulphurCompounds_SubstanceName_Measurement" class="control-label"></label>
                 <input asp-for="ClientMeasurement.SulphurCompounds_SubstanceName_Measurement" class="form-control" />
                 <span asp-validation-for="ClientMeasurement.SulphurCompounds_SubstanceName_Measurement" class="text-danger"></span>
@@ -415,11 +385,6 @@
                 <label asp-for="ClientMeasurement.SulphurCompounds_MeasuredRange_Measurement" class="control-label"></label>
                 <input asp-for="ClientMeasurement.SulphurCompounds_MeasuredRange_Measurement" class="form-control" />
                 <span asp-validation-for="ClientMeasurement.SulphurCompounds_MeasuredRange_Measurement" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ClientMeasurement.SulphurCompounds_Probability_Measurement" class="control-label"></label>
-                <input asp-for="ClientMeasurement.SulphurCompounds_Probability_Measurement" class="form-control" />
-                <span asp-validation-for="ClientMeasurement.SulphurCompounds_Probability_Measurement" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ClientMeasurement.Formaldehyde_SubstanceName_Measurement" class="control-label"></label>
@@ -442,11 +407,6 @@
                 <span asp-validation-for="ClientMeasurement.Formaldehyde_MeasuredRange_Measurement" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ClientMeasurement.Formaldehyde_Probability_Measurement" class="control-label"></label>
-                <input asp-for="ClientMeasurement.Formaldehyde_Probability_Measurement" class="form-control" />
-                <span asp-validation-for="ClientMeasurement.Formaldehyde_Probability_Measurement" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="ClientMeasurement.FormicAcid_SubstanceName_Measurement" class="control-label"></label>
                 <input asp-for="ClientMeasurement.FormicAcid_SubstanceName_Measurement" class="form-control" />
                 <span asp-validation-for="ClientMeasurement.FormicAcid_SubstanceName_Measurement" class="text-danger"></span>
@@ -465,11 +425,6 @@
                 <label asp-for="ClientMeasurement.FormicAcid_MeasuredRange_Measurement" class="control-label"></label>
                 <input asp-for="ClientMeasurement.FormicAcid_MeasuredRange_Measurement" class="form-control" />
                 <span asp-validation-for="ClientMeasurement.FormicAcid_MeasuredRange_Measurement" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ClientMeasurement.FormicAcid_Probability_Measurement" class="control-label"></label>
-                <input asp-for="ClientMeasurement.FormicAcid_Probability_Measurement" class="form-control" />
-                <span asp-validation-for="ClientMeasurement.FormicAcid_Probability_Measurement" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ClientMeasurement.Amonia_SubstanceName_Measurement" class="control-label"></label>
@@ -492,11 +447,6 @@
                 <span asp-validation-for="ClientMeasurement.Amonia_MeasuredRange_Measurement" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ClientMeasurement.Amonia_Probability_Measurement" class="control-label"></label>
-                <input asp-for="ClientMeasurement.Amonia_Probability_Measurement" class="form-control" />
-                <span asp-validation-for="ClientMeasurement.Amonia_Probability_Measurement" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="ClientMeasurement.HalogenatedCompounds_SubstanceName_Measurement" class="control-label"></label>
                 <input asp-for="ClientMeasurement.HalogenatedCompounds_SubstanceName_Measurement" class="form-control" />
                 <span asp-validation-for="ClientMeasurement.HalogenatedCompounds_SubstanceName_Measurement" class="text-danger"></span>
@@ -517,11 +467,6 @@
                 <span asp-validation-for="ClientMeasurement.HalogenatedCompounds_MeasuredRange_Measurement" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ClientMeasurement.HalogenatedCompounds_Probability_Measurement" class="control-label"></label>
-                <input asp-for="ClientMeasurement.HalogenatedCompounds_Probability_Measurement" class="form-control" />
-                <span asp-validation-for="ClientMeasurement.HalogenatedCompounds_Probability_Measurement" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="ClientMeasurement.Hydrocarbons_SubstanceName_Measurement" class="control-label"></label>
                 <input asp-for="ClientMeasurement.Hydrocarbons_SubstanceName_Measurement" class="form-control" />
                 <span asp-validation-for="ClientMeasurement.Hydrocarbons_SubstanceName_Measurement" class="text-danger"></span>
@@ -540,11 +485,6 @@
                 <label asp-for="ClientMeasurement.Hydrocarbons_MeasuredRange_Measurement" class="control-label"></label>
                 <input asp-for="ClientMeasurement.Hydrocarbons_MeasuredRange_Measurement" class="form-control" />
                 <span asp-validation-for="ClientMeasurement.Hydrocarbons_MeasuredRange_Measurement" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ClientMeasurement.Hydrocarbons_Probability_Measurement" class="control-label"></label>
-                <input asp-for="ClientMeasurement.Hydrocarbons_Probability_Measurement" class="form-control" />
-                <span asp-validation-for="ClientMeasurement.Hydrocarbons_Probability_Measurement" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

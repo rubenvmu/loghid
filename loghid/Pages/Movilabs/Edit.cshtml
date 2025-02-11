@@ -16,6 +16,139 @@
 
 <h4>eSprinterLab</h4>
 <hr />
+<style>
+    <style>
+    /* Reset estilos anteriores */
+    .dashboard-card, .card-header, .card-title, .data-row, 
+    .spec-label, .spec-value, .data-icon, .table {
+        all: unset;
+    }
+
+    /* Estilo moderno tipo dashboard */
+    body {
+        background: linear-gradient(135deg, #0a192f 0%, #0d2342 100%);
+        color: #ccd6f6;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        min-height: 100vh;
+        padding: 2rem 1rem;
+    }
+
+    h4 {
+        color: #64ffda;
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .row {
+        max-width: 1200px;
+        margin: 0 auto;
+        backdrop-filter: blur(10px);
+    }
+
+    form {
+        background: rgba(23, 42, 69, 0.95);
+        padding: 2rem;
+        border-radius: 15px;
+        border: 1px solid #2f4368;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        position: relative;
+        overflow: hidden;
+    }
+
+    form::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(45deg, transparent 20%, #64ffda33 50%, transparent 80%);
+        animation: form-gradient 20s infinite linear;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+        position: relative;
+        z-index: 1;
+    }
+
+    .form-control {
+        background: rgba(47, 67, 104, 0.3);
+        border: 1px solid #2f4368;
+        color: #ccd6f6 !important;
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+        background: rgba(47, 67, 104, 0.5);
+        border-color: #64ffda;
+        box-shadow: 0 0 0 3px rgba(100, 255, 218, 0.2);
+    }
+
+    label.control-label {
+        color: #88a9d6 !important;
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+        display: block;
+    }
+
+    .text-danger {
+        color: #ff6363 !important;
+    }
+
+    .btn-primary {
+        background: #64ffda;
+        color: #0a192f;
+        border: none;
+        padding: 0.75rem 2rem;
+        font-weight: 600;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        background: #88ffe5;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(100, 255, 218, 0.3);
+    }
+
+    a {
+        color: #64ffda;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    a:hover {
+        color: #88ffe5;
+    }
+
+    hr {
+        border-color: #2f4368;
+        margin: 2rem 0;
+    }
+
+    @@keyframes form-gradient {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    @@media (max-width: 768px) {
+        .row {
+            padding: 1rem;
+        }
+        
+        form {
+            padding: 1.5rem;
+        }
+        
+        .form-control {
+            padding: 0.6rem;
+        }
+    }
+</style>
+</style>
 <div class="row">
     <div class="col-md-4">
         <form method="post">

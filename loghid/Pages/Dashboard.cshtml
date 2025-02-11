@@ -181,6 +181,142 @@
             padding: 1rem;
         }
     }
+
+    .table {
+    color: #ccd6f6;
+    border-collapse: separate;
+    border-spacing: 0 0.5rem;
+}
+
+.table-hover tbody tr:hover {
+    background: rgba(47, 67, 104, 0.5) !important;
+    transform: translateX(5px);
+    transition: all 0.3s ease;
+}
+
+.table-borderless th,
+.table-borderless td {
+    border: none;
+}
+
+th.spec-label {
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: #64ffda !important;
+    background: rgba(31, 48, 79, 0.4);
+    padding: 1rem 1.5rem;
+}
+
+td.spec-value {
+    padding: 1.2rem 1.5rem;
+    vertical-align: middle;
+    background: rgba(47, 67, 104, 0.3);
+}
+
+tr.data-row {
+    border: 1px solid #2f4368;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.table-responsive {
+    border-radius: 12px;
+    overflow: hidden;
+}
+#iso14067-dashboard {
+        color: #64ffda;
+        font-weight: 600;
+        margin: 2rem 0;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid #2f4368;
+    }
+
+    .iso14067-container {
+        background: rgba(23, 42, 69, 0.95);
+        border: 1px solid #2f4368;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .iso14067-container::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(45deg, transparent 20%, #64ffda33 50%, transparent 80%);
+        animation: iso14067-gradientShift 20s infinite linear;
+    }
+
+    .iso14067-table-wrapper {
+        position: relative;
+        z-index: 1;
+        padding: 1.5rem;
+    }
+
+    .iso14067-table {
+        width: 100%;
+        border-collapse: collapse;
+        color: #ccd6f6;
+    }
+
+    .iso14067-table th {
+        background: rgba(31, 48, 79, 0.4);
+        padding: 1.5rem;
+        font-weight: 500;
+        color: #64ffda;
+        border-bottom: 2px solid #2f4368;
+    }
+
+    .iso14067-table td {
+        padding: 1.2rem 1.5rem;
+        background: rgba(47, 67, 104, 0.3);
+        border-bottom: 1px solid #2f4368;
+        transition: all 0.3s ease;
+    }
+
+    .iso14067-table tr:hover td {
+        background: rgba(47, 67, 104, 0.5);
+        transform: translateX(10px);
+    }
+
+    .iso14067-table th i {
+        margin-right: 0.8rem;
+        font-size: 1.1em;
+    }
+
+    .iso14067-alert {
+        background: rgba(31, 48, 79, 0.6);
+        border: 1px solid #2f4368;
+        color: #ccd6f6;
+        padding: 1rem;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+    }
+
+    @@keyframes iso14067-gradientShift {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    @@media (max-width: 768px) {
+        .iso14067-container {
+            margin: 0 -1rem;
+            border-radius: 0;
+        }
+        
+        .iso14067-table th,
+        .iso14067-table td {
+            padding: 1rem;
+            font-size: 0.9em;
+        }
+    }
 </style>
 
 <div class="container">
@@ -270,75 +406,47 @@
         </div>
     }
 
-    <h2>ISO 14067 Dashboard</h2>
+    <h2 id="iso14067-dashboard">ISO 14067 Dashboard</h2>
 
-<table>
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ISO14067[0].LifeCycleAssessmentMethod)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ISO14067[0].CarbonFootprint)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ISO14067[0].DisplayName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ISO14067[0].StandardCode)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ISO14067[0].Year)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ISO14067[0].Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ISO14067[0].Cost)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ISO14067[0].RenewalFrequency)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.ISO14067) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.LifeCycleAssessmentMethod)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CarbonFootprint)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DisplayName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StandardCode)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Year)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cost)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RenewalFrequency)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+@if (Model?.ISO14067 == null || !Model.ISO14067.Any())
+{
+    <div class="iso14067-alert">
+        <i class="fas fa-info-circle"></i>
+        No ISO 14067 data available
+    </div>
 }
-    </tbody>
-</table>
+else
+{
+    <div class="iso14067-container">
+        <div class="iso14067-table-wrapper">
+            <table class="iso14067-table">
+                <thead>
+                    <tr>
+                        <th><i class="fas fa-recycle"></i>Assessment Method</th>
+                        <th><i class="fas fa-shoe-prints"></i>Carbon Footprint</th>
+                        <th><i class="fas fa-file-alt"></i>Standard Code</th>
+                        <th><i class="fas fa-sync-alt"></i>Renewal Frequency</th>
+                        <th><i class="fas fa-calendar"></i>Year</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.ISO14067)
+                    {
+                        <tr class="iso14067-data-row">
+                            <td>@item.LifeCycleAssessmentMethod</td>
+                            <td>@item.CarbonFootprint CO₂e</td>
+                            <td>@item.StandardCode</td>
+                            <td>@item.RenewalFrequency</td>
+                            <td>@item.Year</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}
 
-<div class="container-fluid" style="color: #88a9d6; margin-top: 2rem; text-align: center;">
-    <p class="mb-0">&copy; 2023 GreenH2 News. All rights reserved.</p>
+    <div class="container-fluid" style="color: #88a9d6; margin-top: 2rem; text-align: center;">
+        <p class="mb-0"></p>
+    </div>
 </div>

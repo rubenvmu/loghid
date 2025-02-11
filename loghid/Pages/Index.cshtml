@@ -16,11 +16,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root {
-            --primary-color: #ffffff;
-            --accent-green: #ffffff;
-            --dark-blue: #1a2a3a; /* Color azul oscuro */
-        }
 
         * {
             margin: 0;
@@ -30,7 +25,7 @@
         }
 
         body {
-            background-image: url('/images/wallpaper.png'); /* URL de la imagen de fondo */
+            background-image: url('/images/b3.png'); /* URL de la imagen de fondo */
             background-size: cover;
             background-position: center;
             height: 100vh;
@@ -42,33 +37,62 @@
         }
 
         .auth-container {
-            background: white;
-            width: 100%; /* Ocupa un tercio del ancho de la pantalla */
-            max-width: 440px;
-            padding: 2.5rem;
-            position: relative;
-            overflow: hidden;
-            box-shadow: none;
-            height: 100vh; /* Ocupa toda la altura de la pantalla */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+        background: rgba(23, 42, 69, 0.98);
+        width: 100%;
+        max-width: 440px;
+        padding: 2.5rem;
+        position: relative;
+        overflow: hidden;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border: 1px solid #2f4368;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .auth-container::before {
+        content: '';
+        position: absolute;
+        top: -150%;
+        left: -50%;
+        width: 200%;
+        height: 400%;
+        background: linear-gradient(
+            45deg,
+            transparent 25%,
+            rgba(100, 255, 218, 0.15) 50%,
+            transparent 75%
+        );
+        animation: laserSweep 12s infinite linear;
+        filter: blur(15px);
+    }
+
+    @@keyframes laserSweep {
+        0% { transform: rotate(45deg) translateY(-150%); }
+        100% { transform: rotate(45deg) translateY(150%); }
+    }
+
+    /* Asegurar que el contenido esté por encima del efecto */
+    .auth-header, form, .lorem-text {
+        position: relative;
+        z-index: 2;
+    }
 
         .auth-header {
             text-align: center;
             margin-bottom: 2rem;
         }
 
-        .auth-header h1 {
-            color: var(--dark-blue); /* Texto en azul oscuro */
+        .auth-header h2 {
+            color: #64ffda; /* Texto en azul oscuro */
             font-size: 2rem;
             margin-bottom: 0.5rem;
         }
 
         .auth-header i {
             font-size: 2.5rem;
-            color: var(--dark-blue); /* Icono en azul oscuro */
+            color: #64ffda; /* Icono en azul oscuro */
             margin-bottom: 1rem;
             padding: 1rem;
             border-radius: 50%;
@@ -86,8 +110,8 @@
         }
 
         .btn-primary {
-            background: var(--dark-blue); /* Botón en azul oscuro */
-            color: white;
+            background: #64ffda; /* Botón en azul oscuro */
+            color: #1a2a3a;
             padding: 1rem 2rem;
             border: none;
             border-radius: 0.75rem;
@@ -100,7 +124,7 @@
         .auth-footer {
             text-align: center;
             margin-top: 1.5rem;
-            color: #6c757d;
+            color: #88a9d6;
         }
 
         .auth-footer a {
@@ -113,26 +137,21 @@
             text-align: center;
             margin-top: 2rem;
             font-size: 0.9rem;
-            color: #6c757d;
+            color: #88a9d6;
         }
     </style>
 </head>
 <body>
     <div class="container-dashboard">
-    <!-- Buscador -->
 
     <div id="authMainContainer" class="auth-container">
-        <div class="auth-header">
-            <i class="fas fa-gas-pump"></i>
-            <h2><strong>Loghid</strong> H2 In-Situ Measurement & e-Traceability Platform</h2>
-        </div>
-
+        <img src="/images/loghid_logo_es.png" alt="loghid_logo_es" style="width: 100%; height: auto;" />
         <form action="#">
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="administrator" required />
+                <input type="text" class="form-control" placeholder="loghid@loghid.com" required />
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" placeholder="***********" required />
+                <input type="password" class="form-control" placeholder="*************" required />
             </div>
             <div class="form-group">
                 <button type="submit" class="btn-primary">Access</button>
@@ -143,8 +162,7 @@
             <p>Loghid is the largest green hydrogen measurement and traceability platform in Spain. Contact our team. Legal</p>
             <br>
             <h5>Powered by</h5>
-            <img src="/images/logos.png" alt="Partners" style="width: 100%; height: auto;" />
-            <img src="/images/others.png" alt="Partners" style="width: 100%; height: auto;" />
+            <img src="/images/partners.png" alt="Partners" style="width: 100%; height: auto;" />
             
         </div>
     </div>

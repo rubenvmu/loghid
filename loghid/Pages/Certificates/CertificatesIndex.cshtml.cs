@@ -7,8 +7,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using iText.Kernel.Pdf;
+using iText.Kernel.Colors;
 using iText.Layout;
 using System.Security.Cryptography;
+using iText.IO.Image;
 using System.Text;
 using iText.Layout.Element;
 using iText.Kernel.Font;
@@ -77,28 +79,67 @@ namespace Loghid.Pages
         var document = new Document(pdf);
         PdfFont boldFont = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
 
-        document.Add(new Paragraph("Certificate Customer Measurement")
-            .SetTextAlignment(TextAlignment.LEFT)
-            .SetFontSize(16)
-            .SetFont(boldFont));
+        document.Add(new Paragraph("Certificate Customer Measurement Report")
+    .SetTextAlignment(TextAlignment.LEFT)
+    .SetFontSize(16)
+    .SetFont(boldFont));
 
-        document.Add(new Paragraph($"Generated on: {DateTime.Now:dd/MM/yyyy HH:mm}")
+        document.Add(new Paragraph($"Generated on: {DateTime.Now:dd/MM/yyyy HH:mm} by Loghid SPAIN")
+            .SetTextAlignment(TextAlignment.LEFT)
+            .SetFontSize(12));
+
+        document.Add(new Paragraph("This document provides a Certificate Customer Measurement Report - Loghid H2 Fingerprint, detailing the quality of hydrogen gas based on the ISO 14687 standard.")
+            .SetTextAlignment(TextAlignment.LEFT)
+            .SetFontSize(12));
+
+        document.Add(new Paragraph("ISO_Threshold_Measurement: The maximum allowable concentration for a given substance, as defined by ISO 14687.")
+            .SetTextAlignment(TextAlignment.LEFT)
+            .SetFontSize(12));
+
+        document.Add(new Paragraph("Measurement_Method: The technique used to measure the substance (e.g., GC, OFCEAS, NDIR).")
+            .SetTextAlignment(TextAlignment.LEFT)
+            .SetFontSize(12));
+
+        document.Add(new Paragraph("Testing range to ensure the instrument is correctly calibrated and capable of detecting contamination.")
             .SetTextAlignment(TextAlignment.LEFT)
             .SetFontSize(12));
 
         Table table = new Table(2).UseAllAvailableWidth();
-        
-        
-        table.AddCell(new Cell().Add(new Paragraph("Parameter").SetFont(boldFont)).SetBackgroundColor(iText.Kernel.Colors.ColorConstants.LIGHT_GRAY));
-        table.AddCell(new Cell().Add(new Paragraph("Value").SetFont(boldFont)).SetBackgroundColor(iText.Kernel.Colors.ColorConstants.LIGHT_GRAY));
+
+        table.AddCell(new Cell().Add(new Paragraph("Parameter").SetFont(boldFont))
+            .SetBackgroundColor(ColorConstants.LIGHT_GRAY));
+        table.AddCell(new Cell().Add(new Paragraph("Value").SetFont(boldFont))
+            .SetBackgroundColor(ColorConstants.LIGHT_GRAY));
+
+        HashSet<string> highlightedParameters = new HashSet<string>
+        {
+            "Water", "Methane", "Oxygen", "Nitrogen", "Carbon Dioxide", "Carbon Monoxide",
+            "Sulphur Compounds", "Formaldehyde", "Formic Acid", "Ammonia", "Halogenated Compounds",
+            "Hydrocarbons", "Non-CH4 Hydrocarbons", "Helium", "Argon"
+        };
 
         foreach (var item in data)
         {
-            table.AddCell(new Cell().Add(new Paragraph(item.Key)).SetFontSize(12));
-            table.AddCell(new Cell().Add(new Paragraph(item.Value)).SetFontSize(12));
+            bool isHighlighted = highlightedParameters.Contains(item.Key);
+
+            var cellParam = new Cell().Add(new Paragraph(item.Key).SetFontSize(12));
+            var cellValue = new Cell().Add(new Paragraph(item.Value).SetFontSize(12));
+
+            if (isHighlighted)
+            {
+                cellParam.SetBackgroundColor(ColorConstants.LIGHT_GRAY);
+                cellValue.SetBackgroundColor(ColorConstants.LIGHT_GRAY);
+            }
+
+            table.AddCell(cellParam);
+            table.AddCell(cellValue);
         }
 
         document.Add(table);
+
+        document.Add(new Paragraph($"SHA-256: {hash}")
+            .SetTextAlignment(TextAlignment.LEFT)
+            .SetFontSize(12));
 
         document.Add(new Paragraph($"SHA-256: {hash}")
             .SetTextAlignment(TextAlignment.LEFT)
@@ -128,80 +169,65 @@ namespace Loghid.Pages
             {"Location", measurement.Location_Measurement},
             {"Notes", measurement.Notes_Measurement ?? "N/A"},
             {"Water", measurement.Water_Name_Measurement.ToString()},
-            {"Water ISO Threshold", measurement.Water_ISO_Threshold_Measurement.ToString()},
+            {"Water ISO Threshold", measurement.Water_ISO_Threshold_Measurement.ToString() + " µmol/mol"},
             {"Water Measurement Method", measurement.Water_Measurement_Method_Measurement.ToString()},
             {"Water Measurement Range", measurement.Water_MeasuredRange_Measurement.ToString()},
-            {"Water Probability", measurement.Water_Probability_Measurement.ToString()},
             {"Methane", measurement.Methane_SubstanceName_Measurement.ToString()},
-            {"Methane ISO Threshold", measurement.Methane_IsoThreshold_Measurement.ToString()},
+            {"Methane ISO Threshold", measurement.Methane_IsoThreshold_Measurement.ToString() + " µmol/mol"},
             {"Methane Measurement Method", measurement.Methane_MeasurementMethod_Measurement.ToString()},
             {"Methane Measurement Range", measurement.Methane_MeasuredRange_Measurement.ToString()},
-            {"Methane Probability", measurement.Methane_Probability_Measurement.ToString()},
             {"Non-CH4 Hydrocarbons", measurement.NonCH4Hydrocarbons_SubstanceName_Measurement.ToString()},
-            {"Non-CH4 Hydrocarbons ISO Threshold", measurement.NonCH4Hydrocarbons_IsoThreshold_Measurement.ToString()},
+            {"Non-CH4 Hydrocarbons ISO Threshold", measurement.NonCH4Hydrocarbons_IsoThreshold_Measurement.ToString() + " µmol/mol"},
             {"Non-CH4 Hydrocarbons Measurement Method", measurement.NonCH4Hydrocarbons_MeasurementMethod_Measurement.ToString()},
             {"Non-CH4 Hydrocarbons Measurement Range", measurement.NonCH4Hydrocarbons_MeasuredRange_Measurement.ToString()},
-            {"Non-CH4 Hydrocarbons Probability", measurement.NonCH4Hydrocarbons_Probability_Measurement.ToString()},
             {"Oxygen", measurement.Oxygen_SubstanceName_Measurement.ToString()},
-            {"Oxygen ISO Threshold", measurement.Oxygen_IsoThreshold_Measurement.ToString()},
+            {"Oxygen ISO Threshold", measurement.Oxygen_IsoThreshold_Measurement.ToString() + " µmol/mol"},
             {"Oxygen Measurement Method", measurement.Oxygen_MeasurementMethod_Measurement.ToString()},
             {"Oxygen Measurement Range", measurement.Oxygen_MeasuredRange_Measurement.ToString()},
-            {"Oxygen Probability", measurement.Oxygen_Probability_Measurement.ToString()},
             {"Helium", measurement.Helium_SubstanceName_Measurement.ToString()},
-            {"Helium ISO Threshold", measurement.Helium_IsoThreshold_Measurement.ToString()},
+            {"Helium ISO Threshold", measurement.Helium_IsoThreshold_Measurement.ToString() + " µmol/mol"},
             {"Helium Measurement Method", measurement.Helium_MeasurementMethod_Measurement.ToString()},
             {"Helium Measurement Range", measurement.Helium_MeasuredRange_Measurement.ToString()},
-            {"Helium Probability", measurement.Helium_Probability_Measurement.ToString()},
             {"Nitrogen", measurement.Nitrogen_SubstanceName_Measurement.ToString()},
-            {"Nitrogen ISO Threshold", measurement.Nitrogen_IsoThreshold_Measurement.ToString()},
+            {"Nitrogen ISO Threshold", measurement.Nitrogen_IsoThreshold_Measurement.ToString() + " µmol/mol"},
             {"Nitrogen Measurement Method", measurement.Nitrogen_MeasurementMethod_Measurement.ToString()},
             {"Nitrogen Measurement Range", measurement.Nitrogen_MeasuredRange_Measurement.ToString()},
-            {"Nitrogen Probability", measurement.Nitrogen_Probability_Measurement.ToString()},
             {"Argon", measurement.Argon_SubstanceName_Measurement.ToString()},
-            {"Argon ISO Threshold", measurement.Argon_IsoThreshold_Measurement.ToString()},
+            {"Argon ISO Threshold", measurement.Argon_IsoThreshold_Measurement.ToString() + " µmol/mol"},
             {"Argon Measurement Method", measurement.Argon_MeasurementMethod_Measurement.ToString()},
             {"Argon Measurement Range", measurement.Argon_MeasuredRange_Measurement.ToString()},
-            {"Argon Probability", measurement.Argon_Probability_Measurement.ToString()},
             {"Carbon Dioxide", measurement.CarbonDioxide_SubstanceName_Measurement.ToString()},
-            {"Carbon Dioxide ISO Threshold", measurement.CarbonDioxide_Argon_IsoThreshold_Measurement.ToString()},
+            {"Carbon Dioxide ISO Threshold", measurement.CarbonDioxide_Argon_IsoThreshold_Measurement.ToString() + " µmol/mol"},
             {"Carbon Dioxide Measurement Method", measurement.CarbonDioxide_Argon_MeasurementMethod_Measurement.ToString()},
             {"Carbon Dioxide Measurement Range", measurement.CarbonDioxide_Argon_MeasuredRange_Measurement.ToString()},
-            {"Carbon Dioxide Probability", measurement.CarbonDioxide_Argon_Probability_Measurement.ToString()},
             {"Carbon Monoxide", measurement.CarbonMonoxid_SubstanceName_Measurement.ToString()},
-            {"Carbon Monoxide ISO Threshold", measurement.CarbonMonoxid_IsoThreshold_Measurement.ToString()},
+            {"Carbon Monoxide ISO Threshold", measurement.CarbonMonoxid_IsoThreshold_Measurement.ToString() + " µmol/mol"},
             {"Carbon Monoxide Measurement Method", measurement.CarbonMonoxid_MeasurementMethod_Measurement.ToString()},
             {"Carbon Monoxide Measurement Range", measurement.CarbonMonoxid_MeasuredRange_Measurement.ToString()},
-            {"Carbon Monoxide Probability", measurement.CarbonMonoxid_Probability_Measurement.ToString()},
             {"Sulphur Compounds", measurement.SulphurCompounds_SubstanceName_Measurement.ToString()},
-            {"Sulphur Compounds ISO Threshold", measurement.SulphurCompounds_IsoThreshold_Measurement.ToString()},
+            {"Sulphur Compounds ISO Threshold", measurement.SulphurCompounds_IsoThreshold_Measurement.ToString() + " µmol/mol"},
             {"Sulphur Compounds Measurement Method", measurement.SulphurCompounds_MeasurementMethod_Measurement.ToString()},
             {"Sulphur Compounds Measurement Range", measurement.SulphurCompounds_MeasuredRange_Measurement.ToString()},
-            {"Sulphur Compounds Probability", measurement.SulphurCompounds_Probability_Measurement.ToString()},
             {"Formaldehyde", measurement.Formaldehyde_SubstanceName_Measurement.ToString()},
-            {"Formaldehyde ISO Threshold", measurement.Formaldehyde_IsoThreshold_Measurement.ToString()},
+            {"Formaldehyde ISO Threshold", measurement.Formaldehyde_IsoThreshold_Measurement.ToString() + " µmol/mol"},
             {"Formaldehyde Measurement Method", measurement.Formaldehyde_MeasurementMethod_Measurement.ToString()},
             {"Formaldehyde Measurement Range", measurement.Formaldehyde_MeasuredRange_Measurement.ToString()},
-            {"Formaldehyde Probability", measurement.Formaldehyde_Probability_Measurement.ToString()},
             {"Formic Acid", measurement.FormicAcid_SubstanceName_Measurement.ToString()},
-            {"Formic Acid ISO Threshold", measurement.FormicAcid_IsoThreshold_Measurement.ToString()},
+            {"Formic Acid ISO Threshold", measurement.FormicAcid_IsoThreshold_Measurement.ToString() + " µmol/mol"},
             {"Formic Acid Measurement Method", measurement.FormicAcid_MeasurementMethod_Measurement.ToString()},
             {"Formic Acid Measurement Range", measurement.FormicAcid_MeasuredRange_Measurement.ToString()},
-            {"Formic Acid Probability", measurement.FormicAcid_Probability_Measurement.ToString()},
             {"Ammonia", measurement.Amonia_SubstanceName_Measurement.ToString()},
-            {"Ammonia ISO Threshold", measurement.Amonia_IsoThreshold_Measurement.ToString()},
+            {"Ammonia ISO Threshold", measurement.Amonia_IsoThreshold_Measurement.ToString() + " µmol/mol"},
             {"Ammonia Measurement Method", measurement.Amonia_MeasurementMethod_Measurement.ToString()},
             {"Ammonia Measurement Range", measurement.Amonia_MeasuredRange_Measurement.ToString()},
-            {"Ammonia Probability", measurement.Amonia_Probability_Measurement.ToString()},
             {"Halogenated Compounds", measurement.HalogenatedCompounds_SubstanceName_Measurement.ToString()},
-            {"Halogenated Compounds ISO Threshold", measurement.HalogenatedCompounds_IsoThreshold_Measurement.ToString()},
+            {"Halogenated Compounds ISO Threshold", measurement.HalogenatedCompounds_IsoThreshold_Measurement.ToString() + " µmol/mol"},
             {"Halogenated Compounds Measurement Method", measurement.HalogenatedCompounds_MeasurementMethod_Measurement.ToString()},
             {"Halogenated Compounds Measurement Range", measurement.HalogenatedCompounds_MeasuredRange_Measurement.ToString()},
-            {"Halogenated Compounds Probability", measurement.HalogenatedCompounds_Probability_Measurement.ToString()},
             {"Hydrocarbons", measurement.Hydrocarbons_SubstanceName_Measurement.ToString()},
-            {"Hydrocarbons ISO Threshold", measurement.Hydrocarbons_IsoThreshold_Measurement.ToString()},
+            {"Hydrocarbons ISO Threshold", measurement.Hydrocarbons_IsoThreshold_Measurement.ToString() + " µmol/mol"},
             {"Hydrocarbons Measurement Method", measurement.Hydrocarbons_MeasurementMethod_Measurement.ToString()},
             {"Hydrocarbons Measurement Range", measurement.Hydrocarbons_MeasuredRange_Measurement.ToString()},
-            {"Hydrocarbons Probability", measurement.Hydrocarbons_Probability_Measurement.ToString()}
             };
         }
     }
