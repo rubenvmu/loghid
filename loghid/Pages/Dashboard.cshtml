@@ -184,7 +184,7 @@
 </style>
 
 <div class="container">
-    <h2>ISO 14687:2009 Parameters Dashboard</h2>
+    <h2>ISO Parameters Dashboard</h2>
     
     <div class="cotainer-fluid">
         <p style="color: #88a9d6;">Search specific parameter:</p>
@@ -199,6 +199,8 @@
     </div>
 
     <br>
+
+    <h2>ISO 14687 Dashboard</h2>
 
     @if (Model?.CombinedSubstances == null || !Model.CombinedSubstances.Any())
     {
@@ -267,7 +269,75 @@
             }
         </div>
     }
-</div>
+
+    <h2>ISO 14067 Dashboard</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ISO14067[0].LifeCycleAssessmentMethod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ISO14067[0].CarbonFootprint)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ISO14067[0].DisplayName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ISO14067[0].StandardCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ISO14067[0].Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ISO14067[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ISO14067[0].Cost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ISO14067[0].RenewalFrequency)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.ISO14067) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LifeCycleAssessmentMethod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarbonFootprint)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DisplayName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StandardCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RenewalFrequency)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
 
 <div class="container-fluid" style="color: #88a9d6; margin-top: 2rem; text-align: center;">
     <p class="mb-0">&copy; 2023 GreenH2 News. All rights reserved.</p>
