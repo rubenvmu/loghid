@@ -11,8 +11,8 @@ namespace Loghid.Models
         public int Id_Measurement { get; set; }
 
         [Required]
-    [MaxLength(19)] // 16 caracteres + 3 guiones
-    public string PublicID_Measurement { get; private set; } // Evita que se modifique manualmente
+    [MaxLength(19)] 
+    public string PublicID_Measurement { get; private set; } 
 
     public ClientMeasurement()
     {

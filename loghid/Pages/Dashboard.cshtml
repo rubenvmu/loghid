@@ -1,141 +1,202 @@
 ﻿@page
 @model Loghid.Pages.DashboardModel
-
 @{
     ViewData["Title"] = "ISO 14687-2 Measurement Dashboard";
 }
 
 <style>
-
-    .container {
-            margin-top: 20px; /* Aumentar margen superior */
-        }
-    .dashboard-card {
-        border: 1px solid #e0e0e0;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.08);
-        margin-bottom: 1.5rem;
-        background: #ffffff;
-        max-width: 100%;
-        min-height: 220px;
-        margin-left: 0; /* Asegúrate de que no haya márgenes no deseados */
-        margin-right: 0;
+    body {
+        background: linear-gradient(135deg, #0a192f 0%, #0d2342 100%);
+        color: #ccd6f6;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        min-height: 100vh;
+        padding: 2rem 1rem;
     }
 
-    html, body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #f1f1f1;
-            font-family: Arial, sans-serif;
-        }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        backdrop-filter: blur(10px);
+    }
+
+    h2 {
+        color: #64ffda;
+        font-weight: 600;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid #2f4368;
+    }
+
+    .dashboard-card {
+        background: rgba(23, 42, 69, 0.95);
+        border: 1px solid #2f4368;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        margin-bottom: 1.5rem;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .dashboard-card::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(45deg, transparent 20%, #64ffda33 50%, transparent 80%);
+        animation: gradientShift 20s infinite linear;
+    }
+
+    .dashboard-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    }
 
     .card-header {
-        background: #2c3e50;
-        border-bottom: 2px solid #1a252f;
-        padding: 0.8rem 1rem;
+        background: rgba(31, 48, 79, 0.4);
+        border-bottom: 1px solid #2f4368;
+        padding: 1.5rem;
+        position: relative;
+        z-index: 1;
     }
 
     .card-title {
-        font-size: 1rem;
-        font-weight: 600;
-        color: #ffffff;
+        color: #64ffda;
         margin: 0;
+        font-size: 1.2rem;
+        font-weight: 600;
         display: flex;
         align-items: center;
-        gap: 0.6rem;
+        gap: 0.8rem;
+    }
+
+    .atom-icon {
+        color: #64ffda;
+        font-size: 1.2rem;
+    }
+
+    .card-body {
+        position: relative;
+        z-index: 1;
+        padding: 1.5rem;
     }
 
     .data-row {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 0.6rem;
-        border: 1px solid #e0e0e0;
-        margin: 0.3rem 0;
-        background: #f8f9fa;
-        min-height: 60px;
+        padding: 1rem;
+        margin: 0.5rem 0;
+        background: rgba(47, 67, 104, 0.3);
+        border-radius: 8px;
+        border: 1px solid #2f4368;
+        transition: all 0.3s ease;
+    }
+
+    .data-row:hover {
+        background: rgba(47, 67, 104, 0.5);
+        transform: translateX(5px);
     }
 
     .data-content {
         flex: 1;
-        padding-right: 0.5rem;
+        padding-right: 1rem;
     }
 
     .spec-label {
-        font-size: 0.78rem;
-        color: #6c757d;
+        color: #88a9d6;
+        font-size: 0.85rem;
         font-weight: 500;
-        line-height: 1.2;
     }
 
     .spec-value {
-        font-size: 0.95rem;
-        color: #2c3e50;
-        font-weight: 700;
-        margin-top: 0.15rem;
+        color: #ccd6f6;
+        font-size: 1rem;
+        font-weight: 600;
+        margin-top: 0.3rem;
     }
 
     .data-icon {
-        color: #2c3e50;
+        color: #64ffda;
         font-size: 1.2rem;
         min-width: 30px;
         text-align: center;
     }
 
-    .atom-icon {
-        font-size: 1.2rem;
-        color: #ecf0f1;
+    form {
+        background: rgba(23, 42, 69, 0.8);
+        padding: 1.5rem;
+        border-radius: 12px;
+        border: 1px solid #2f4368;
+        margin-bottom: 2rem;
     }
 
-.container-dashboard {
-    max-width: 100%;
-    padding: 1.5rem;
-    margin-left: 0;   /* Alinea a la izquierda */
-    margin-right: auto;  /* Mantiene el espacio en el lado derecho */
-}
+    .form-control {
+        background: rgba(47, 67, 104, 0.3);
+        border: 1px solid #2f4368;
+        color: #ccd6f6;
+        transition: all 0.3s ease;
+    }
 
+    .form-control:focus {
+        background: rgba(47, 67, 104, 0.5);
+        border-color: #64ffda;
+        box-shadow: 0 0 0 3px rgba(100, 255, 218, 0.2);
+        color: #ccd6f6;
+    }
 
-form {
-    width: 50%;  /* Reduces el formulario a la mitad del contenedor */
-    margin-left: 0;  /* Alinea el formulario al borde izquierdo */
-}
+    .btn-primary {
+        background: #64ffda;
+        color: #0a192f;
+        border: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
 
-.input-group {
-    width: 100%;  /* El grupo de entrada ocupará todo el ancho disponible */
-}
+    .btn-primary:hover {
+        background: #88ffe5;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(100, 255, 218, 0.3);
+    }
 
-input.form-control, .btn {
-    width: 100%;  /* Ambos, el input y el botón, ocuparán todo el ancho disponible */
-}
+    .alert-info {
+        background: rgba(31, 48, 79, 0.6);
+        border-color: #2f4368;
+        color: #ccd6f6;
+    }
 
-.btn {
-    min-width: 120px;  /* Ajusta el tamaño del botón si es necesario */
-}
+    @@keyframes gradientShift {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
 
-
-.main {
-    padding-left: 200px;  /* 50px de espacio a la izquierda */
-    padding-right: 200px; /* 50px de espacio a la derecha */
-}
-
+    @@media (max-width: 768px) {
+        .dashboard-card {
+            margin-bottom: 1rem;
+        }
+        
+        .card-header {
+            padding: 1rem;
+        }
+    }
 </style>
 
-
-<br>
 <div class="container">
-    <h2 class="mb-4">ISO 14687 Parameters Dashboard</h2>
-    <div class="cotainer-fluid"> 
-    <p>Search specific parameter:</p>
-    <form method="get" asp-page="/DashboardSearch">
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="..." name="SearchTerm" value="@Model.SearchTerm" /><br>
-            <button type="submit" class="btn btn-primary" style="background-color: #2c3e50; border-color: #2c3e50;">
-                <i class="fas fa-search"></i> Search
-            </button>
-        </div>
-    </form>
-</div>
+    <h2>ISO 14687 Parameters Dashboard</h2>
+    
+    <div class="cotainer-fluid">
+        <p style="color: #88a9d6;">Search specific parameter:</p>
+        <form method="get" asp-page="/DashboardSearch">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="..." name="SearchTerm" value="@Model.SearchTerm" />
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-search"></i> Search
+                </button>
+            </div>
+        </form>
+    </div>
 
     <br>
 
@@ -208,6 +269,6 @@ input.form-control, .btn {
     }
 </div>
 
-<div class="container-fluid">
+<div class="container-fluid" style="color: #88a9d6; margin-top: 2rem; text-align: center;">
     <p class="mb-0">&copy; 2023 GreenH2 News. All rights reserved.</p>
 </div>

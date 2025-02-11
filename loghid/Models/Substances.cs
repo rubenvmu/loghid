@@ -16,7 +16,6 @@ namespace Loghid.Models
         public required string Probability { get; set; }
 }
 
-    // También puedes tener una enumeración para los tipos de sustancia
     public enum SubstanceTypes
     {
         Water,

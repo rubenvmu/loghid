@@ -7,7 +7,7 @@ namespace Loghid.Models
         int Id_Measurement { get; set; }
 
         string? PublicID_Measurement { get; }
-        DateTimeOffset Date_Measurement { get; } // UTC + Offset
+        DateTimeOffset Date_Measurement { get; } 
 
         int CustomerID_Measurement { get; set; }
         string Customer_Measurement { get; set; }

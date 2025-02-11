@@ -79,6 +79,7 @@
         margin: 2rem auto;
         display: flex;
         justify-content: center;
+        text-decoration: none;
         align-items: center;
         cursor: pointer;
         transition: all 0.3s ease;
@@ -90,12 +91,14 @@
     .create-circle i {
         font-size: 3.5rem;
         color: #64ffda;
+        text-decoration: none;
         transition: all 0.3s ease;
     }
 
     .create-circle:hover {
         transform: scale(1.05);
         background: rgba(100, 255, 218, 0.2);
+        text-decoration: none;
         box-shadow: 0 0 25px rgba(100, 255, 218, 0.3);
     }
 
@@ -161,7 +164,6 @@
   bottom: -20px;
 }
 
-/* Efecto para elementos adyacentes */
 .nav-link:hover + .nav-link,
 .nav-link:hover ~ .nav-link {
   transform: translateY(-5px) scale(1.05);
@@ -181,7 +183,6 @@
 </style>
 
     <nav class="navbar-horizontal">
-        <!-- Mantenemos la misma barra de navegación -->
         <a class="nav-link" asp-page="/Index">
             <i class="fas fa-home"></i>
             <span>Index</span>
@@ -221,7 +222,7 @@
     <div class="drag-drop-container">
         <div class="card-container">
             <div class="create-header">
-                New Customer Measurement
+                New H2 Fingerprint
             </div>
             <a asp-page="Create" class="create-circle">
                 <i class="fa-solid fa-plus"></i>
