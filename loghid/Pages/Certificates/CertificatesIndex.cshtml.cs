@@ -34,7 +34,7 @@ namespace Loghid.Pages
     IWebHostEnvironment env)
 {
     _context = context;
-    _env = env; // Asegurarse de asignar a la variable miembro
+    _env = env; 
 }
 
         private string CalculateSHA256Hash(string content)
@@ -86,7 +86,6 @@ namespace Loghid.Pages
         PdfFont boldFont = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
 
     string imagePath = Path.Combine(_env.WebRootPath, "images", "loghid_logo_es.png");
-Console.WriteLine($"Intentando cargar imagen desde: {imagePath}"); // Debug
 
 if (System.IO.File.Exists(imagePath))
 {
@@ -94,7 +93,7 @@ if (System.IO.File.Exists(imagePath))
     {
         ImageData imageData = ImageDataFactory.Create(imagePath);
         Image image = new Image(imageData)
-            .ScaleToFit(80, 80)
+            .ScaleToFit(100, 100)
             .SetHorizontalAlignment(HorizontalAlignment.RIGHT)
             .SetMarginTop(10)
             .SetMarginRight(10);
@@ -124,15 +123,15 @@ else
             .SetTextAlignment(TextAlignment.LEFT)
             .SetFontSize(12));
 
-        document.Add(new Paragraph("ISO_Threshold_Measurement: The maximum allowable concentration for a given substance, as defined by ISO 14687.")
+        document.Add(new Paragraph("ISO Threshold: The maximum allowable concentration for a given substance, as defined by ISO 14687.")
             .SetTextAlignment(TextAlignment.LEFT)
             .SetFontSize(12));
 
-        document.Add(new Paragraph("Measurement_Method: The technique used to measure the substance (e.g., GC, OFCEAS, NDIR).")
+        document.Add(new Paragraph("Measurement Method: The technique used to measure the substance (e.g., GC, OFCEAS, NDIR).")
             .SetTextAlignment(TextAlignment.LEFT)
             .SetFontSize(12));
 
-        document.Add(new Paragraph("Testing range to ensure the instrument is correctly calibrated and capable of detecting contamination.")
+        document.Add(new Paragraph("Measurement Range: Testing range to ensure the instrument is correctly calibrated and capable of detecting contamination.")
             .SetTextAlignment(TextAlignment.LEFT)
             .SetFontSize(12));
 
@@ -173,7 +172,7 @@ else
             .SetTextAlignment(TextAlignment.LEFT)
             .SetFontSize(12));
 
-        document.Add(new Paragraph($"SHA-256: {hash}")
+        document.Add(new Paragraph($"More info: info@loghid.com")
             .SetTextAlignment(TextAlignment.LEFT)
             .SetFontSize(12));
     }
