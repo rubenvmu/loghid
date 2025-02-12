@@ -10,14 +10,11 @@
 Welcome to the **H2 Measurement & e-Traceability Platform**! 🌱  
 This platform is designed to revolutionize the way we measure, track, and manage hydrogen (H2). Built with .NET technologies, it ensures transparency, accuracy, and efficiency in hydrogen-related operations.  
 
-![Loghid](https://github.com/rubenvmu/loghid/blob/master/loghid/wwwroot/images/foto9.png?raw=true) 
- 
-![Loghid](https://github.com/rubenvmu/loghid/blob/master/loghid/wwwroot/images/foto10.png?raw=true)  
-![Loghid](https://github.com/rubenvmu/loghid/blob/master/loghid/wwwroot/images/foto10.png?raw=true)  
-![Loghid](https://github.com/rubenvmu/loghid/blob/master/loghid/wwwroot/images/foto10.png?raw=true)  
-![Loghid](https://github.com/rubenvmu/loghid/blob/master/loghid/wwwroot/images/foto10.png?raw=true)  
+![Loghid](https://github.com/rubenvmu/loghid/blob/master/loghid/wwwroot/images/foto9.png?raw=true)
 
 🔗 Visit us at: [loghid.com](https://loghid.com)  
+
+![Loghid](https://github.com/rubenvmu/loghid/blob/master/loghid/wwwroot/images/foto4.png?raw=true)
 
 ```mermaid
 flowchart TB
@@ -44,6 +41,8 @@ flowchart TB
     style Features fill:#E8F5E9,stroke:#4CAF50,stroke-width:2px,color:#2E7D32
     style Technologies fill:#E3F2FD,stroke:#2196F3,stroke-width:2px,color:#1565C0
 ```
+
+![Loghid](https://github.com/rubenvmu/loghid/blob/master/loghid/wwwroot/images/foto2.png?raw=true)
 
 ## 📦 Installation  
 
@@ -72,6 +71,9 @@ flowchart TB
    ```
 
 ---
+
+
+![Loghid](https://github.com/rubenvmu/loghid/blob/master/loghid/wwwroot/images/foto6.png?raw=true)
 
 ## 📊 Loghid ISO Parameters Diagram
 
