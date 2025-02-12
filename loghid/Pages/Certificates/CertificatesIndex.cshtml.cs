@@ -9,13 +9,14 @@ using Microsoft.EntityFrameworkCore;
 using iText.Kernel.Pdf;
 using iText.Kernel.Colors;
 using iText.Layout;
-using System.Security.Cryptography;
 using iText.IO.Image;
+using System.Security.Cryptography;
 using System.Text;
 using iText.Layout.Element;
 using iText.Kernel.Font;
 using iText.IO.Font.Constants;
 using iText.Layout.Properties;
+using Microsoft.AspNetCore.Hosting;
 using Loghid.Data;
 using Loghid.Models;
 
@@ -24,12 +25,17 @@ namespace Loghid.Pages
     public class CertificatesIndex : PageModel
     {
         private readonly LoghidClientMeasurementDbContext _context;
+
+        private readonly IWebHostEnvironment _env;
         public IList<ClientMeasurement> ClientMeasurement { get; set; } = new List<ClientMeasurement>();
 
-        public CertificatesIndex(LoghidClientMeasurementDbContext context)
-        {
-            _context = context;
-        }
+        public CertificatesIndex(
+    LoghidClientMeasurementDbContext context,
+    IWebHostEnvironment env)
+{
+    _context = context;
+    _env = env; // Asegurarse de asignar a la variable miembro
+}
 
         private string CalculateSHA256Hash(string content)
 {
@@ -79,7 +85,33 @@ namespace Loghid.Pages
         var document = new Document(pdf);
         PdfFont boldFont = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
 
-        document.Add(new Paragraph("Certificate Customer Measurement Report")
+    string imagePath = Path.Combine(_env.WebRootPath, "images", "loghid_logo_es.png");
+Console.WriteLine($"Intentando cargar imagen desde: {imagePath}"); // Debug
+
+if (System.IO.File.Exists(imagePath))
+{
+    try
+    {
+        ImageData imageData = ImageDataFactory.Create(imagePath);
+        Image image = new Image(imageData)
+            .ScaleToFit(80, 80)
+            .SetHorizontalAlignment(HorizontalAlignment.RIGHT)
+            .SetMarginTop(10)
+            .SetMarginRight(10);
+        
+        document.Add(image);
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Error al cargar imagen: {ex.Message}");
+    }
+}
+else
+{
+    Console.WriteLine("¡Archivo de imagen no encontrado!");
+}
+
+    document.Add(new Paragraph("Certificate Customer Measurement Report")
     .SetTextAlignment(TextAlignment.LEFT)
     .SetFontSize(16)
     .SetFont(boldFont));
