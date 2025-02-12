@@ -3,12 +3,19 @@
 
 ![.NET Version](https://img.shields.io/badge/.NET-9.0-purple) ![License](https://img.shields.io/badge/License-MIT-green)  
 
-![Loghid](https://i.imgur.com/JA0DOEw.png)  
+![Loghid](https://github.com/rubenvmu/loghid/blob/master/loghid/wwwroot/images/foto10.png?raw=true)  
 
 ## 📌 About  
 
 Welcome to the **H2 Measurement & e-Traceability Platform**! 🌱  
 This platform is designed to revolutionize the way we measure, track, and manage hydrogen (H2). Built with .NET technologies, it ensures transparency, accuracy, and efficiency in hydrogen-related operations.  
+
+![Loghid](https://github.com/rubenvmu/loghid/blob/master/loghid/wwwroot/images/foto9.png?raw=true) 
+ 
+![Loghid](https://github.com/rubenvmu/loghid/blob/master/loghid/wwwroot/images/foto10.png?raw=true)  
+![Loghid](https://github.com/rubenvmu/loghid/blob/master/loghid/wwwroot/images/foto10.png?raw=true)  
+![Loghid](https://github.com/rubenvmu/loghid/blob/master/loghid/wwwroot/images/foto10.png?raw=true)  
+![Loghid](https://github.com/rubenvmu/loghid/blob/master/loghid/wwwroot/images/foto10.png?raw=true)  
 
 🔗 Visit us at: [loghid.com](https://loghid.com)  
 
