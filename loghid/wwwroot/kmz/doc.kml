@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Empresas</name>
+    <NetworkLink>
+      <name>Loghid Ebro Valley H2 Corridor</name>
+      <Link>
+        <href><![CDATA[https://www.google.com/maps/d/u/1/kml?mid=1CnMeU0ROazRUwOW5pbHMxkciSknnnq0&lid=lRf9SGA9LB8]]></href>
+      </Link>
+    </NetworkLink>
+  </Document>
+</kml>

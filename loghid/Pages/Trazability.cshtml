@@ -1,117 +1,207 @@
 ﻿@page
-@model TrazabilityModel
-@{
-    ViewData["Title"] = "Trazability";
+@model loghid.Pages.TrazabilityModel
+@using Newtonsoft.Json
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>Trazabilidad</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        #map {
+            width: 100%;
+            height: calc(100vh - 80px);
+        }
+        .navbar-horizontal {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            padding: 0 20px;
+            z-index: 1000;
+        }
+        .nav-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #333;
+        }
+        .nav-link i {
+            font-size: 1.5rem;
+        }
+        .nav-link span {
+            font-size: 0.9rem;
+        }
+    .edit-form-container {
+        position: fixed;
+        bottom: 100px; /* Se deja un margen por encima de la barra de navegación inferior */
+        right: 20px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 300px;
+        z-index: 1100;
+    }
+    .edit-form-container h3 {
+        margin-top: 0;
+        font-size: 1.2rem;
+        color: #333;
+    }
+    .edit-form-container label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #555;
+    }
+    .edit-form-container input[type="text"],
+    .edit-form-container textarea {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 0.9rem;
+    }
+    .edit-form-container button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+    }
+    .edit-form-container button:hover {
+        background-color: #0056b3;
+    }
+
+        .custom-tooltip {
+    background-color: white !important;
+    color: black !important;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    font-size: 14px;
+    font-weight: bold;
+}
+    </style>
+</head>
+<body>
+    <div id="editForm" class="edit-form-container" style="display: none;">
+    <h3>Editar Registro</h3>
+    <form method="post" asp-page-handler="Edit">
+        <!-- Campo oculto para identificar el registro -->
+        <input type="hidden" id="registroIndex" name="registroIndex" value="" />
+        
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" value="" />
+
+        <label for="descripcion">Descripción</label>
+        <textarea id="descripcion" name="descripcion" rows="3"></textarea>
+
+        <label for="wkt">WKT</label>
+        <input type="text" id="wkt" name="wkt" value="" />
+
+        <button type="submit">Guardar Cambios</button>
+    </form>
+</div>
+    <div id="map"></div>
+    <nav class="navbar-horizontal">
+        <a class="nav-link" asp-page="/Index">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a class="nav-link" asp-page="/Dashboard">
+            <i class="fas fa-chart-line"></i>
+            <span>ISO Parameters</span>
+        </a>
+        <a class="nav-link" asp-page="/Trazability">
+            <i class="fas fa-gas-pump"></i>
+            <span>Trazability</span>
+        </a>
+        <a class="nav-link" asp-page="/New-Measurement/Index">
+            <i class="fas fa-circle-plus"></i>
+            <span>New Measurement</span>
+        </a>
+        <a class="nav-link" asp-page="Certificates/CertificatesIndex">
+            <i class="fas fa-certificate"></i>
+            <span>Certificates</span>
+        </a>
+        <a class="nav-link" asp-page="/SprinterLab/Index">
+            <i class="fas fa-truck"></i>
+            <span>Movilabs</span>
+        </a>
+        <a class="nav-link" asp-page="/Incidents">
+            <i class="fas fa-exclamation-circle"></i>
+            <span>Incidents</span>
+        </a>
+        <a class="nav-link" asp-page="/Privacy">
+            <i class="fas fa-shield-alt"></i>
+            <span>Privacy</span>
+        </a>
+    </nav>
+
+    <!-- Inclusión de la librería Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+const map = L.map('map').setView([41.3851, 2.1734], 6);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors'
+}).addTo(map);
+
+const locations = @Html.Raw(JsonConvert.SerializeObject(Model.Locations, new JsonSerializerSettings {
+    StringEscapeHandling = StringEscapeHandling.EscapeHtml
+}));
+console.log("Locations loaded:", locations);
+
+function extractCoordinates(wkt) {
+    if (!wkt) return [];
+
+    let match = wkt.match(/\(([^)]+)\)/);
+    if (!match) return [];
+
+    let coords = match[1].split(",").map(coord => {
+        let [x, y] = coord.trim().split(/\s+/).map(parseFloat);
+        return [y, x]; 
+    });
+
+    return coords.length === 1 ? coords[0] : coords;
 }
 
-<div class="container my-5">
-    <div class="row justify-content-center">
-        <div class="col-12 col-lg-10">
-            <div class="map-container rounded-4 shadow-lg overflow-hidden border">
-                <iframe src="https://www.google.com/maps/d/embed?mid=1CnMeU0ROazRUwOW5pbHMxkciSknnnq0&ehbc=21325a" 
-                        class="w-100" 
-                        style="height: 600px; border: 0;"
-                        allowfullscreen 
-                        loading="lazy">
-                </iframe>
-            </div>
-        </div>
-    </div>
-</div>
-=======
-<style>
-    html, body {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        overflow: hidden;
+locations.forEach(loc => {
+    if (!loc.WKT) return; 
+
+    let tooltipContent = `<b>${loc.Nombre}</b><br>${loc.Descripcion}`;
+
+    if (loc.Tipo === "Point") {
+        const coords = extractCoordinates(loc.WKT);
+        if (coords.length === 2) {
+            L.marker([coords[0], coords[1]]) 
+                .bindTooltip(tooltipContent, { permanent: false, direction: "top", className: "custom-tooltip" })
+                .addTo(map);
+        }
+    } else if (loc.Tipo === "Polygon") {
+        const coords = extractCoordinates(loc.WKT);
+        let polygonCoords = coords.map(c => [c[0], c[1]]);
+        if (polygonCoords.length > 0) {
+            L.polygon(polygonCoords, { color: 'blue' })
+                .bindTooltip(tooltipContent, { permanent: false, direction: "top", className: "custom-tooltip" })
+                .addTo(map);
+        }
     }
+});
+</script>
 
-    #mapContainer {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: calc(100vh - 80px);
-    }
-
-    #mapWrapper {
-        width: 100%;
-        height: 100%;
-    }
-
-    #mapWrapper iframe {
-        width: 100%;
-        height: 100%;
-        border: none;
-        background: #f8f9fa;
-    }
-
-    #navbarHorizontal {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 80px;
-        background: rgba(255, 255, 255, 0.98);
-        box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.1);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 25px;
-        padding: 0 20px;
-        z-index: 1000;
-    }
-</style>
-
-<div id="mapContainer">
-    <div id="mapWrapper">
-        <iframe src="https://www.google.com/maps/d/embed?mid=1CnMeU0ROazRUwOW5pbHMxkciSknnnq0&ehbc=21325a"
-                allowfullscreen 
-                loading="lazy">
-        </iframe>
-    </div>
-</div>
-
-<nav class="navbar-horizontal">
-    <a class="nav-link" asp-page="/Index">
-        <i class="fas fa-home"></i>
-        <span>Home</span>
-    </a>
-
-    <a class="nav-link" asp-page="/Dashboard">
-        <i class="fas fa-chart-line"></i>
-        <span>ISO Parameters</span>
-    </a>
-
-    <a class="nav-link" asp-page="/Trazability">
-        <i class="fas fa-gas-pump"></i>
-        <span>Trazability</span>
-    </a>
-
-    <a class="nav-link" asp-page="/New-Measurement/Index">
-        <i class="fas fa-circle-plus"></i>
-        <span>New Measurement</span>
-    </a>
-
-    <a class="nav-link" asp-page="Certificates/CertificatesIndex">
-        <i class="fas fa-certificate"></i>
-        <span>Certificates</span>
-    </a>
-
-    <a class="nav-link" asp-page="/SprinterLab/Index">
-        <i class="fas fa-truck"></i>
-        <span>Movilabs</span>
-    </a>
-
-    <a class="nav-link" asp-page="/Incidents">
-        <i class="fas fa-exclamation-circle"></i>
-        <span>Incidents</span>
-    </a>
-
-    <a class="nav-link" asp-page="/Privacy">
-        <i class="fas fa-shield-alt"></i>
-        <span>Privacy</span>
-    </a>
-
-</nav>
+</body>
+</html>
