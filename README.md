@@ -231,39 +231,39 @@ classDiagram
 ## 📊 Competitors
 
 ```mermaid
-flowchart TD
+flowchart LR
     subgraph Competitors
-        direction LR
+        direction TB
         subgraph C1["LOGHID"]
-            C1_1[Applied ISO Standard: RFNBO, ISO 14687, ISO 19880-8]
-            C1_2[Real-Time Measurement: Yes]
-            C1_3[Digital Traceability: H2 Footprint]
-            C1_4[User Interface: Intuitive]
-            C1_5[Infrastructure Requirement: Very Low]
-            C1_6[Process Automation: Loghid Certificate]
-            C1_7[Data Security and Protection: High - AES-256 Encryption]
-            C1_8[EU Regulation Compliance: RFNBO]
-            C1_9[Integration Ease: High - API REST]
-            C1_10[Support and Updates: Continuous]
+            C1_1[ISO: RFNBO, 14687, 19880-8]
+            C1_2[Real-Time: Yes]
+            C1_3[Traceability: H2 Footprint]
+            C1_4[UI: Intuitive]
+            C1_5[Infra Req.: Very Low]
+            C1_6[Automation: Loghid Cert.]
+            C1_7[Security: AES-256]
+            C1_8[Reg. Compliance: RFNBO]
+            C1_9[Integration: High (API REST)]
+            C1_10[Support: Continuous]
             C1_11[Mobility: National]
             C1_12[Open Source: Yes]
-            C1_13[Business Model: Non-Profit]
+            C1_13[Model: Non-Profit]
         end
 
         subgraph C2["LHYFE + ATMEN"]
-            C2_1[Applied ISO Standard: RFNBO, ISO 14687]
-            C2_2[Real-Time Measurement: High]
-            C2_3[Digital Traceability: Digital Passport]
-            C2_4[User Interface: Medium]
-            C2_5[Infrastructure Requirement: Medium]
-            C2_6[Process Automation: RFNBO Automation]
-            C2_7[Data Security and Protection: High]
-            C2_8[EU Regulation Compliance: RFNBO]
-            C2_9[Integration Ease: Medium - With Atmen]
-            C2_10[Support and Updates: Regional]
-            C2_11[Mobility: Commercial Company]
+            C2_1[ISO: RFNBO, 14687]
+            C2_2[Real-Time: High]
+            C2_3[Traceability: Digital Passport]
+            C2_4[UI: Medium]
+            C2_5[Infra Req.: Medium]
+            C2_6[Automation: RFNBO Auto.]
+            C2_7[Security: High]
+            C2_8[Reg. Compliance: RFNBO]
+            C2_9[Integration: Medium (Atmen)]
+            C2_10[Support: Regional]
+            C2_11[Mobility: Commercial]
             C2_12[Open Source: No]
-            C2_13[Business Model: Commercial Company]
+            C2_13[Model: Commercial]
         end
     end
 
