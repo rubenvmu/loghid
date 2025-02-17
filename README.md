@@ -505,7 +505,7 @@ gantt
     axisFormat  %Y
 
     section Fases
-    Fase 1: Adquisición de recursos y primeros clientes       :a1, 2025-01-01, 2025-12-31
+    Fase 1: Adquisición de recursos y primeros clientes :a1, 2025-01-01, 2025-12-31
     Fase 2: Expansión regional y mejora de calidad del servicio :a2, 2026-01-01, 2027-12-31
     Fase 3: Expansión y Consolidación, salida a mercados internacionales :a3, 2028-01-01, 2030-12-31
 
@@ -518,6 +518,11 @@ gantt
     Económicos: Flujo recurrente de ingresos :a7, 2025-01-01, 2030-12-31
     No económicos: Reducción de la huella de carbono :a8, 2025-01-01, 2030-12-31
     Desarrollo de tecnología avanzada :a9, 2025-01-01, 2030-12-31
+
+    section Hitos
+    Hito 1: Captación de al menos 2-3 contratos iniciales :h1, 2025-12-31, 0d
+    Hito 2: Generación de ingresos recurrentes y consolidación en el Valle del Ébro :h2, 2027-12-31, 0d
+    Hito 3: Contratos internacionales y consolidación del flujo de ingresos estable :h3, 2030-12-31, 0d
 ```
 ---
 
