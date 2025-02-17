@@ -505,26 +505,19 @@ gantt
     axisFormat  %Y
 
     section Fases
-    Fase_1: Adquisición de recursos y primeros clientes       :a1, 2025-01-01, 2025-12-31
-    Fase_2: Expansión regional y mejora de calidad del servicio :a2, 2026-01-01, 2027-12-31
-    Fase_3: Expansión y Consolidación, salida a mercados internacionales :a3, 2028-01-01, 2030-12-31
+    Fase 1: Adquisición de recursos y primeros clientes       :a1, 2025-01-01, 2025-12-31
+    Fase 2: Expansión regional y mejora de calidad del servicio :a2, 2026-01-01, 2027-12-31
+    Fase 3: Expansión y Consolidación, salida a mercados internacionales :a3, 2028-01-01, 2030-12-31
 
-    section Necesidades_Financieras
-    Fase_1: 200-300k_€ :a4, 2025-01-01, 2025-12-31
-    Fase_2: 100-150k_€ :a5, 2026-01-01, 2027-12-31
-    Fase_3: 500k-1M_€ :a6, 2028-01-01, 2030-12-31
+    section Necesidades Financieras
+    Fase 1: 200-300k € :a4, 2025-01-01, 2025-12-31
+    Fase 2: 100-150k € :a5, 2026-01-01, 2027-12-31
+    Fase 3: 500k-1M € :a6, 2028-01-01, 2030-12-31
 
     section Beneficios
-    Económicos: Flujo_recurrente_de_ingresos :a7, 2025-01-01, 2030-12-31
-    No_económicos: Reducción_de_la_huella_de_carbono :a8, 2025-01-01, 2030-12-31
-    Desarrollo_de_tecnología_avanzada :a9, 2025-01-01, 2030-12-31
-
-    section Hitos
-    Hito_1: Captación_de_al_menos_2-3_contratos_iniciales :milestone, 2025-12-31, 0d
-    Hito_2: Generación_de_ingresos_recurrentes_y_consolidación_en_el_Valle_del_Ebro :milestone, 2027-12-31, 0d
-    Hito_3: Contratos_internacionales_y_consolidación_del_flujo_de_ingresos_estable :milestone, 2030-12-31, 0d
-
-```
+    Económicos: Flujo recurrente de ingresos :a7, 2025-01-01, 2030-12-31
+    No económicos: Reducción de la huella de carbono :a8, 2025-01-01, 2030-12-31
+    Desarrollo de tecnología avanzada :a9, 2025-01-01, 2030-12-31
 
 ---
 
