@@ -494,6 +494,8 @@ flowchart TB
     
     class A,E,L,O process
     class G decision
+
+
 ```
 
 ## 📊 Operative plan
@@ -525,6 +527,40 @@ gantt
     Económicos: Flujo recurrente de ingresos :a7, 2025-01-01, 2030-12-31
     No económicos: Reducción de la huella de carbono :a8, 2025-01-01, 2030-12-31
     Desarrollo de tecnología avanzada :a9, 2025-01-01, 2030-12-31
+```
+
+```mermaid
+graph TD
+    A[Comparación de Competidores] --> B[Competidor A]
+    A --> C[Competidor B]
+    B --> D[Precio: Muy competitivo]
+    B --> E[Normativa ISO: RFNBO, ISO 14687, ISO 19880-8]
+    B --> F[Medición en Tiempo Real: Sí]
+    B --> G[Trazabilidad Digital: Huella H2]
+    B --> H[Interfaz de Usuario: Intuitiva]
+    B --> I[Requerimiento de Infraestructura: Muy bajo]
+    B --> J[Automatización del Proceso: Certificado Loghid]
+    B --> K[Seguridad y Protección de Datos: Alta (Cifrado AES-256)]
+    B --> L[Conformidad con Regulaciones UE: RFNBO]
+    B --> M[Facilidad de Integración: Alta (API REST)]
+    B --> N[Soporte y Actualizaciones: Continuo]
+    B --> O[Movilidad: Nacional]
+    B --> P[Código Abierto: Open Source]
+    B --> Q[Modelo de Negocio: Sin ánimo de lucro]
+    C --> R[Precio: Alto]
+    C --> S[Normativa ISO: RFNBO, ISO 14687]
+    C --> T[Medición en Tiempo Real: Sí]
+    C --> U[Trazabilidad Digital: Pasaporte Digital]
+    C --> V[Interfaz de Usuario: Media]
+    C --> W[Requerimiento de Infraestructura: Medio]
+    C --> X[Automatización del Proceso: Automatización RFNBO]
+    C --> Y[Seguridad y Protección de Datos: Alta]
+    C --> Z[Conformidad con Regulaciones UE: RFNBO]
+    C --> AA[Facilidad de Integración: Media]
+    C --> AB[Soporte y Actualizaciones: Con Atmen]
+    C --> AC[Movilidad: Regional]
+    C --> AD[Código Abierto: No]
+    C --> AE[Modelo de Negocio: Empresa comercial]
 ```
 ---
 
