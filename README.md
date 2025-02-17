@@ -500,31 +500,31 @@ flowchart TB
 
 ```mermaid
 gantt
-    title Plan de Desarrollo y Expansión
+    title Plan de Operaciones e Inversiones
     dateFormat  YYYY-MM-DD
     axisFormat  %Y
 
     section Fase 1 (Primer Año)
-    Adquisición de recursos y primeros clientes       :a1, 2023-01-01, 2023-12-31
-    Hito: Captación de al menos 2-3 contratos iniciales :milestone, 2023-12-31, 0d
+    Adquisición de recursos y primeros clientes       :a1, 2025-01-01, 2025-12-31
+    Hito: Captación de al menos 2-3 contratos iniciales :milestone, 2025-12-31, 0d
 
     section Fase 2 (2-3 Años)
-    Expansión regional y mejora de calidad del servicio :a2, 2024-01-01, 2025-12-31
-    Hito: Generación de ingresos recurrentes y consolidación en el Valle del Ebro :milestone, 2025-12-31, 0d
+    Expansión regional y mejora de calidad del servicio :a2, 2026-01-01, 2027-12-31
+    Hito: Generación de ingresos recurrentes y consolidación en el Valle del Ébro :milestone, 2027-12-31, 0d
 
     section Fase 3 (3-5 Años)
-    Expansión y Consolidación, salida a mercados internacionales :a3, 2026-01-01, 2028-12-31
-    Hito: Contratos internacionales y consolidación del flujo de ingresos estable :milestone, 2028-12-31, 0d
+    Expansión y Consolidación, salida a mercados internacionales :a3, 2028-01-01, 2030-12-31
+    Hito: Contratos internacionales y consolidación del flujo de ingresos estable :milestone, 2030-12-31, 0d
 
     section Necesidades Financieras
-    Económicos: Flujo recurrente de ingresos :a4, 2023-01-01, 2028-12-31
-    No económicos: Reducción de la huella de carbono :a5, 2023-01-01, 2028-12-31
-    Desarrollo de tecnología avanzada :a6, 2023-01-01, 2028-12-31
+    Fase 1: 200-300k € :a4, 2025-01-01, 2025-12-31
+    Fase 2: 100-150k € :a5, 2026-01-01, 2027-12-31
+    Fase 3: 500k-1M € :a6, 2028-01-01, 2030-12-31
 
     section Beneficios Obtenidos
-    Económicos: Flujo recurrente de ingresos :a7, 2023-01-01, 2028-12-31
-    No económicos: Reducción de la huella de carbono :a8, 2023-01-01, 2028-12-31
-    Desarrollo de tecnología avanzada :a9, 2023-01-01, 2028-12-31
+    Económicos: Flujo recurrente de ingresos :a7, 2025-01-01, 2030-12-31
+    No económicos: Reducción de la huella de carbono :a8, 2025-01-01, 2030-12-31
+    Desarrollo de tecnología avanzada :a9, 2025-01-01, 2030-12-31
 ```
 
 ---
