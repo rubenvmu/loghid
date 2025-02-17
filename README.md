@@ -517,9 +517,9 @@ gantt
     Hito: Contratos internacionales y consolidación del flujo de ingresos estable :milestone, 2030-12-31, 0d
 
     section Necesidades Financieras
-    Fase 1: 200-300k € :a4, 2025-01-01, 2025-12-31
-    Fase 2: 100-150k € :a5, 2026-01-01, 2027-12-31
-    Fase 3: 500k-1M € :a6, 2028-01-01, 2030-12-31
+    Fase 1 200-300k: 200-300k € :a4, 2025-01-01, 2025-12-31
+    Fase 2 100-150k: 100-150k € :a5, 2026-01-01, 2027-12-31
+    Fase 3 500k-1M: 500k-1M € :a6, 2028-01-01, 2030-12-31
 
     section Beneficios Obtenidos
     Económicos: Flujo recurrente de ingresos :a7, 2025-01-01, 2030-12-31
