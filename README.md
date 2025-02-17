@@ -327,6 +327,30 @@ graph TB
 
 ```mermaid
 graph LR
+    A[Gastos Diarios] --> B[Servicio Análisis: 640 €/día]
+    A --> C[Calibración: 300 €/día]
+    A --> D[Mantenimiento Coche: 20 €/día]
+    A --> E[Total Diario Normal: 960 €/día]
+    A --> F[Ahorro al Dividir entre 4: 202.26 €/día]
+    A --> G[Costo Optimizado: 697.74 €/día]
+
+    %% Espaciado adicional para mejor visualización
+    B --> B1[ ]
+    C --> C1[ ]
+    D --> D1[ ]
+    E --> E1[ ]
+    F --> F1[ ]
+    G --> G1[ ]
+
+    style B1 fill:#ffffff, stroke:#ffffff
+    style C1 fill:#ffffff, stroke:#ffffff
+    style D1 fill:#ffffff, stroke:#ffffff
+    style E1 fill:#ffffff, stroke:#ffffff
+    style F1 fill:#ffffff, stroke:#ffffff
+    style G1 fill:#ffffff, stroke:#ffffff
+```
+```mermaid
+graph LR
     A[Gastos Totales y Diarios] --> B[Esprinter]
     A --> C[Equipamiento Furgoneta]
     A --> D[Materiales]
@@ -406,29 +430,6 @@ graph LR
     Z -->|Costo Real| Z1[960 €/día]
     Z -->|Costo Optimizado| Z2[202.26 €/día]
     Z -->|Precio Estándar| Z3[750 €/día]
-
-graph LR
-    A[Gastos Diarios] --> B[Servicio Análisis: 640 €/día]
-    A --> C[Calibración: 300 €/día]
-    A --> D[Mantenimiento Coche: 20 €/día]
-    A --> E[Total Diario Normal: 960 €/día]
-    A --> F[Ahorro al Dividir entre 4: 202.26 €/día]
-    A --> G[Costo Optimizado: 697.74 €/día]
-
-    %% Espaciado adicional para mejor visualización
-    B --> B1[ ]
-    C --> C1[ ]
-    D --> D1[ ]
-    E --> E1[ ]
-    F --> F1[ ]
-    G --> G1[ ]
-
-    style B1 fill:#ffffff, stroke:#ffffff
-    style C1 fill:#ffffff, stroke:#ffffff
-    style D1 fill:#ffffff, stroke:#ffffff
-    style E1 fill:#ffffff, stroke:#ffffff
-    style F1 fill:#ffffff, stroke:#ffffff
-    style G1 fill:#ffffff, stroke:#ffffff
 ```
 ---
 
