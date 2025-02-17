@@ -228,7 +228,59 @@ classDiagram
 
 ---
 
+## 📊 Competitors
+
+```metmaid
+flowchart LR
+    subgraph Competidores
+        direction TB
+        subgraph C1["HID"]
+            C1_1[Normativa ISO Aplicada: RFNBO, ISO 14687, ISO 19880-8]
+            C1_2[Medición en Tiempo Real: Sí]
+            C1_3[Trazabilidad Digital: Huella H2]
+            C1_4[Interfaz de Usuario: Intuitiva]
+            C1_5[Requerimiento de Infraestructura: Muy bajo]
+            C1_6[Automatización del Proceso: Certificado Loghid]
+            C1_7[Seguridad y Protección de Datos: Alta (Cifrado AES-256)]
+            C1_8[Conformidad con Regulaciones UE: RFNBO]
+            C1_9[Facilidad de Integración: Alta (API REST)]
+            C1_10[Soporte y Actualizaciones: Continuo]
+            C1_11[Movilidad: Nacional]
+            C1_12[Código Abierto: Open Source]
+            C1_13[Modelo de Negocio: Sin ánimo de lucro]
+        end
+
+        subgraph C2["LHYFE + ATMEN"]
+            C2_1[Normativa ISO Aplicada: RFNBO, ISO 14687]
+            C2_2[Medición en Tiempo Real: Alto]
+            C2_3[Trazabilidad Digital: Pasaporte Digital]
+            C2_4[Interfaz de Usuario: Media]
+            C2_5[Requerimiento de Infraestructura: Medio]
+            C2_6[Automatización del Proceso: Automatización RFNBO]
+            C2_7[Seguridad y Protección de Datos: Alta]
+            C2_8[Conformidad con Regulaciones UE: RFNBO]
+            C2_9[Facilidad de Integración: Media (Con Atmen)]
+            C2_10[Soporte y Actualizaciones: Regional]
+            C2_11[Movilidad: Empresa comercial]
+            C2_12[Código Abierto: No]
+            C2_13[Modelo de Negocio: Empresa comercial]
+        end
+    end
+
+    style C1 fill:#E8F5E9,stroke:#4CAF50,stroke-width:2px,color:#2E7D32
+    style C2 fill:#E3F2FD,stroke:#2196F3,stroke-width:2px,color:#1565C0
+
+    classDef default fill:#ffffff,stroke:#607D8B
+    classDef c1Style fill:#C8E6C9,stroke:#81C784,stroke-width:1px
+    classDef c2Style fill:#BBDEFB,stroke:#64B5F6,stroke-width:1px
+
+    class C1_1,C1_2,C1_3,C1_4,C1_5,C1_6,C1_7,C1_8,C1_9,C1_10,C1_11,C1_12,C1_13 c1Style
+    class C2_1,C2_2,C2_3,C2_4,C2_5,C2_6,C2_7,C2_8,C2_9,C2_10,C2_11,C2_12,C2_13 c2Style
+```
+
 ## 📊 Loghid First Year Investment Flowchart
+
+---
 
 ```mermaid
 %%{init: {'theme': 'neutral', 'themeVariables': { 'primaryColor': '#ffffff', 'edgeLabelBackground':'#fff', 'tertiaryColor': '#fff0f0'}}}%%
