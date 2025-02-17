@@ -505,26 +505,39 @@ gantt
     axisFormat  %Y
 
     section Fase 1 (Primer Año)
-    Adquisición de recursos y primeros clientes       :a1, 2025-01-01, 2025-12-31, color: #64fddb
-    Hito: Captación de al menos 2-3 contratos iniciales :milestone, 2025-12-31, 0d, color: #00008B
+    Adquisición de recursos y primeros clientes       :a1, 2025-01-01, 2025-12-31
+    Hito: Captación de al menos 2-3 contratos iniciales :milestone, m1, 2025-12-31, 0d
 
     section Fase 2 (2-3 Años)
-    Expansión regional y mejora de calidad del servicio :a2, 2026-01-01, 2027-12-31, color: #64fddb
-    Hito: Generación de ingresos recurrentes y consolidación en el Valle del Ébro :milestone, 2027-12-31, 0d, color: #00008B
+    Expansión regional y mejora de calidad del servicio :a2, 2026-01-01, 2027-12-31
+    Hito: Generación de ingresos recurrentes y consolidación en el Valle del Ébro :milestone, m2, 2027-12-31, 0d
 
     section Fase 3 (3-5 Años)
-    Expansión y Consolidación, salida a mercados internacionales :a3, 2028-01-01, 2030-12-31, color: #64fddb
-    Hito: Contratos internacionales y consolidación del flujo de ingresos estable :milestone, 2030-12-31, 0d, color: #00008B
+    Expansión y Consolidación, salida a mercados internacionales :a3, 2028-01-01, 2030-12-31
+    Hito: Contratos internacionales y consolidación del flujo de ingresos estable :milestone, m3, 2030-12-31, 0d
 
     section Necesidades Financieras
-    Fase 1 200-300k: 200-300k € :a4, 2025-01-01, 2025-12-31, color: #64fddb
-    Fase 2 100-150k: 100-150k € :a5, 2026-01-01, 2027-12-31, color: #64fddb
-    Fase 3 500k-1M: 500k-1M € :a6, 2028-01-01, 2030-12-31, color: #64fddb
+    Fase 1 200-300k: 200-300k € :a4, 2025-01-01, 2025-12-31
+    Fase 2 100-150k: 100-150k € :a5, 2026-01-01, 2027-12-31
+    Fase 3 500k-1M: 500k-1M € :a6, 2028-01-01, 2030-12-31
 
     section Beneficios Obtenidos
-    Económicos: Flujo recurrente de ingresos :a7, 2025-01-01, 2030-12-31, color: #64fddb
-    No económicos: Reducción de la huella de carbono :a8, 2025-01-01, 2030-12-31, color: #64fddb
-    Desarrollo de tecnología avanzada :a9, 2025-01-01, 2030-12-31, color: #64fddb
+    Económicos: Flujo recurrente de ingresos :a7, 2025-01-01, 2030-12-31
+    No económicos: Reducción de la huella de carbono :a8, 2025-01-01, 2030-12-31
+    Desarrollo de tecnología avanzada :a9, 2025-01-01, 2030-12-31
+
+    style a1 fill:#64fddb, stroke:#64fddb
+    style m1 fill:#00008B, stroke:#00008B
+    style a2 fill:#64fddb, stroke:#64fddb
+    style m2 fill:#00008B, stroke:#00008B
+    style a3 fill:#64fddb, stroke:#64fddb
+    style m3 fill:#00008B, stroke:#00008B
+    style a4 fill:#64fddb, stroke:#64fddb
+    style a5 fill:#64fddb, stroke:#64fddb
+    style a6 fill:#64fddb, stroke:#64fddb
+    style a7 fill:#64fddb, stroke:#64fddb
+    style a8 fill:#64fddb, stroke:#64fddb
+    style a9 fill:#64fddb, stroke:#64fddb
 ```
 ---
 
