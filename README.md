@@ -529,39 +529,6 @@ gantt
     Desarrollo de tecnología avanzada :a9, 2025-01-01, 2030-12-31
 ```
 
-```mermaid
-graph LR
-    subgraph Tabla Comparativa
-        A[Característica] --> B[LOGHID]
-        A --> C[LHYFE + ATMEN]
-        B --> D[Precio: Muy competitivo]
-        C --> E[Precio: Alto]
-        B --> F[Normativa ISO: RFNBO, ISO 14687, ISO 19880-8]
-        C --> G[Normativa ISO: RFNBO, ISO 14687]
-        B --> H[Medición en Tiempo Real: No (Huella H2)]
-        C --> I[Medición en Tiempo Real: No (Pasaporte Digital)]
-        B --> J[Interfaz de Usuario: Intuitiva]
-        C --> K[Interfaz de Usuario: Media]
-        B --> L[Requerimiento de Infraestructura: Muy bajo]
-        C --> M[Requerimiento de Infraestructura: Medio]
-        B --> N[Automatización del Proceso: Sí (Certificado Loghid)]
-        C --> O[Automatización del Proceso: Sí (Automatización RFNBO)]
-        B --> P[Seguridad y Protección de Datos: Alta (Cifrado AES-256)]
-        C --> Q[Seguridad y Protección de Datos: Alta]
-        B --> R[Conformidad con Regulaciones UE: Sí (RFNBO)]
-        C --> S[Conformidad con Regulaciones UE: Sí (RFNBO)]
-        B --> T[Facilidad de Integración: Alta (API REST)]
-        C --> U[Facilidad de Integración: Media]
-        B --> V[Soporte y Actualizaciones: Sí (Continuo)]
-        C --> W[Soporte y Actualizaciones: Sí (Con Atmen)]
-        B --> X[Movilidad: Nacional 🟢 🟢]
-        C --> Y[Movilidad: Regional 🔺 🟢]
-        B --> Z[Código Abierto: Open Source]
-        C --> AA[Código Abierto: No]
-        B --> AB[Modelo de Negocio: Sin ánimo de lucro]
-        C --> AC[Modelo de Negocio: Empresa comercial]
-    end
-```
 ---
 
 ## 📜 License  
