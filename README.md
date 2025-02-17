@@ -525,19 +525,6 @@ gantt
     Económicos: Flujo recurrente de ingresos :a7, 2025-01-01, 2030-12-31
     No económicos: Reducción de la huella de carbono :a8, 2025-01-01, 2030-12-31
     Desarrollo de tecnología avanzada :a9, 2025-01-01, 2030-12-31
-
-    style a1 fill:#64fddb, stroke:#64fddb
-    style m1 fill:#00008B, stroke:#00008B
-    style a2 fill:#64fddb, stroke:#64fddb
-    style m2 fill:#00008B, stroke:#00008B
-    style a3 fill:#64fddb, stroke:#64fddb
-    style m3 fill:#00008B, stroke:#00008B
-    style a4 fill:#64fddb, stroke:#64fddb
-    style a5 fill:#64fddb, stroke:#64fddb
-    style a6 fill:#64fddb, stroke:#64fddb
-    style a7 fill:#64fddb, stroke:#64fddb
-    style a8 fill:#64fddb, stroke:#64fddb
-    style a9 fill:#64fddb, stroke:#64fddb
 ```
 ---
 
