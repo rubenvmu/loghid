@@ -230,7 +230,7 @@ classDiagram
 
 ## 📊 Competitors
 
-```metmaid
+```mermaid
 flowchart LR
     subgraph Competidores
         direction TB
