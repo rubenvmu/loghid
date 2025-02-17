@@ -323,6 +323,92 @@ graph TB
 
 ---
 
+## 📊 Loghid Service Cost Flowchart
+
+```mermaid
+graph LR
+    A[Gastos Totales y Diarios] --> B[Esprinter]
+    A --> C[Equipamiento Furgoneta]
+    A --> D[Materiales]
+    A --> E[Adaptación a Normas de Calidad]
+    A --> F[Mano de Obra de Adecuación]
+    A --> G[Cromatógrafo]
+    A --> H[TCD]
+    A --> I[FID]
+    A --> J[Higrómetro]
+    A --> K[FPD]
+    A --> L[2 Reguladores Presión]
+    A --> M[Botellas Patrón]
+    A --> N[Columnas de Gases]
+    A --> O[Gas Carrier Helio]
+    A --> P[Gas Combustible Aire]
+    A --> Q[Certificación Cromatógrafo]
+    A --> R[Consultas Normativas]
+    A --> S[Servicio Análisis]
+    A --> T[Calibración]
+    A --> U[Mantenimiento Coche]
+    A --> V[Test de Calidad LOGHID]
+    A --> W[Test de Calidad Estándar]
+
+    B -->|Total| B1[54,258]
+    B -->|Diario| B2[21.70]
+    C -->|Total| C1[8,000]
+    C -->|Diario| C2[3.20]
+    D -->|Total| D1[5,000]
+    D -->|Diario| D2[2.00]
+    E -->|Total| E1[2,000]
+    E -->|Diario| E2[0.80]
+    F -->|Total| F1[5,000]
+    F -->|Diario| F2[2.00]
+    G -->|Total| G1[65,000]
+    G -->|Diario| G2[17.23]
+    H -->|Total| H1[8,000]
+    H -->|Diario| H2[3.20]
+    I -->|Total| I1[1,400]
+    I -->|Diario| I2[0.58]
+    J -->|Total| J1[1,500]
+    J -->|Diario| J2[0.60]
+    K -->|Total| K1[3,350]
+    K -->|Diario| K2[1.34]
+    L -->|Total| L1[2,000]
+    L -->|Diario| L2[0.80]
+    M -->|Total| M1[2,550]
+    M -->|Diario| M2[10.20]
+    N -->|Total| N1[2,950]
+    N -->|Diario| N2[8.00]
+    O -->|Total| O1[200]
+    O -->|Diario| O2[0.80]
+    P -->|Total| P1[150]
+    P -->|Diario| P2[0.60]
+    Q -->|Total| Q1[3,000]
+    Q -->|Diario| Q2[12.00]
+    R -->|Total| R1[1,000]
+    R -->|Diario| R2[4.00]
+    S -->|Total| S1[640]
+    S -->|Diario| S2[640.00]
+    T -->|Total| T1[300]
+    T -->|Diario| T2[300.00]
+    U -->|Total| U1[20]
+    U -->|Diario| U2[20.00]
+    V -->|Total| V1[20,226.41]
+    V -->|Diario| V2[202.26]
+    W -->|Total| W1[750]
+    W -->|Diario| W2[750.00]
+
+    %% Suma total
+    A --> X[Total Acumulado]
+    A --> Y[Total Diario]
+    X -->|Suma| X1[166,666 €]
+    Y -->|Suma| Y1[960 €/día]
+
+    %% Comparación de costos
+    A --> Z[Comparación de Costos]
+    Z -->|Costo Real| Z1[960 €/día]
+    Z -->|Costo Optimizado| Z2[202.26 €/día]
+    Z -->|Precio Estándar| Z3[750 €/día]
+```
+---
+
 ## 📊 Loghid Organizational Flowchart
 
 ```mermaid
