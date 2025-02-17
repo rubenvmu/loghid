@@ -231,10 +231,10 @@ classDiagram
 ## 📊 Competitors
 
 ```mermaid
-flowchart LR
+flowchart TD
     subgraph Competitors
-        direction TB
-        subgraph C1["Loghid"]
+        direction LR
+        subgraph C1["LOGHID"]
             C1_1[Applied ISO Standard: RFNBO, ISO 14687, ISO 19880-8]
             C1_2[Real-Time Measurement: Yes]
             C1_3[Digital Traceability: H2 Footprint]
