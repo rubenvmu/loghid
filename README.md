@@ -327,12 +327,12 @@ graph TB
 
 ```mermaid
 graph LR
-    A[Gastos Diarios] --> B[Servicio Análisis: 640 €/día]
-    A --> C[Calibración: 300 €/día]
-    A --> D[Mantenimiento Coche: 20 €/día]
-    A --> E[Total Diario Normal: 960 €/día]
-    A --> F[Ahorro al Dividir entre 4: 202.26 €/día]
-    A --> G[Costo Optimizado: 697.74 €/día]
+    A[Gastos Diarios] --> B[Servicio Análisis: 640 euros/día]
+    A --> C[Calibración: 300 euros/día]
+    A --> D[Mantenimiento Coche: 20 euros/día]
+    A --> E[Total Diario Normal: 960 euros/día]
+    A --> F[Ahorro al Dividir entre 4: 202.26 euros/día]
+    A --> G[Costo Optimizado: 697.74 euros/día]
 
     %% Espaciado adicional para mejor visualización
     B --> B1[ ]
@@ -350,38 +350,38 @@ graph LR
     style G1 fill:#ffffff, stroke:#ffffff
 
     %% Segunda parte del flujo
-    H[Gastos Totales y Diarios] --> I[Esprinter: 54,258 € (21.70 €/día)]
-    H --> J[Equipamiento Furgoneta: 8,000 € (3.20 €/día)]
-    H --> K[Materiales: 5,000 € (2.00 €/día)]
-    H --> L[Adaptación Normas: 2,000 € (0.80 €/día)]
-    H --> M[Mano de Obra: 5,000 € (2.00 €/día)]
-    H --> N[Cromatógrafo: 65,000 € (17.23 €/día)]
-    H --> O[TCD: 8,000 € (3.20 €/día)]
-    H --> P[FID: 1,400 € (0.58 €/día)]
-    H --> Q[Higrómetro: 1,500 € (0.60 €/día)]
-    H --> R[FPD: 3,350 € (1.34 €/día)]
-    H --> S[Reguladores: 2,000 € (0.80 €/día)]
-    H --> T[Botellas Patrón: 2,550 € (10.20 €/día)]
-    H --> U[Columnas Gases: 2,950 € (8.00 €/día)]
-    H --> V[Gas Helio: 200 € (0.80 €/día)]
-    H --> W[Gas Aire: 150 € (0.60 €/día)]
-    H --> X[Certificación: 3,000 € (12.00 €/día)]
-    H --> Y[Consultas: 1,000 € (4.00 €/día)]
-    H --> Z[Servicio Análisis: 640 €/día]
-    H --> AA[Calibración: 300 €/día]
-    H --> AB[Mantenimiento: 20 €/día]
-    H --> AC[Test LOGHID: 20,226.41 € (202.26 €/día)]
-    H --> AD[Test Estándar: 750 €/día]
+    H[Gastos Totales y Diarios] --> I[Esprinter: 54258 euros (21.70 euros/día)]
+    H --> J[Equipamiento Furgoneta: 8000 euros (3.20 euros/día)]
+    H --> K[Materiales: 5000 euros (2.00 euros/día)]
+    H --> L[Adaptación Normas: 2000 euros (0.80 euros/día)]
+    H --> M[Mano de Obra: 5000 euros (2.00 euros/día)]
+    H --> N[Cromatógrafo: 65000 euros (17.23 euros/día)]
+    H --> O[TCD: 8000 euros (3.20 euros/día)]
+    H --> P[FID: 1400 euros (0.58 euros/día)]
+    H --> Q[Higrómetro: 1500 euros (0.60 euros/día)]
+    H --> R[FPD: 3350 euros (1.34 euros/día)]
+    H --> S[Reguladores: 2000 euros (0.80 euros/día)]
+    H --> T[Botellas Patrón: 2550 euros (10.20 euros/día)]
+    H --> U[Columnas Gases: 2950 euros (8.00 euros/día)]
+    H --> V[Gas Helio: 200 euros (0.80 euros/día)]
+    H --> W[Gas Aire: 150 euros (0.60 euros/día)]
+    H --> X[Certificación: 3000 euros (12.00 euros/día)]
+    H --> Y[Consultas: 1000 euros (4.00 euros/día)]
+    H --> Z[Servicio Análisis: 640 euros/día]
+    H --> AA[Calibración: 300 euros/día]
+    H --> AB[Mantenimiento: 20 euros/día]
+    H --> AC[Test LOGHID: 20226.41 euros (202.26 euros/día)]
+    H --> AD[Test Estándar: 750 euros/día]
 
     %% Suma total
-    H --> AE[Total Acumulado: 166,666 €]
-    H --> AF[Total Diario: 960 €/día]
+    H --> AE[Total Acumulado: 166666 euros]
+    H --> AF[Total Diario: 960 euros/día]
 
     %% Comparación de costos
     H --> AG[Comparación de Costos]
-    AG -->|Costo Real| AH[960 €/día]
-    AG -->|Costo Optimizado| AI[202.26 €/día]
-    AG -->|Precio Estándar| AJ[750 €/día]
+    AG -->|Costo Real| AH[960 euros/día]
+    AG -->|Costo Optimizado| AI[202.26 euros/día]
+    AG -->|Precio Estándar| AJ[750 euros/día]
 ```
 ---
 
