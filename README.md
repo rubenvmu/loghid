@@ -529,6 +529,20 @@ gantt
     Desarrollo de tecnología avanzada :a9, 2025-01-01, 2030-12-31
 ```
 
+```mermaid
+graph TD;
+    A[Falta de trazabilidad y certificación en tiempo real] --> B[Incertidumbre en la calidad del suministro]
+    B --> C[Dudas de los compradores a largo plazo]
+    C --> D[Dificultad en la firma de contratos con garantías]
+    D --> E[Menor confianza en el mercado emergente]
+
+    A --> F[Competencia desleal]
+    F --> G[Entrada de hidrógeno de menor calidad]
+    G --> H[Perjuicio a productores que cumplen estándares]
+    H --> I[Desincentivo a la inversión en tecnologías limpias]
+    I --> J[Obstaculización del desarrollo del sector]
+```
+
 ---
 
 ## 📜 License  
