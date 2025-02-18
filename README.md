@@ -561,9 +561,9 @@ graph TD;
 
 ```mermaid
 graph TD;
-    A[Transporte de H₂ en tanques] --> B[Riesgo de degradación]
-    B --> C[Factores: impurezas, presión, temperatura]
-    C --> D[Alteración de la composición]
+    A[Transporte H2 tanques] --> B[Riesgo degradación]
+    B --> C[Factores: impurezas, presión y temperatura]
+    C --> D[Composición alterada]
     D --> E[Afecta a celdas de combustible]
     E --> F[Menor eficiencia y vida útil]
 ```
