@@ -559,6 +559,15 @@ graph TD;
     F --> G[Incremento de costos y dificultad operativa]
 ```
 
+```mermaid
+graph TD;
+    A[Transporte de hidrógeno en tanques] --> B[Riesgo de degradación]
+    B --> C[Factores como impurezas, presión y temperatura]
+    C --> D[Alteración de la composición del hidrógeno]
+    D --> E[Afecta a las celdas de combustible]
+    E --> F[Reducción de eficiencia y vida útil]
+```
+
 
 ---
 
