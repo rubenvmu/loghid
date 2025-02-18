@@ -543,6 +543,21 @@ graph TD;
     I --> J[Freno al desarrollo del sector]
 ```
 
+```mermaid
+graph TD;
+    A[Proceso de validación de pureza del hidrógeno] --> B[Complejidad y altos costos]
+    B --> C[Limitado número de laboratorios acreditados en Europa]
+    C --> D[Ejemplos de laboratorios acreditados]
+    D --> D1[Bureau Veritas - Laboratorio de hidrógeno en Bilbao]
+    D --> D2[TÜV SÜD - Laboratorio de hidrógeno de última generación]
+    D --> D3[TECNALIA - Laboratorio pionero en análisis de hidrógeno]
+    D --> D4[Centro Nacional del Hidrógeno (CNH2) - Puertollano]
+    A --> E[Normativas ISO y ENAC]
+    E --> F[Requisitos de alta precisión en mediciones]
+    F --> G[Incremento de costos y dificultad operativa]
+```
+
+
 ---
 
 ## 📜 License  
