@@ -236,8 +236,7 @@ This project is licensed under the **MIT License**.
 ## 📞 Contact  
 
 For inquiries, collaborations, or support, reach out to us:  
-📧 Email: [info@loghid.com](mailto:info@loghid.com)  
-🌐 Website: [loghid.com](https://loghid.com)  
+📧 Email: [rvmu@araintel.com](mailto:rvmu@araintel.com)  
 
 ---
 
